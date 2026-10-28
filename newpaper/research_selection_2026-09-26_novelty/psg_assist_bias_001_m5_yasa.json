@@ -1,0 +1,78 @@
+{
+ "protocol": "psg_assist_bias",
+ "version": 1,
+ "measure": "M5",
+ "stager": "yasa",
+ "task": "Sleep_stages",
+ "recordings": [
+  {
+   "recording": "SN1",
+   "channels": [
+    "EEG Cz-M1",
+    "EOG E1-M2",
+    "EMG chin"
+   ],
+   "kappa_stager_vs_manual_consensus": 0.8123802395796188,
+   "kappa_stager_vs_assisted_consensus": 0.8214578514756179,
+   "delta_yasa": 0.009077611895999094,
+   "delta_auto": 0.061803683148041744,
+   "delta_human": -0.012493552370040989
+  },
+  {
+   "recording": "SN2",
+   "channels": [
+    "EEG C4-M1",
+    "EOG E1-M2",
+    "EMG chin"
+   ],
+   "kappa_stager_vs_manual_consensus": 0.7093725606809648,
+   "kappa_stager_vs_assisted_consensus": 0.6674640742437353,
+   "delta_yasa": -0.04190848643722944,
+   "delta_auto": 0.10248370679423946,
+   "delta_human": -0.014019069200760672
+  },
+  {
+   "recording": "SN3",
+   "channels": [
+    "EEG C4-M1",
+    "EOG E1-M2",
+    "EMG chin"
+   ],
+   "kappa_stager_vs_manual_consensus": 0.7528147342446385,
+   "kappa_stager_vs_assisted_consensus": 0.7057095997734566,
+   "delta_yasa": -0.04710513447118192,
+   "delta_auto": 0.05596324993491075,
+   "delta_human": -0.02210289853096148
+  },
+  {
+   "recording": "SN4",
+   "channels": [
+    "EEG C4-M1",
+    "EOG E1-M2",
+    "EMG chin"
+   ],
+   "kappa_stager_vs_manual_consensus": 0.7953586214086572,
+   "kappa_stager_vs_assisted_consensus": 0.7389632444320097,
+   "delta_yasa": -0.05639537697664754,
+   "delta_auto": 0.06358158345108744,
+   "delta_human": -0.010706813685327046
+  },
+  {
+   "recording": "SN5",
+   "channels": [
+    "EEG C4-M1",
+    "EOG E1-M2",
+    "EMG chin"
+   ],
+   "kappa_stager_vs_manual_consensus": 0.736037975852929,
+   "kappa_stager_vs_assisted_consensus": 0.6710273362404465,
+   "delta_yasa": -0.06501063961248243,
+   "delta_auto": 0.08954302347653265,
+   "delta_human": -0.01997480121663255
+  }
+ ],
+ "n_delta_yasa_positive": 1,
+ "mean_delta_yasa": -0.04026840512030845,
+ "mean_delta_auto": 0.0746750493609624,
+ "mean_delta_human": -0.015859427000744546
+}

@@ -1,0 +1,22 @@
+\begin{table}[tbp]
+\centering
+\footnotesize
+\caption{Consequences in the calibrated model: references built from manual versus assisted scorings.}
+\label{tab:consequences}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lcccccc}
+\toprule
+Experts, rule & \makecell{Reference accuracy\\manual} & \makecell{Reference accuracy\\assisted} & \makecell{Pre-fill measured (bias)\\manual} & \makecell{Pre-fill measured (bias)\\assisted} & \makecell{Handicap\\manual} & \makecell{Handicap\\assisted} \\
+\midrule
+1, majority & 0.880 & 0.881 & 0.831 (\ensuremath{-}0.051) & 0.883 (+0.001) & \ensuremath{-}0.001 & +0.050 \\
+3, majority & 0.920 & 0.912 & 0.857 (\ensuremath{-}0.026) & 0.915 (+0.033) & \ensuremath{-}0.001 & +0.063 \\
+5, majority & 0.936 & 0.922 & 0.865 (\ensuremath{-}0.017) & 0.926 (+0.044) & \ensuremath{-}0.001 & +0.068 \\
+12, majority & 0.970 & 0.944 & 0.886 (\ensuremath{-}0.005) & 0.951 (+0.050) & 0.000 & +0.064 \\
+12, 9 of 12 & 0.996 & 0.983 & 0.926 (\ensuremath{-}0.001) & 0.985 (+0.017) & 0.000 & +0.020 \\
+25, majority & 0.970 & 0.935 & 0.878 (\ensuremath{-}0.004) & 0.944 (+0.062) & 0.000 & +0.078 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\par\smallskip
+\begin{minipage}{0.95\linewidth}\footnotesize True accuracy of the pre-fill 0.882; of the average expert 0.880. Bias: measured minus true accuracy on the epochs the reference includes. Handicap: the bias in favor of the pre-fill over an equally accurate competitor with the experts' error pattern.\end{minipage}
+\end{table}

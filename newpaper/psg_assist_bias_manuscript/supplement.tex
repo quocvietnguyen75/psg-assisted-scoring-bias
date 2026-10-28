@@ -1,0 +1,369 @@
+% Supplementary material: a separate document, as the journal requires. build.ps1 copies its labels into
+% generated/supplement_refs.tex, which main.tex reads.
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\newcommand{\authorinput}[1]{\textcolor{red}{\textbf{[#1]}}}
+
+% Every number quoted from the data comes from generated/values.tex (see README.md).
+\input{generated/values.tex}
+\newcommand{\val}[1]{\ifcsname val@#1\endcsname\csname val@#1\endcsname\else\textbf{??#1??}\PackageWarning{values}{Undefined value #1}\fi}
+\newcommand{\dA}{\Delta A}
+\newcommand{\dauto}{\Delta_{\mathrm{auto}}}
+\newcommand{\dhuman}{\Delta_{\mathrm{human}}}
+\newcommand{\dyasa}{\Delta_{\mathrm{YASA}}}
+
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\title{Supplementary material for: Reference standards built by editing automatic pre-scoring were closer to the
+assisting algorithm than the same experts' unassisted scoring: a paired study of polysomnography scoring}
+\author{Quoc Viet Nguyen, Phuc Tai Duong, Duc Hoai Anh Nguyen,\\Dzung Van Dinh and Zengchang Qin}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent This document contains the Supplementary Methods, Supplementary Tables S1--S14 and Supplementary Figure S1.
+The analysis plans are provided separately as Supplementary File S1.
+
+\section*{Supplementary Methods}
+
+\subsection*{The pre-fill algorithms}
+
+The pre-fills were produced by research algorithms developed by the dataset's first author and colleagues: for sleep
+staging, a deep-learning stager \citep{alvarezestevez2021}; for EEG arousals, a detector whose reviewed output had
+earlier produced part of the center's clinical arousal references \citep{alvarezestevez2019}; for limb movements, a
+detector described in \citep{alvarezestevez2016,alvarezestevez2017}; and for respiratory events, a knowledge-based
+detector \citep{moretbonillo2014}. The dataset documentation gives no version numbers.
+
+\subsection*{Agreement and consensus details}
+
+Event tasks used only their own labels. For respiratory events, obstructive, central and mixed apneas, hypopneas and
+central hypopneas were pooled, and respiratory-effort-related arousals were excluded. Events were matched one to one,
+overlapping pairs with the largest overlap first; two empty scorings counted as $\mathrm{F1}=1$, and one empty scoring
+against a non-empty one as $\mathrm{F1}=0$. Consensus events were formed from contiguous 0.1-second bins without a
+minimum-duration filter. A robustness check (amendment 005, C6) dropped consensus events, full and leave-one-out,
+shorter than the scoring rules' minimum durations: \val{c6-arousals-min-s} s for arousals, \val{c6-resp-min-s} s for
+respiratory events and \val{c6-limb-min-s} s for limb movements; the scorings and the pre-fill were left unchanged.
+
+\subsection*{Secondary analyses: operational details}
+
+Crossed-bootstrap intervals used 10,000 resamples for the primary and 2,000 for the secondary analyses, as planned.
+Pairwise percent agreement was computed on epochs for stages and on 0.1-second bins for events. Events per hour of
+sleep used the dataset's contextual sleep stages. The acceptance lift by manual agreement used four groups of the
+number of the 12 manual scorings that shared the most frequent label (12, 10--11, 8--9, and 7 or fewer). The four
+robustness variants were a plurality stage consensus, a 9-of-12 supermajority, event matching that requires an
+intersection over union of at least 0.2, and percent agreement for stages. Experts who anchored more in one task tended
+to anchor more in the others (Spearman \val{r5-min} to \val{r5-max} across the six task pairs); this assumes that
+scorer indices denote the same person in every task, which the documentation does not confirm.
+
+\textbf{Labels that most experts rejected.} The first amendment's rule (R4) selected units where at least 10 of the 12
+manual scorings, the scored expert's included, rejected the pre-fill's label. Because the scored expert's own manual
+label enters the selection, a positive lift is partly expected from regression to the mean even without anchoring. The
+fourth amendment's rule (C1) selects, for each expert, the units where at least 9 of the other 11 experts' manual labels
+reject the pre-fill's label. For stages, another expert's label counts as rejecting only if it is present and differs
+from the pre-fill's, and an expert contributes an epoch only if they labelled it in both sessions. For events, the
+units are the pre-fill's events after clipping to the window; a manual scoring rejects an event if none of its events
+overlaps it, and an expert adopts it if their assisted scoring overlaps it. The exact sign test for C1 counts the units
+with a nonzero mean lift; the one unit with no qualifying units is a tie and is dropped (retaining it as a non-success
+would give a larger $p$). If each expert's two sessions were
+exchangeable and experts labelled independently given the unit within a session, the lift would be zero in expectation
+under C1. Table~\ref{tab:s-r3r4} gives both rules.
+
+\subsection*{Independent stagers and the negative control}
+
+YASA 0.7.0 \citep{vallat2021} used its default model with the C4-M1 EEG channel (Cz-M1 for the one recording without
+it), E1-M2 and chin electromyography. GSSC 0.0.9 \citep{hanna2023} ran in its own environment on the CPU (PyTorch 2.5.1;
+later versions refuse to load its saved networks) with its default networks and settings, which filter to 0.3--30 Hz,
+resample to 2,560 samples per 30-second epoch and drop a trailing partial epoch; it used the same EEG and E1-M2
+channels. Both stagers' labels start at the beginning of the recording and were mapped to epochs by the window rule
+of the primary analysis. The settings were fixed before the stagers were run on PSG-IPA; GSSC was first checked on
+synthetic signals.
+
+For the negative control (C2), the units were epochs where a stager and the pre-fill both give a label and the labels
+differ. Movement toward a target was each expert's share of assisted labels equal to the target minus the share of
+manual labels equal to it, on those epochs; side-taking toward a stager compared, among those epochs where both
+consensuses exist and differ, how often each consensus equals the stager. Common support (A1, C3) is the set of epochs
+where both 12-expert consensuses exist; the session-free contrast is $\dauto$ minus the stager's change on epochs where
+the pre-fill and the stager are both labelled and both consensuses exist (Table~\ref{tab:s-stagers}).
+
+\subsection*{Audit designs}
+
+The population of the audit emulations was the \val{c4-pop} staging epochs on which the pre-fill and YASA are labelled
+and the manual consensus exists. Audits of blocks (C4) divided each recording's analysis window into consecutive
+30-minute blocks of 60 epochs from lights off (\val{c4-blocks} blocks holding population epochs) and drew a simple
+random sample of blocks within each recording, $\max(1, \mathrm{round}(f \times \text{blocks}))$ of them. The audit
+alone (D1) expands the audited block totals to the population mean with the known population size; the difference
+estimator (D2) adds the expanded audited totals of unassisted minus assisted agreement to the known population mean of
+assisted agreement. Both are unbiased, and their variances are exact for stratified simple random sampling of blocks.
+Audits of single epochs (B1) drew epochs instead of blocks with proportional allocation \citep{cochran1977}; they
+treat neighboring epochs as independent units, which experts, who score an epoch in the context of its neighbors,
+cannot do in practice. The model's ranking probabilities (B2, Table~\ref{tab:s-ranking}) also treat epochs as
+independent and are optimistic for serially correlated sleep data. Treating the epochs with an unassisted consensus as
+known slightly flatters the difference estimator.
+
+\subsection*{The simulation}
+
+\textbf{Model.} We modeled sleep staging with a two-label latent-class model \citep{dawid1979}. Each epoch has a true
+label and one competing label. A share $w$ of epochs is clear, and all raters label them correctly; every other epoch
+has a difficulty $b=-|x|$, with $x\sim N(\mu,\sigma^2)$, and a rater with ability $\theta$ gives the true label with
+probability $\mathrm{logistic}(\theta-b)$. Experts have ability 0, the pre-fill $\delta_A$, and an independent
+competitor $\delta_B$. Raters are independent given the epoch. In the assisted session each expert forms a judgment
+of the epoch, a new draw with the same accuracy or, in a sensitivity analysis, a repeat of the manual label with
+probability $c$; if the judgment matches the pre-fill the expert keeps it, and otherwise switches to the pre-fill with
+probability $\alpha$. All quantities are exact large-sample expectations of percent agreement, computed by numerical
+integration over difficulty. Because the difficulty is folded, experts are right more often than wrong on every epoch,
+so the model's truth is what a very large unassisted panel would converge to, the standard the audit also uses.
+
+\textbf{Calibration.} The parameters $(w,\mu,\sigma)$ were fitted by least squares to the shares of epochs at each
+manual agreement level and to the mean pairwise manual agreement \citep{nelder1965}; $\delta_A$ by bisection on the
+experts' agreement with the pre-fill; and $\alpha$ by an identity of the model, under which anchoring equals $\alpha$
+times one minus the experts' agreement with the pre-fill. The model was calibrated to the \val{stage-epochs} stage
+epochs labelled by all scorings. It overstated the mean pairwise manual agreement slightly (\val{sim-c2-fit} against
+\val{sim-c2-emp}), because some epochs had three or four distinct manual labels, which two labels cannot represent.
+As an internal check, the study's own estimators were applied to \val{sim-mc-epochs} epochs simulated at the
+calibrated point and had to agree with the analytic values within \val{sim-mc-tol}; they agreed within
+\val{sim-mc-maxdiff}.
+
+\textbf{Consequences.} For references of 1 to 25 experts, under majority and three-quarter supermajority rules, we
+computed the reference's accuracy against the truth; the pre-fill's measured and true accuracy, whose difference on
+the epochs the reference includes is its bias; the handicap, the bias in favor of the pre-fill over a competitor that
+is equally accurate and has the experts' error pattern; and the break-even advantage, how much more accurate than the
+pre-fill such a competitor must be to tie it. A grid crossed $\alpha$ from 0 to 0.8 with $\delta_A$ from $-1$ to 3;
+the break-even advantage was undefined (no competitor could tie) in \val{sim-grid-undef} of the
+\val{sim-grid-alpha-pos} cells with $\alpha>0$. Sensitivity analyses varied expert ability, intra-rater consistency,
+idiosyncratic pre-fill errors and expert-specific anchoring.
+
+\textbf{Results.} In the calibrated model, \val{sim-clear-pct} of epochs were clear, the pre-fill was about as
+accurate as an average expert (true accuracy \val{sim-true-prefill} against \val{sim-true-human}), and the anchoring
+strength was $\alpha=\val{sim-alpha}$. The model matched the ambiguity gradient and the human change, but overpredicted
+the pre-fill's gain (\val{sim-v1-model} against \val{sim-v1-emp}) and the adoption of strongly rejected labels
+(\val{sim-v6-model} against \val{sim-v6-emp}; Table~\ref{tab:validation}): the real pre-fill errs less often than an
+expert-level model rater on epochs that experts find clear, and experts may resist it more when they disagree strongly.
+The model shows three things (Figure~\ref{fig:s-simulation}; Table~\ref{tab:consequences}). First, adding experts moved
+a manual reference toward the truth (the pre-fill's bias went from \val{sim-n1-maj-bias-manual} with one expert to
+\val{sim-n25-maj-bias-manual} with 25) but moved an assisted reference away from it (\val{sim-n1-maj-bias-assisted},
+\val{sim-n12-maj-bias-assisted} and \val{sim-n25-maj-bias-assisted} with 1, 12 and 25 experts), and 12 assisted experts
+formed a less accurate reference than 12 manual experts (\val{sim-n12-maj-refacc-assisted} against
+\val{sim-n12-maj-refacc-manual}). Second, a 9-of-12 consensus cut the bias on the epochs it kept to
+\val{sim-n12-sup-bias-assisted} but excluded \val{sim-n12-sup-excl-assisted} of epochs. Third, anchoring and the
+pre-fill's gain were positive at every pre-fill ability in the grid, so they cannot show whether an assisted reference
+became more or less accurate; with 12 experts, the assisted reference became the more accurate of the two from a pre-fill offset of
+\val{sim-id-ref-cross} (true accuracy \val{sim-id-ref-cross-acc}), while the human change turned positive only from
+\val{sim-id-dhuman-flip} (true accuracy \val{sim-id-dhuman-flip-acc}); the observed human change for stages
+(\val{m2-stages-human-mean} over all epochs, \val{a1-human-kappa-mean} on common support) lies on the negative side of
+both crossovers. Every sensitivity analysis kept these conclusions (Table~\ref{tab:s-sensitivity}).
+
+\textbf{The experts' own consensus.} Judged against the assisted consensus, the experts' own manual consensus was
+closer than the pre-fill (percent agreement \val{a3-stage-manual} against \val{a3-stage-prefill} for stages; the
+pre-fill was closer in only \val{a3-units-pos} of 20 units), which contradicted our prediction (A3). The calibrated
+anchoring strength could not reproduce side-taking and this result together. A configuration examined after the
+independent-rater checks, and not pre-specified, with weaker anchoring ($\alpha=\val{expl-alpha}$) and intra-rater
+consistency $c=\val{expl-consistency}$, reproduced the stage side-taking share (\val{expl-side-taking} against
+\val{a2-stages-assisted} observed), the experts' agreement across sessions (\val{expl-manual-vs-assisted} against
+\val{a3-stage-manual}) and the pre-fill's gain (\val{expl-delta-auto} against \val{sim-v1-emp}). Its anchoring is \val{expl-m1} against the observed \val{sim-c4}, which the calibrated configuration fits by
+construction; its bias with 1, 12 and 25 assisted experts is \val{expl-bias-n1}, \val{expl-bias-assisted} and
+\val{expl-bias-n25} (calibrated: \val{sim-n1-maj-bias-assisted}, \val{sim-n12-maj-bias-assisted} and
+\val{sim-n25-maj-bias-assisted}), so the bias grows with the panel in both configurations; a competitor needed a true
+accuracy \val{expl-breakeven-assisted} above the pre-fill's to tie it, whereas at the calibrated strength no competitor
+could tie; and its validation targets are in Table~\ref{tab:validation}. The two configurations each miss one target,
+the calibrated one the experts' own consensus (A3) and the exploratory one the anchoring measure, so they are
+illustrations under the model, not an uncertainty interval (amendment 006).
+
+\textbf{Run history.} The first run stopped at calibration: manual agreement statistics cannot distinguish an epoch
+on which experts are mostly right from one on which they are mostly wrong, and the unconstrained fit exploited this
+symmetry. A dated note introduced the folded difficulty before the run was repeated.
+
+\subsection*{Review of FDA clearances}
+
+Two authors checked the AI-assisted coding of the \val{fda-modern} summaries against the source documents (P.T.D. 12
+summaries, D.H.A.N. 13), recording for every coded field whether they agreed, and whether the summary said that the
+reference scorers had worked from automatic pre-scoring by any software. Of the 100 coded fields, they agreed with 89,
+partly agreed with 5 and disagreed with 6. Their check corrected the coding of four summaries, and the AI assistant reread each
+cited passage and confirmed the correction. The 2024 Dreem 3S clearance (K242094) reports no new performance testing, because it
+only adds a predetermined change control plan to K223539, so it left the clearances with performance data. The
+reference of the first SOMNUM clearance (K223922), first coded as not described, is a 2-of-3 majority of three
+technologists whose independence is not stated. The Nox Sleep System study (K192469) exported the routine clinical
+scoring and then ran the device on the same recordings, so blinding to the device is implied by the design. The 2012
+Sleep Profiler summary (K120450) names three raters. The check also made consensus rules and notes more precise without
+changing any count. No summary said whether the reference scorers worked from automatic pre-scoring by any software.
+The 2026 SOMNUM summary (K253390) stated that its scorers had no access to the device's output, which excludes the
+device's own pre-scoring but not that of other software; the Hypnos summary (K250851) used another algorithm's unedited
+output, so the question does not arise. A keyword search of all \val{fda-modern} summaries for wording on
+pre-scoring, editing, assisted scoring, blinding and access found no other relevant statement; several summaries
+describe manual review of automatic scoring as the device's intended use, which concerns the device, not the
+reference.
+
+\textbf{Blind second coding (amendment 005, D1).} Two co-authors (P.T.D. and D.H.A.N.) then re-coded the three key
+fields of the \val{fda-perf} summaries with performance data (reference type, blinding to the device's output and
+pre-scoring) from the definitions of a coding sheet, by hand and without access to any code, and sent their sheets to
+the corresponding author. Each had checked part of the summaries in the first round (P.T.D. 10, D.H.A.N. 12) and had
+then seen the AI's codes for them, so each was blind only for the other's summaries; both disclosed this. Every quoted
+passage was located in its summary. Table~\ref{tab:s-d1} gives the agreement with the first coding, overall and by
+exposure: P.T.D. agreed on \val{d1-ptd-ref-all-agree}, \val{d1-ptd-blind-all-agree} and \val{d1-ptd-pre-all-agree}
+summaries for the three fields and D.H.A.N. on \val{d1-dhan-ref-all-agree}, \val{d1-dhan-blind-all-agree} and
+\val{d1-dhan-pre-all-agree} (kappa \val{d1-kappa-min} to \val{d1-kappa-max}); on the summaries for which they were
+blind, P.T.D. agreed on \val{d1-ptd-ref-blind-agree}, \val{d1-ptd-blind-blind-agree} and \val{d1-ptd-pre-blind-agree}
+and D.H.A.N. on \val{d1-dhan-ref-blind-agree}, \val{d1-dhan-blind-blind-agree} and \val{d1-dhan-pre-blind-agree}. The
+two coders agreed with each other on \val{d1-inter-ref-agree}, \val{d1-inter-blind-agree} and
+\val{d1-inter-pre-agree}. The \val{d1-disagreements} fields on which a coder differed from the first coding, in
+\val{d1-disagree-summaries} summaries, are listed in Table~\ref{tab:s-d1-items} with their adjudication by the
+corresponding author, who had not coded, from the summary text on 28 October 2026: \val{d1-changed} code changed, the
+SomnoMetry reference (K221179), from routine clinical scoring to not described, the code both coders had chosen,
+because no sentence of that summary says who scored the archived clinical recordings, when or how. The counts in
+Table~\ref{tab:s-fda} and in the Results follow the adjudicated coding (routine clinical scoring \val{d1-first-routine}
+to \val{fda-routine} summaries, not described \val{d1-first-notdesc} to \val{fda-notdesc}). The statement that no
+summary reported pre-scoring stands; the coded passage of K221179 now carries its ``AASM gold standard of manually
+scored PSG data'', so \val{fda-manual-ref} coded passages call the reference manually scored. The coders were authors,
+blind to the codes but not to the study's hypothesis.
+
+\subsection*{Software and verification}
+
+The analyses used Python~3 with the standard library; YASA ran with MNE-Python \citep{gramfort2013} and GSSC with
+PyTorch, each in a separate environment. Every result is generated from the aggregate reports of the analysis code, which also hold pre-specified quantities
+that the tables omit for space (the audit emulations at 1\%, 2\% and 20\%, the number of expert-unit pairs behind each
+C1 value, the per-unit C6 differences, and the percent-agreement values and the difference-in-differences of the
+common-support check). The
+study's Cohen's kappa matched scikit-learn \val{d3-sklearn} over all \val{d3-kappa-pairs} staging comparisons with the
+pre-fill (largest difference \val{d3-kappa-maxdiff}), and its exact sign tests matched SciPy \val{d3-scipy}'s binomial
+test for all \val{d3-sign-tests} sets of units (largest difference \val{d3-sign-maxdiff}). For amendment 005 D2, a co-author (D.H.A.N.) who had not read the analysis code re-implemented M1 and M2 for sleep
+staging from the text of protocol 001 and the PSG-IPA annotations, using the OpenAI Codex coding assistant, with five
+synthetic tests including 50 random kappa pairs against scikit-learn; the assistant had seen some of the manuscript's
+result tables beforehand, which the implementer disclosed. All 20 per-recording values (mean $\Delta A$, $\dauto$,
+$\dhuman$ and DiD for SN1 to SN5) agreed with the study's within $2.3\times10^{-16}$, inside the amendment's 0.001
+rule. At the second simulated review's request, the same co-author then re-implemented M1 for the three event tasks
+from the protocol's matching rule (one-to-one matching of overlapping events, largest overlaps first), with six
+synthetic tests per task and one end-to-end test; all 15 per-recording values and the 36 per-expert means
+(Table~\ref{tab:s-experts}) agreed with the study's within $5.6\times10^{-17}$. The protocol does not fix the order
+among candidate pairs with equal overlap; both implementations take the earlier-starting events first, so this
+agreement does not test that convention. The event-task consensus and inflation measures, side-taking, M3 to M5, the
+audit emulation, the simulation and the stager comparisons were not re-implemented and rest on the analysis code's
+synthetic tests. \authorinput{The clean re-run of the whole pipeline from a fresh copy of the public repository is
+pending.}
+
+\clearpage
+\section*{Supplementary Tables}
+
+\begin{table}[h!]
+\centering\footnotesize
+\caption{Names used in the text and the codes used in the analysis plans (Supplementary File S1).}
+\label{tab:s-codes}
+\begin{tabular}{lp{10.6cm}}
+\toprule
+Plan code & Name in the text \\
+\midrule
+M1 & Anchoring ($\dA$) \\
+M2 & Reference inflation ($\mathrm{DiD}=\dauto-\dhuman$) \\
+M3 & Agreement among scorers where the pre-fill agrees or disagrees with the manual consensus \\
+M4 & Clinical indices \\
+M5 & Independent stager (YASA) \\
+R1, R2 & Acceptance lift by pre-fill stage; anchoring by respiratory event type \\
+R3, R4 & Acceptance lift by manual agreement; adoption of labels at least 10 of 12 experts rejected \\
+R5, R6 & Consistency of experts across tasks; robustness variants \\
+A1, A2, A3 & Common support; side-taking; the experts' own consensus \\
+B1, B2 & Audit of single epochs on PSG-IPA; audit in the calibrated model \\
+D0, D0s, D1, D2 & Assisted reference; 9-of-12 assisted reference; audit alone; difference estimator \\
+C1--C4, V1--V10 & Calibration targets; validation targets of the simulation (amendment 003) \\
+C1 (amendment 005) & Adoption of labels that at least 9 of the other 11 experts rejected \\
+C2, C3 & Negative control toward the stagers; the pre-fill's gain on common support \\
+C4, C5, C6 & Audit of blocks; second stager (GSSC); consensus events of the rules' minimum duration \\
+D1, D2, D3 (amendment 005) & Blind second FDA coding; independent re-implementation; library cross-check \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\input{generated/tab_s_r1r2.tex}
+\input{generated/tab_s_r3r4.tex}
+\input{generated/tab_s_r6.tex}
+\input{generated/tab_validation.tex}
+\input{generated/tab_consequences.tex}
+\input{generated/tab_s_sensitivity.tex}
+\input{generated/tab_s_ranking.tex}
+\input{generated/tab_s_fda.tex}
+
+\begin{table}[h!]
+\centering\footnotesize
+\caption{Pre-specified predictions and outcomes.}
+\label{tab:s-predictions}
+\begin{tabular}{llp{9.5cm}l}
+\toprule
+Plan & ID & Prediction & Outcome \\
+\midrule
+002 & R1 & Largest acceptance lift for N1 & supported \\
+002 & R2 & Larger anchoring for hypopneas than apneas & supported \\
+002 & R3 & Lift grows as manual agreement falls & supported \\
+002 & R4 & Experts adopt pre-fill labels a strong manual consensus rejected & supported \\
+002 & R5 & Weakly positive consistency of experts across tasks & supported \\
+002 & R6 & Primary tests significant under every variant & supported \\
+003 & P1 & The calibrated model reproduces the sign of every validation target & \val{sim-p1} \\
+003 & P2 & With 12 experts, the assisted bias is positive and exceeds the manual bias & \val{sim-p2} \\
+003 & P3 & The assisted bias is larger with 25 experts than with 1, and positive & \val{sim-p3} \\
+003 & P4 & In every majority cell with $\alpha>0$ the assisted handicap exceeds the manual one (\val{sim-p4-cells} cells) & \val{sim-p4} \\
+003 & P5 & Signatures keep their sign at every pre-fill ability, while the assisted reference is worse at $\delta_A=-1$ and better at $\delta_A=3$ & \val{sim-p5} \\
+004 & A1 & $\dhuman$ and $\dyasa$ negative on common support & \val{pred4-a1} \\
+004 & A2 & The assisted consensus sides with the pre-fill; sign test $p<0.05$ & \val{pred4-a2} \\
+004 & A3 & Stages: the pre-fill is no more than 0.01 below the manual consensus & \val{pred4-a3} \\
+004 & PB1 & The assisted reference overstates the pre-fill's agreement and its lead over YASA & \val{pred4-pb1} \\
+004 & PB2 & The difference estimator's SE is below the audit-alone SE everywhere, in the data and the model & \val{pred4-pb2} \\
+004 & PB3 & The assisted reference almost never ranks a 2-point-better competitor first; a 10\% audit does with probability above 0.8 & \val{pred4-pb3} \\
+004 & PB4 & The 9-of-12 reference ranks between the assisted reference and the audit & \val{pred4-pb4} \\
+005 & C1 & Adoption of labels the other experts rejected is positive in every task, smaller than R4 for stages; sign test $p<0.05$ & \val{pred5-c1} \\
+005 & C2 & Movement toward YASA's differing labels is not positive; toward the pre-fill's it is & \val{pred5-c2} \\
+005 & C3 & $\dauto$ positive on common support in all five recordings; the session-free contrast in at least four & \val{pred5-c3} \\
+005 & C4 & Block audits are less precise than single-epoch audits at the nearest fraction, and need more than 5\% & \val{pred5-c4} \\
+005 & C5 & GSSC loses agreement against the assisted consensus; the pre-fill's lead over it grows & \val{pred5-c5} \\
+005 & C6 & Inflation positive in every event task and in at least 13 of 15 event units & \val{pred5-c6} \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.95\linewidth}\footnotesize Plan 002 is the first amendment, 003 the second (simulation), 004 the
+third (audit and independent-rater checks) and 005 the fourth (checks requested by a pre-submission review). PB2 failed
+only in the model, where the audit alone and the difference estimator were nearly equal. PB4 failed because the
+9-of-12 reference was as poor as the majority reference. C4 failed only at the largest block fraction (50\%), whose
+nearest single-epoch fraction was 20\%; at equal fractions, block audits were always less precise, and they needed
+\val{c4-smallest-f} of blocks.
+\end{minipage}
+\end{table}
+
+\input{generated/tab_s_stagers.tex}
+\input{generated/tab_s_indices.tex}
+\input{generated/tab_s_m3.tex}
+\input{generated/tab_s_blocks.tex}
+\input{generated/tab_s_units.tex}
+\input{generated/tab_s_experts.tex}
+\input{generated/tab_s_d1.tex}
+\input{generated/tab_s_d1_items.tex}
+
+\clearpage
+\section*{Supplementary Figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_simulation.pdf}
+\caption{Simulation with the truth known (calibrated model; outputs are illustrations under the model's conditions).
+(a) The pre-fill's measured minus true accuracy against references of 1 to 25 experts (majority consensus), for
+manual and assisted references. (b) The handicap in favor of the pre-fill over an equally accurate competitor, against
+anchoring strength, for references of 1, 12 and 25 assisted experts; the dashed line marks the calibrated $\alpha$.
+(c) Model against observed values for the validation targets.}
+\label{fig:s-simulation}
+\end{figure}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

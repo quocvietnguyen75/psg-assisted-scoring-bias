@@ -1,0 +1,9 @@
+# LaTeX build files (main.pdf is kept so the draft can be read without building it)
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz

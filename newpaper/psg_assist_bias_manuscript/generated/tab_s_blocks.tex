@@ -1,0 +1,21 @@
+\begin{table}[h!]
+\centering
+\footnotesize
+\caption{Audits of 30-minute blocks at five sizes, and audits of single epochs (sleep stages, C4 and B1).}
+\label{tab:s-blocks}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{ccccccccc}
+\toprule
+\makecell{Blocks\\audited} & \makecell{Share of\\epochs} & Blocks & \makecell{Gap\\D1 / D2} & \makecell{Pre-fill\\D2} & \makecell{YASA\\D2} & \makecell{Single epochs\\gap D2} & \makecell{Degrees of\\freedom} & \makecell{Gap D2,\\$t$ multiplier} \\
+\midrule
+5\% & 6\% & 5 of 87 & $\pm$0.116 / $\pm$0.062 & $\pm$0.035 & $\pm$0.041 & $\pm$0.039 & -- & -- \\
+10\% & 12\% & 10 of 87 & $\pm$0.080 / $\pm$0.045 & $\pm$0.024 & $\pm$0.028 & $\pm$0.027 & 5 & $\pm$0.059 \\
+20\% & 21\% & 18 of 87 & $\pm$0.056 / $\pm$0.030 & $\pm$0.016 & $\pm$0.019 & $\pm$0.018 & 13 & $\pm$0.033 \\
+30\% & 29\% & 25 of 87 & $\pm$0.045 / $\pm$0.024 & $\pm$0.013 & $\pm$0.015 & -- & 20 & $\pm$0.026 \\
+50\% & 51\% & 44 of 87 & $\pm$0.028 / $\pm$0.015 & $\pm$0.008 & $\pm$0.010 & -- & 39 & $\pm$0.016 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\par\smallskip
+\begin{minipage}{0.95\linewidth}\footnotesize 95\% half-widths. The bias of the assisted reference for the gap is +0.059; D2's half-width falls below it from 10\% of blocks. Single epochs: amendment 004's emulation at the same fraction of epochs. The last two columns (amendment 006) multiply the gap's D2 standard error by $t_{0.975}$ with the audit's degrees of freedom (audited blocks minus the five recording strata), as an audit estimating the within-stratum variance from its own blocks would; the standard error itself still uses the population variances. Under the $t$ multiplier the half-width falls below the bias from 10\% of blocks.\end{minipage}
+\end{table}

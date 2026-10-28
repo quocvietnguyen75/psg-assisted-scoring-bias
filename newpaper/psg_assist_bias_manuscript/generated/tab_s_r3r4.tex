@@ -1,0 +1,20 @@
+\begin{table}[h!]
+\centering
+\footnotesize
+\caption{Dependence on ambiguity (R3) and adoption of pre-fill labels that most experts rejected manually: selected with the scored expert's own label (R4) and without it (C1).}
+\label{tab:s-r3r4}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lcccccc}
+\toprule
+Task & \makecell{R3\\12 (unanimous)} & \makecell{R3\\10--11} & \makecell{R3\\8--9} & \makecell{R3\\$\le$7} & \makecell{R4\\$\ge$10 of 12} & \makecell{C1\\$\ge$9 of other 11} \\
+\midrule
+Sleep stages & \makecell{\ensuremath{-}0.005\\(\ensuremath{-}0.016 to +0.002)} & \makecell{+0.068\\(+0.024 to +0.119)} & \makecell{+0.149\\(+0.081 to +0.225)} & \makecell{+0.191\\(+0.104 to +0.292)} & \makecell{+0.241\\(+0.139 to +0.371)} & \makecell{+0.169\\(+0.074 to +0.279)} \\
+EEG arousals & \makecell{\ensuremath{-}0.002\\(\ensuremath{-}0.003 to \ensuremath{-}0.001)} & \makecell{+0.062\\(+0.026 to +0.094)} & \makecell{+0.124\\(+0.064 to +0.173)} & \makecell{+0.182\\(+0.106 to +0.243)} & \makecell{+0.281\\(+0.188 to +0.380)} & \makecell{+0.269\\(+0.160 to +0.390)} \\
+Respiratory events & \makecell{+0.003\\(0.000 to +0.006)} & \makecell{+0.111\\(+0.071 to +0.150)} & \makecell{+0.216\\(+0.145 to +0.288)} & \makecell{+0.240\\(+0.129 to +0.359)} & \makecell{+0.283\\(+0.186 to +0.385)} & \makecell{+0.231\\(+0.120 to +0.351)} \\
+Limb movements & \makecell{0.000\\(0.000 to 0.000)} & \makecell{+0.126\\(+0.087 to +0.164)} & \makecell{+0.273\\(+0.214 to +0.327)} & \makecell{+0.345\\(+0.278 to +0.409)} & \makecell{+0.514\\(+0.404 to +0.611)} & \makecell{+0.374\\(+0.103 to +0.647)} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\par\smallskip
+\begin{minipage}{0.95\linewidth}\footnotesize Values: P(assisted = pre-fill) minus P(manual = pre-fill), mean over experts, with 95\% crossed-bootstrap intervals. R3 bins count the manual experts sharing the most frequent label of a unit; R3 and R4 use epochs for stages and 0.1-second bins for events. R4 selects units with the scored expert's own manual label, so part of its lift is expected from regression to the mean. C1 selects units with the other 11 experts' labels only, and counts whole pre-fill events for the event tasks; R4's rule applied to whole events gives +0.303 (arousals), +0.258 (respiratory events) and +0.499 (limb movements).\end{minipage}
+\end{table}

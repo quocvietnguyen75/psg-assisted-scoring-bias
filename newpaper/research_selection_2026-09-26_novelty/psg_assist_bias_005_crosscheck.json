@@ -1,0 +1,50 @@
+{
+ "references": {
+  "scikit-learn": "1.9.1",
+  "scipy": "1.17.1"
+ },
+ "kappa": {
+  "pairs": 130,
+  "max_abs_difference": 2.220446049250313e-16
+ },
+ "sign_tests": {
+  "tests": {
+   "M1_anchoring": {
+    "n": 20,
+    "k": 19,
+    "p_study": 4.00543212890625e-05,
+    "p_reference": 4.00543212890625e-05,
+    "abs_difference": 0.0
+   },
+   "M2_inflation": {
+    "n": 20,
+    "k": 20,
+    "p_study": 1.9073486328125e-06,
+    "p_reference": 1.9073486328125e-06,
+    "abs_difference": 0.0
+   },
+   "A2_side_taking": {
+    "n": 20,
+    "k": 20,
+    "p_study": 1.9073486328125e-06,
+    "p_reference": 1.9073486328125e-06,
+    "abs_difference": 0.0
+   },
+   "C1_rejected_labels": {
+    "n": 19,
+    "k": 19,
+    "p_study": 3.814697265625e-06,
+    "p_reference": 3.814697265625e-06,
+    "abs_difference": 0.0
+   },
+   "C6_min_duration": {
+    "n": 15,
+    "k": 15,
+    "p_study": 6.103515625e-05,
+    "p_reference": 6.103515625e-05,
+    "abs_difference": 0.0
+   }
+  },
+  "max_abs_difference": 0.0
+ }
+}

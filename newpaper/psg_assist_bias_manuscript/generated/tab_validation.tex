@@ -1,0 +1,32 @@
+\begin{table}[tbp]
+\centering
+\footnotesize
+\caption{Validation of the two model configurations against observations they were not fitted to (sleep stages, percent agreement, pooled over epochs).}
+\label{tab:validation}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lccc}
+\toprule
+Target & \makecell{Model\\(calibrated)} & \makecell{Model\\(exploratory)} & Observed \\
+\midrule
+$\Delta_{\mathrm{auto}}$ (V1) & +0.065 & +0.046 & +0.045 \\
+$\Delta_{\mathrm{human}}$ (V2) & \ensuremath{-}0.011 & \ensuremath{-}0.005 & \ensuremath{-}0.012 \\
+DiD (V3) & +0.076 & +0.051 & +0.057 \\
+M3, pre-fill agrees: manual (V4) & 0.869 & 0.869 & 0.872 \\
+M3, pre-fill agrees: assisted (V4) & 0.897 & 0.890 & 0.915 \\
+M3, pre-fill disagrees: manual (V4) & 0.636 & 0.636 & 0.590 \\
+M3, pre-fill disagrees: assisted (V4) & 0.529 & 0.528 & 0.526 \\
+R3 lift, 12/12 agree (V5) & \ensuremath{-}0.006 & \ensuremath{-}0.002 & \ensuremath{-}0.007 \\
+R3 lift, 10--11/12 (V5) & +0.069 & +0.049 & +0.065 \\
+R3 lift, 8--9/12 (V5) & +0.145 & +0.101 & +0.146 \\
+R3 lift, $\le$7/12 (V5) & +0.177 & +0.123 & +0.179 \\
+R4 lift (V6) & +0.332 & +0.230 & +0.228 \\
+Share of R4 units (V7) & 0.043 & 0.043 & 0.028 \\
+Pre-fill vs manual consensus (V8) & 0.886 & 0.886 & 0.898 \\
+Change in YASA's agreement, manual to assisted consensus (V9) & \ensuremath{-}0.013 & \ensuremath{-}0.006 & negative (\ensuremath{-}0.040 kappa) \\
+Growth of the pre-fill's lead over YASA (V10) & +0.078 & +0.052 & positive (+0.115 kappa) \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\par\smallskip
+\begin{minipage}{0.95\linewidth}\footnotesize The only anchoring parameter, $\alpha$, was set from the pooled anchoring measure (C4). V9 and V10 are compared by sign only: their observed values are kappa (YASA), the model's percent agreement. Exploratory: the configuration examined after the independent-rater checks ($\alpha$ = 0.22, consistency 0.5; amendment 006), whose anchoring M1 is 0.037 against the calibrated configuration fits the pooled anchoring measure by construction.\end{minipage}
+\end{table}

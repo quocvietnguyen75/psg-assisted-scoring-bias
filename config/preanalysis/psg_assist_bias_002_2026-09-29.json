@@ -1,0 +1,21 @@
+{
+  "protocol": "psg_assist_bias",
+  "amendment": 2,
+  "frozen_at": "2026-09-29",
+  "base_config": "config/preanalysis/psg_assist_bias_001_2026-09-29.json",
+  "amendment_document": "newpaper/plan/PSG_ASSIST_BIAS_AMENDMENT_002_2026-09-29.md",
+  "R1_stages": ["W", "N1", "N2", "N3", "R"],
+  "R2_types": {
+    "apnea": ["Obstructive apnea", "Central apnea", "Mixed apnea"],
+    "hypopnea": ["Hypopnea", "Central hypopnea"]
+  },
+  "R3_bins": [[12, 12], [10, 11], [8, 9], [0, 7]],
+  "R4_strong_consensus": 10,
+  "R6_variants": {
+    "plurality_stages": {"stage_consensus": "plurality"},
+    "supermajority": {"consensus_majority": {"full": 9, "leave_one_out": 9}},
+    "iou_0.2": {"event_min_iou": 0.2},
+    "percent_agreement_stages": {"stage_metric": "percent"}
+  },
+  "bootstrap": {"resamples": 2000, "seed": 20260930}
+}

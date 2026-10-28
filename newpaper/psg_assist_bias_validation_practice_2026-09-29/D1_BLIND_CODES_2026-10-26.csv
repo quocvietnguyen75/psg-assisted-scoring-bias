@@ -1,0 +1,67 @@
+row,k_number,device,field,first_round_code,PTD_code,PTD_exposure,DHAN_code,DHAN_exposure
+1,K120450,SLEEP PROFILER,reference_type,expert_consensus_details_limited,expert_consensus_details_limited,seen,daily_practice_panel,blind
+1,K120450,SLEEP PROFILER,blinding_to_device_output,not stated,not stated,seen,implied by design,blind
+1,K120450,SLEEP PROFILER,prescoring_reported,not said,not said,seen,not said,blind
+2,K142825,Zmachine,reference_type,independent_experts,independent_experts,seen,independent_experts,blind
+2,K142825,Zmachine,blinding_to_device_output,not stated,not stated,seen,not stated,blind
+2,K142825,Zmachine,prescoring_reported,not said,not said,seen,says they did,blind
+3,K153412,Sleep Profiler,reference_type,expert_consensus_details_limited,expert_consensus_details_limited,seen,algorithm_reference,blind
+3,K153412,Sleep Profiler,blinding_to_device_output,not stated,not stated,seen,implied by design,blind
+3,K153412,Sleep Profiler,prescoring_reported,not said,not said,seen,not applicable,blind
+4,K153353,SANDMAN ELITE,reference_type,independent_experts,independent_experts,seen,independent_experts,blind
+4,K153353,SANDMAN ELITE,blinding_to_device_output,implied by design,implied by design,seen,implied by design,blind
+4,K153353,SANDMAN ELITE,prescoring_reported,not said,not said,seen,not said,blind
+5,K162140,RemLogic,reference_type,independent_experts,independent_experts,seen,independent_experts,blind
+5,K162140,RemLogic,blinding_to_device_output,implied by design,implied by design,seen,implied by design,blind
+5,K162140,RemLogic,prescoring_reported,not said,not said,seen,not said,blind
+6,K162627,EnsoSleep,reference_type,independent_experts,independent_experts,seen,independent_experts,blind
+6,K162627,EnsoSleep,blinding_to_device_output,stated (object unspecified),stated (object unspecified),seen,stated (object unspecified),blind
+6,K162627,EnsoSleep,prescoring_reported,not said,not said,seen,not said,blind
+7,K163617,REMbrandt,reference_type,independent_experts,independent_experts,seen,independent_experts,blind
+7,K163617,REMbrandt,blinding_to_device_output,implied by design,implied by design,seen,implied by design,blind
+7,K163617,REMbrandt,prescoring_reported,not said,not said,seen,not said,blind
+8,K173366,NicoletOne,reference_type,independent_experts,independent_experts,seen,independent_experts,blind
+8,K173366,NicoletOne,blinding_to_device_output,implied by design,implied by design,seen,implied by design,blind
+8,K173366,NicoletOne,prescoring_reported,not said,not said,seen,not said,blind
+9,K182227,Esprit Nova,reference_type,daily_practice_panel,daily_practice_panel,seen,daily_practice_panel,blind
+9,K182227,Esprit Nova,blinding_to_device_output,not stated,not stated,seen,not stated,blind
+9,K182227,Esprit Nova,prescoring_reported,not said,not said,seen,not said,blind
+10,K192469,Nox Sleep System,reference_type,routine_clinical_scoring,routine_clinical_scoring,seen,routine_clinical_scoring,blind
+10,K192469,Nox Sleep System,blinding_to_device_output,implied by design,implied by design,seen,implied by design,blind
+10,K192469,Nox Sleep System,prescoring_reported,not said,not said,seen,not said,blind
+11,K202142,Sleepware G3 (Somnolyzer),reference_type,not_described,not_described,blind,not_described,seen
+11,K202142,Sleepware G3 (Somnolyzer),blinding_to_device_output,not stated,not stated,blind,not stated,seen
+11,K202142,Sleepware G3 (Somnolyzer),prescoring_reported,not said,not said,blind,not said,seen
+12,K210034,EnsoSleep,reference_type,independent_experts,independent_experts,blind,independent_experts,seen
+12,K210034,EnsoSleep,blinding_to_device_output,stated (object unspecified),stated (object unspecified),blind,stated (object unspecified),seen
+12,K210034,EnsoSleep,prescoring_reported,not said,not said,blind,not said,seen
+13,K221179,SomnoMetry,reference_type,routine_clinical_scoring,not_described,blind,not_described,seen
+13,K221179,SomnoMetry,blinding_to_device_output,not stated,not stated,blind,not stated,seen
+13,K221179,SomnoMetry,prescoring_reported,not said,not said,blind,not said,seen
+14,K223922,SOMNUM (V.1.1.2.),reference_type,expert_consensus_details_limited,expert_consensus_details_limited,blind,expert_consensus_details_limited,seen
+14,K223922,SOMNUM (V.1.1.2.),blinding_to_device_output,not stated,not stated,blind,not stated,seen
+14,K223922,SOMNUM (V.1.1.2.),prescoring_reported,not said,not said,blind,not said,seen
+15,K223539,Dreem 3S,reference_type,expert_consensus_details_limited,expert_consensus_details_limited,blind,independent_experts,seen
+15,K223539,Dreem 3S,blinding_to_device_output,not stated,not stated,blind,not stated,seen
+15,K223539,Dreem 3S,prescoring_reported,not said,not said,blind,not said,seen
+16,K233438,SleepStageML,reference_type,independent_experts,independent_experts,blind,independent_experts,seen
+16,K233438,SleepStageML,blinding_to_device_output,not stated,not stated,blind,not stated,seen
+16,K233438,SleepStageML,prescoring_reported,not said,not said,blind,not said,seen
+17,K241960,DeepRESP,reference_type,routine_clinical_scoring,routine_clinical_scoring,blind,routine_clinical_scoring,seen
+17,K241960,DeepRESP,blinding_to_device_output,not stated,not stated,blind,not stated,seen
+17,K241960,DeepRESP,prescoring_reported,not said,not said,blind,not said,seen
+18,K250058,NEAT 001,reference_type,not_described,not_described,blind,not_described,seen
+18,K250058,NEAT 001,blinding_to_device_output,not stated,not stated,blind,not stated,seen
+18,K250058,NEAT 001,prescoring_reported,not said,not said,blind,not said,seen
+19,K252330,DeepRESP,reference_type,routine_clinical_scoring,routine_clinical_scoring,blind,routine_clinical_scoring,seen
+19,K252330,DeepRESP,blinding_to_device_output,not stated,not stated,blind,not stated,seen
+19,K252330,DeepRESP,prescoring_reported,not said,not said,blind,not said,seen
+20,K250851,Hypnos (369054-200),reference_type,algorithm_reference,algorithm_reference,blind,algorithm_reference,seen
+20,K250851,Hypnos (369054-200),blinding_to_device_output,not applicable,not applicable,blind,not applicable,seen
+20,K250851,Hypnos (369054-200),prescoring_reported,not applicable,not applicable,blind,not applicable,seen
+21,K253668,Onera SleepMap (SLEEPMAP),reference_type,independent_experts,independent_experts,blind,independent_experts,seen
+21,K253668,Onera SleepMap (SLEEPMAP),blinding_to_device_output,not stated,not stated,blind,not stated,seen
+21,K253668,Onera SleepMap (SLEEPMAP),prescoring_reported,not said,not said,blind,not said,seen
+22,K253390,SOMNUM (SOMNUM),reference_type,independent_experts,independent_experts,blind,independent_experts,seen
+22,K253390,SOMNUM (SOMNUM),blinding_to_device_output,explicit,explicit,blind,explicit,seen
+22,K253390,SOMNUM (SOMNUM),prescoring_reported,device output only,device output only,blind,device output only,seen

@@ -1,0 +1,23 @@
+{
+  "protocol": "psg_assist_bias",
+  "amendment": 4,
+  "frozen_at": "2026-09-29",
+  "base_config": "config/preanalysis/psg_assist_bias_001_2026-09-29.json",
+  "amendment_document": "newpaper/plan/PSG_ASSIST_BIAS_AMENDMENT_004_2026-09-29.md",
+  "stager_cache_check": {
+    "m5_report": "newpaper/research_selection_2026-09-26_novelty/psg_assist_bias_001_m5_yasa.json",
+    "tolerance": 1e-9
+  },
+  "supermajority": 9,
+  "audit_fractions": [0.01, 0.02, 0.05, 0.1, 0.2],
+  "bootstrap": {"resamples": 2000, "seed": 20261001},
+  "simulation": {
+    "calibration_report": "newpaper/research_selection_2026-09-26_novelty/psg_assist_bias_003_simulation.json",
+    "scorers": 12,
+    "majority": 7,
+    "supermajority": 9,
+    "advantages": [0.0, 0.01, 0.02, 0.05],
+    "study_epochs": [5000, 50000],
+    "ability_bracket": [-8.0, 12.0]
+  }
+}

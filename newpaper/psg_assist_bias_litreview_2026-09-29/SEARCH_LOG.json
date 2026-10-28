@@ -1,0 +1,412 @@
+{
+ "review": "Assisted-scoring bias in sleep-scoring references: related work",
+ "date": "2026-09-29",
+ "plan": "SEARCH_PLAN.md (written before searching)",
+ "agent": "Claude Opus 5.5 (Claude Code)",
+ "pubmed_topic_queries": [
+  {
+   "id": "PM01",
+   "concept": "C1",
+   "query": "(\"pre-annotation\"[tiab] OR preannotation[tiab] OR \"pre-annotated\"[tiab]) AND (bias[tiab] OR anchoring[tiab] OR quality[tiab] OR agreement[tiab])",
+   "hits": 24,
+   "screened_top": 20,
+   "kept": [
+    "21094696",
+    "24001514",
+    "24859155"
+   ],
+   "run_at_utc": "2026-09-29T07:17:22+00:00"
+  },
+  {
+   "id": "PM02",
+   "concept": "C1",
+   "query": "(\"machine-assisted annotation\"[tiab] OR \"model-assisted annotation\"[tiab] OR \"computer-assisted annotation\"[tiab] OR \"semi-automatic annotation\"[tiab]) AND (bias[tiab] OR accuracy[tiab] OR agreement[tiab])",
+   "hits": 28,
+   "screened_top": 20,
+   "kept": [
+    "24859155",
+    "39116766"
+   ],
+   "run_at_utc": "2026-09-29T07:17:23+00:00"
+  },
+  {
+   "id": "PM03",
+   "concept": "C1",
+   "query": "anchoring[tiab] AND (annotation[tiab] OR annotators[tiab] OR labeling[tiab] OR labelling[tiab])",
+   "hits": 495,
+   "screened_top": 20,
+   "kept": [],
+   "run_at_utc": "2026-09-29T07:17:24+00:00"
+  },
+  {
+   "id": "PM04",
+   "concept": "C2",
+   "query": "\"automation bias\"[tiab] AND (artificial intelligence[tiab] OR \"decision support\"[tiab] OR algorithm[tiab])",
+   "hits": 250,
+   "screened_top": 20,
+   "kept": [
+    "21685142",
+    "27516495",
+    "37129490",
+    "42446361"
+   ],
+   "run_at_utc": "2026-09-29T07:17:25+00:00"
+  },
+  {
+   "id": "PM05",
+   "concept": "C2",
+   "query": "(\"incorrect AI\"[tiab] OR \"erroneous AI\"[tiab] OR \"incorrect artificial intelligence\"[tiab] OR \"false AI\"[tiab]) AND (radiologists[tiab] OR readers[tiab] OR reader[tiab])",
+   "hits": 9,
+   "screened_top": 9,
+   "kept": [
+    "37266657",
+    "42446361"
+   ],
+   "run_at_utc": "2026-09-29T07:17:26+00:00"
+  },
+  {
+   "id": "PM06",
+   "concept": "C2",
+   "query": "\"automation bias\"[tiab] AND (mammography[tiab] OR radiology[tiab] OR radiologists[tiab])",
+   "hits": 44,
+   "screened_top": 20,
+   "kept": [
+    "37129490"
+   ],
+   "run_at_utc": "2026-09-29T07:17:27+00:00"
+  },
+  {
+   "id": "PM07",
+   "concept": "C3",
+   "query": "\"incorporation bias\"[tiab]",
+   "hits": 82,
+   "screened_top": 20,
+   "kept": [
+    "14757617",
+    "18371254",
+    "27107877",
+    "41867141"
+   ],
+   "run_at_utc": "2026-09-29T07:17:28+00:00"
+  },
+  {
+   "id": "PM08",
+   "concept": "C3",
+   "query": "(\"imperfect reference standard\"[tiab] OR \"imperfect gold standard\"[tiab]) AND (bias[tiab]) AND (review[pt] OR methods[tiab])",
+   "hits": 16,
+   "screened_top": 16,
+   "kept": [
+    "8774575"
+   ],
+   "run_at_utc": "2026-09-29T07:17:29+00:00"
+  },
+  {
+   "id": "PM09",
+   "concept": "C4",
+   "query": "(polysomnography[tiab] OR \"sleep staging\"[tiab] OR \"sleep scoring\"[tiab]) AND (\"semi-automatic\"[tiab] OR semiautomatic[tiab] OR \"computer-assisted\"[tiab] OR \"manual editing\"[tiab] OR \"edited\"[tiab] OR \"manually edited\"[tiab] OR \"manual review\"[tiab])",
+   "hits": 102,
+   "screened_top": 20,
+   "kept": [
+    "23565003"
+   ],
+   "run_at_utc": "2026-09-29T07:17:30+00:00"
+  },
+  {
+   "id": "PM10",
+   "concept": "C4",
+   "query": "(Somnolyzer[tiab] OR EnsoSleep[tiab] OR \"Michele\"[tiab] OR \"Morpheus\"[tiab]) AND (sleep[tiab])",
+   "hits": 41,
+   "screened_top": 20,
+   "kept": [],
+   "run_at_utc": "2026-09-29T07:17:31+00:00"
+  },
+  {
+   "id": "PM11",
+   "concept": "C4",
+   "query": "(\"automatic scoring\"[tiab] OR \"automated scoring\"[tiab] OR autoscoring[tiab]) AND polysomnography[tiab] AND (validation[tiab] OR agreement[tiab]) AND (edit*[tiab] OR review*[tiab] OR correct*[tiab])",
+   "hits": 13,
+   "screened_top": 13,
+   "kept": [
+    "30878899",
+    "38827394"
+   ],
+   "run_at_utc": "2026-09-29T07:17:32+00:00"
+  },
+  {
+   "id": "PM12",
+   "concept": "C5",
+   "query": "(\"inter-scorer\"[tiab] OR interscorer[tiab] OR \"inter-rater\"[tiab]) AND (\"sleep staging\"[tiab] OR polysomnography[tiab]) AND (automatic[tiab] OR automated[tiab] OR \"deep learning\"[tiab] OR algorithm[tiab])",
+   "hits": 71,
+   "screened_top": 20,
+   "kept": [
+    "40554678"
+   ],
+   "run_at_utc": "2026-09-29T07:17:32+00:00"
+  },
+  {
+   "id": "PM13",
+   "concept": "C5",
+   "query": "(consensus[tiab] OR \"multiple scorers\"[tiab] OR \"multi-scorer\"[tiab] OR hypnodensity[tiab]) AND (\"sleep staging\"[tiab]) AND (\"deep learning\"[tiab] OR automatic[tiab] OR automated[tiab])",
+   "hits": 23,
+   "screened_top": 20,
+   "kept": [
+    "32746326",
+    "39443165",
+    "40790924",
+    "41402410"
+   ],
+   "run_at_utc": "2026-09-29T07:17:33+00:00"
+  },
+  {
+   "id": "PM14",
+   "concept": "C6",
+   "query": "(\"reference standard\"[tiab] OR \"ground truth\"[tiab]) AND (\"AI-assisted\"[tiab] OR \"algorithm-assisted\"[tiab] OR \"model-assisted\"[tiab] OR \"semi-automatic\"[tiab]) AND (bias[tiab] OR inflat*[tiab] OR overestimat*[tiab])",
+   "hits": 38,
+   "screened_top": 20,
+   "kept": [
+    "37485306"
+   ],
+   "run_at_utc": "2026-09-29T07:17:34+00:00"
+  }
+ ],
+ "pubmed_known_item_queries": [
+  {
+   "id": "KI01",
+   "target": "Anderer_Somnolyzer_AASM_validation",
+   "query": "Somnolyzer[tiab] AND AASM[tiab] AND validation[tiab]",
+   "hits": 2,
+   "ids": [
+    "39029432",
+    "20829636"
+   ],
+   "run_at_utc": "2026-09-29T07:19:05+00:00"
+  },
+  {
+   "id": "KI02",
+   "target": "Bakker_hypnodensity_2023",
+   "query": "hypnodensity[tiab] AND \"multiple expert scorers\"[tiab]",
+   "hits": 0,
+   "ids": [],
+   "run_at_utc": "2026-09-29T07:19:05+00:00"
+  },
+  {
+   "id": "KI03",
+   "target": "Rosenberg_AASM_ISR_2013",
+   "query": "\"inter-scorer reliability\"[tiab] AND \"American Academy of Sleep Medicine\"[tiab] AND staging[tiab] AND 2013[dp]",
+   "hits": 0,
+   "ids": [],
+   "run_at_utc": "2026-09-29T07:19:06+00:00"
+  },
+  {
+   "id": "KI04",
+   "target": "Danker-Hopfe_2009",
+   "query": "Danker-Hopfe H[au] AND interrater[tiab] AND sleep[tiab]",
+   "hits": 5,
+   "ids": [
+    "19250176",
+    "14996037",
+    "15838184",
+    "12575465",
+    "20829636"
+   ],
+   "run_at_utc": "2026-09-29T07:19:07+00:00"
+  },
+  {
+   "id": "KI05",
+   "target": "Alvarez-Estevez_staging_algorithm",
+   "query": "Alvarez-Estevez D[au] AND (\"sleep staging\"[tiab] OR \"sleep scoring\"[tiab])",
+   "hits": 6,
+   "ids": [
+    "36174095",
+    "34398931",
+    "37651482",
+    "41740253",
+    "32339128",
+    "19964388"
+   ],
+   "run_at_utc": "2026-09-29T07:19:09+00:00"
+  },
+  {
+   "id": "KI06",
+   "target": "Younes_editing_2015",
+   "query": "Younes M[au] AND editing[tiab] AND polysomnography[tiab]",
+   "hits": 5,
+   "ids": [
+    "25581917",
+    "26065574",
+    "27784419",
+    "26951417",
+    "23565003"
+   ],
+   "run_at_utc": "2026-09-29T07:19:10+00:00"
+  },
+  {
+   "id": "KI07",
+   "target": "Fort_preannotation",
+   "query": "\"pre-annotation\"[tiab] AND corpus[tiab]",
+   "hits": 8,
+   "ids": [
+    "24859155",
+    "40899551",
+    "42601622",
+    "24431336",
+    "30815119",
+    "24380818",
+    "22195185",
+    "15984939"
+   ],
+   "run_at_utc": "2026-09-29T07:19:10+00:00"
+  }
+ ],
+ "citation_chasing": [
+  {
+   "id": "CC01",
+   "anchor": "A1_PSG-IPA_source",
+   "pmid": "36174095",
+   "citing_in_pubmed": 5,
+   "kept": [
+    "39443165",
+    "39496283"
+   ],
+   "run_at_utc": "2026-09-29T07:18:59+00:00"
+  },
+  {
+   "id": "CC02",
+   "anchor": "A2_ScoreCraft",
+   "pmid": "40537888",
+   "citing_in_pubmed": 0,
+   "kept": [],
+   "run_at_utc": "2026-09-29T07:18:59+00:00"
+  },
+  {
+   "id": "CC03",
+   "anchor": "A5_Dratsch_2023",
+   "pmid": "37129490",
+   "citing_in_pubmed": 133,
+   "kept": [],
+   "run_at_utc": "2026-09-29T07:19:00+00:00"
+  },
+  {
+   "id": "CC04",
+   "anchor": "A6_Punjabi_2015",
+   "pmid": "25902809",
+   "citing_in_pubmed": 41,
+   "kept": [
+    "27070243",
+    "34310277",
+    "35780449",
+    "36174095",
+    "39496283"
+   ],
+   "run_at_utc": "2026-09-29T07:19:01+00:00"
+  },
+  {
+   "id": "CC05",
+   "anchor": "Lingren_2014",
+   "pmid": "24001514",
+   "citing_in_pubmed": 26,
+   "kept": [
+    "24431336",
+    "24859155"
+   ],
+   "run_at_utc": "2026-09-29T07:19:02+00:00"
+  },
+  {
+   "id": "CC06",
+   "anchor": "Malhotra_2013",
+   "pmid": "23565003",
+   "citing_in_pubmed": 93,
+   "kept": [
+    "23565004",
+    "25902809",
+    "27070243",
+    "34310277",
+    "35780449",
+    "36174095",
+    "38827394",
+    "39496283"
+   ],
+   "run_at_utc": "2026-09-29T07:19:04+00:00"
+  },
+  {
+   "id": "CC07",
+   "anchor": "Berzak et al. 2016 (Semantic Scholar, arXiv record)",
+   "citing_returned": 5,
+   "note": "Likely split record; EMNLP version not chased; anonymous rate limits"
+  }
+ ],
+ "web_searches": [
+  {
+   "id": "WS01",
+   "query": "\"Influence of pre-annotation on POS-tagged corpus development\" Fort Sagot 2010 bias",
+   "kept": [
+    "P21"
+   ]
+  },
+  {
+   "id": "WS02",
+   "query": "\"LLM evaluators recognize and favor their own generations\" self-preference bias evaluation",
+   "kept": [
+    "P27"
+   ]
+  },
+  {
+   "id": "WS03",
+   "query": "anchoring bias AI-assisted decision making human annotators pre-filled labels experiment \"anchoring\" machine suggestions label quality study",
+   "kept": [
+    "P20",
+    "P26"
+   ]
+  },
+  {
+   "id": "WS04",
+   "query": "Alvarez-Estevez 2019 \"Large-scale validation of an automatic EEG arousal detection algorithm\" semi-automatic HMC-S HMC-M bias full text",
+   "kept": [
+    "P05"
+   ]
+  }
+ ],
+ "retrievals": [
+  {
+   "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0256111",
+   "outcome": "read; HMC scoring procedure not described"
+  },
+  {
+   "url": "https://aclanthology.org/W10-1807.pdf",
+   "outcome": "full PDF text (curl + pdftotext)"
+  },
+  {
+   "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf16/K162627.pdf",
+   "outcome": "full PDF text (pdftotext)"
+  },
+  {
+   "url": "https://arxiv.org/pdf/1809.06216",
+   "outcome": "full PDF text (curl + pdftotext)"
+  },
+  {
+   "url": "https://jcsm.aasm.org/doi/10.5664/jcsm.5894",
+   "outcome": "HTTP 503; read via PMC4877322 instead"
+  },
+  {
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4877322/",
+   "outcome": "full HTML text (curl)"
+  },
+  {
+   "url": "PubMed efetch",
+   "outcome": "56 abstracts retrieved and read"
+  }
+ ],
+ "earlier_screening": "../research_selection_2026-09-26_novelty/SEARCH_LOG.json (12 searches, 11 retrievals; sources R01-R18)",
+ "counts": {
+  "distinct_searches": 32,
+  "pubmed_records_screened_by_title": 546,
+  "abstracts_read": 56,
+  "cards": 39
+ },
+ "coverage_limits": [
+  "Semantic Scholar and OpenAlex rate-limited anonymous access; citation chasing for Berzak 2016 and Schroeder 2025 incomplete",
+  "PubMed cited-in links cover only citing papers indexed with references (ScoreCraft showed 0)",
+  "No Scopus, Web of Science or Google Scholar; English-language sources only",
+  "Only one FDA 510(k) summary inspected"
+ ]
+}

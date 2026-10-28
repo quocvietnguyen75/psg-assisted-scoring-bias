@@ -1,0 +1,16 @@
+task,recording,M1
+arousals,SN1,-0.002
+arousals,SN2,0.162
+arousals,SN3,0.073
+arousals,SN4,0.022
+arousals,SN5,0.075
+respiratory,SN1,0.098
+respiratory,SN2,0.109
+respiratory,SN3,0.038
+respiratory,SN4,0.194
+respiratory,SN5,0.208
+limb,SN1,0.149
+limb,SN2,0.118
+limb,SN3,0.063
+limb,SN4,0.055
+limb,SN5,0.132

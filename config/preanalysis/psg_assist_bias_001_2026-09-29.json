@@ -1,0 +1,25 @@
+{
+  "protocol": "psg_assist_bias",
+  "version": 1,
+  "frozen_at": "2026-09-29",
+  "protocol_document": "newpaper/plan/PSG_ASSIST_BIAS_PROTOCOL_001_2026-09-29.md",
+  "data_root_env": "PSG_IPA_ROOT",
+  "dataset": {"slug": "psg-ipa", "version": "1.0.0", "expected_files": 1025, "checksum_file": "SHA256SUMS.txt"},
+  "tasks": {
+    "Sleep_stages": {"kind": "stages", "file_token": "SleepStages", "labels": ["W", "N1", "N2", "N3", "R"], "label_prefix": "Sleep stage "},
+    "EEG_arousals": {"kind": "events", "file_token": "EEGarousals", "labels": ["EEG arousal"]},
+    "Resp_events": {"kind": "events", "file_token": "Respiration",
+                    "labels": ["Obstructive apnea", "Central apnea", "Mixed apnea", "Hypopnea", "Central hypopnea"]},
+    "Limb_movements": {"kind": "events", "file_token": "LimbMovements", "labels": ["Limb movement"]}
+  },
+  "settings": {"manual": "manual", "semiauto": "semiauto", "auto": "auto"},
+  "n_scorers": 12,
+  "epoch_seconds": 30,
+  "event_grid_seconds": 0.1,
+  "consensus_majority": {"full": 7, "leave_one_out": 6},
+  "window": {"start_label": "Lights off", "end_label": "Lights on", "source_setting": "auto"},
+  "unscored_stage_label": "?",
+  "inference": {"sign_test_alpha": 0.05, "bootstrap_resamples": 10000, "bootstrap_seed": 20260929},
+  "decision": {"material_effect": 0.05},
+  "secondary_algorithm": {"name": "yasa", "task": "Sleep_stages"}
+}

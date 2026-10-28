@@ -1,0 +1,40 @@
+{
+ "label": "exploratory, not pre-specified",
+ "rows": [
+  {
+   "recording": "SN1",
+   "prefill_vs_manual": 0.7881956348978285,
+   "yasa_vs_manual": 0.8123802395796188,
+   "prefill_vs_assisted": 0.8499993180458703,
+   "yasa_vs_assisted": 0.8214578514756179
+  },
+  {
+   "recording": "SN2",
+   "prefill_vs_manual": 0.8165308156372919,
+   "yasa_vs_manual": 0.7093725606809648,
+   "prefill_vs_assisted": 0.9190145224315311,
+   "yasa_vs_assisted": 0.6674640742437353
+  },
+  {
+   "recording": "SN3",
+   "prefill_vs_manual": 0.854087528700059,
+   "yasa_vs_manual": 0.7528147342446385,
+   "prefill_vs_assisted": 0.9100507786349697,
+   "yasa_vs_assisted": 0.7057095997734566
+  },
+  {
+   "recording": "SN4",
+   "prefill_vs_manual": 0.9027480500488796,
+   "yasa_vs_manual": 0.7953586214086572,
+   "prefill_vs_assisted": 0.966329633499967,
+   "yasa_vs_assisted": 0.7389632444320097
+  },
+  {
+   "recording": "SN5",
+   "prefill_vs_manual": 0.8406543658899112,
+   "yasa_vs_manual": 0.736037975852929,
+   "prefill_vs_assisted": 0.9301973893664438,
+   "yasa_vs_assisted": 0.6710273362404465
+  }
+ ]
+}

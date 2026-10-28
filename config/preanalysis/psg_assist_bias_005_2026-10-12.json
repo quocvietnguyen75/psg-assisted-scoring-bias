@@ -1,0 +1,107 @@
+{
+ "protocol": "psg_assist_bias",
+ "amendment": 5,
+ "frozen_at": "2026-10-12",
+ "base_config": "config/preanalysis/psg_assist_bias_001_2026-09-29.json",
+ "previous_amendment_config": "config/preanalysis/psg_assist_bias_004_2026-09-29.json",
+ "amendment_document": "newpaper/plan/PSG_ASSIST_BIAS_AMENDMENT_005_2026-10-12.md",
+ "stager_cache_check": {
+  "m5_report": "newpaper/research_selection_2026-09-26_novelty/psg_assist_bias_001_m5_yasa.json",
+  "tolerance": 1e-09
+ },
+ "c1_rejected_label_adoption": {
+  "other_experts": 11,
+  "min_other_rejecting": 9,
+  "comparison_rule": {
+   "experts": 12,
+   "min_rejecting_including_scored": 10
+  },
+  "event_unit": "prefill_event",
+  "event_overlap": "any_temporal_overlap"
+ },
+ "c2_negative_control": {
+  "units": "epochs where the pre-fill and the independent stager are both labelled and differ",
+  "stagers": [
+   "yasa",
+   "gssc_if_c5_done"
+  ]
+ },
+ "c3_common_support": {
+  "units": "epochs where both 12-expert consensuses exist and the pre-fill is labelled",
+  "metrics": [
+   "kappa",
+   "percent_agreement"
+  ]
+ },
+ "c4_block_audit": {
+  "block_epochs": 60,
+  "block_start": "lights_off",
+  "audit_fractions": [
+   0.05,
+   0.1,
+   0.2,
+   0.3,
+   0.5
+  ],
+  "blocks_per_recording": "max(1, round(f * n_blocks))",
+  "gap_bias_threshold_from_004": 0.059
+ },
+ "c5_second_stager": {
+  "name": "GSSC (Greifswald Sleep Stage Classifier)",
+  "reference": "Hanna J, Floel A. Front Neuroinform 2023;17:1086634",
+  "eeg": {
+   "default": "C4-M1",
+   "SN1": "Cz-M1"
+  },
+  "eog": "E1-M2",
+  "model": "default pretrained",
+  "environment": "outputs/envs/gssc",
+  "operational_details": "fixed in amendment 005, note 1 (12 October 2026), after the install check and before the PSG-IPA run",
+  "versions": {
+   "python": "3.11.9",
+   "gssc": "0.0.9",
+   "mne": "1.13.2",
+   "torch": "2.5.1 (CPU)"
+  },
+  "call": "EEGInfer(use_cuda=False).mne_infer(raw, eeg=[EEG], eog=[EOG], eeg_drop=True, eog_drop=True, filter=True)",
+  "read": "mne.io.read_raw_edf(include=[EEG, EOG], preload=True)",
+  "stage_codes": {
+   "0": "W",
+   "1": "N1",
+   "2": "N2",
+   "3": "N3",
+   "4": "R"
+  },
+  "epochs": "epoch i starts 30*i s after the recording start (GSSC cut='back'); M5 window rule",
+  "runner": "careport.psg_assist_bias_gssc"
+ },
+ "c6_event_min_duration_s": {
+  "EEG_arousals": 3.0,
+  "Resp_events": 10.0,
+  "Limb_movements": 0.5
+ },
+ "d1_blind_fda_coding": {
+  "summaries": 22,
+  "fields": [
+   "reference_type",
+   "blinding_to_device_output",
+   "prescoring_reported"
+  ],
+  "statistics": [
+   "raw_agreement",
+   "cohen_kappa"
+  ]
+ },
+ "d2_reimplementation": {
+  "task": "Sleep_stages",
+  "measures": [
+   "M1",
+   "M2"
+  ],
+  "tolerance": 0.001
+ },
+ "bootstrap": {
+  "resamples": 2000,
+  "seed": 20261012
+ }
+}

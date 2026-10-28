@@ -1,0 +1,19 @@
+\begin{table}[tbp]
+\centering
+\footnotesize
+\caption{Unassisted audits of 30-minute blocks, emulated on PSG-IPA (4{,}857 epochs in 87 blocks; percent agreement against the unassisted consensus).}
+\label{tab:remedy}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{lccccc}
+\toprule
+Quantity & \makecell{Unassisted\\target} & \makecell{Assisted reference\\(bias)} & \makecell{9-of-12 assisted\\(bias)} & \makecell{10\% of blocks\\D1 / D2} & \makecell{20\% of blocks\\D1 / D2} \\
+\midrule
+Pre-fill agreement & 0.898 & 0.947 (+0.048) & 0.975 (+0.077) & $\pm$0.098 / $\pm$0.024 & $\pm$0.062 / $\pm$0.016 \\
+YASA agreement & 0.850 & 0.839 (\ensuremath{-}0.011) & 0.864 (+0.014) & $\pm$0.117 / $\pm$0.028 & $\pm$0.077 / $\pm$0.019 \\
+Pre-fill minus YASA & 0.049 & 0.108 (+0.059) & 0.112 (+0.063) & $\pm$0.080 / $\pm$0.045 & $\pm$0.056 / $\pm$0.030 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\par\smallskip
+\begin{minipage}{0.95\linewidth}\footnotesize Audits draw whole blocks at random within each recording; 10\% of blocks hold 12\% and 20\% hold 21\% of the epochs. Audit columns give 95\% half-widths from exact formulas for stratified sampling of blocks, with the large-sample multiplier (Supplementary Table~\ref{tab:s-blocks} gives the $t$-multiplier values). D1: the audited blocks alone; D2: the difference estimator combining them with the assisted consensus on all epochs. Both are unbiased by construction. Biases and half-widths are computed from unrounded values. Supplementary Table~\ref{tab:s-blocks} gives other audit sizes and the single-epoch audits.\end{minipage}
+\end{table}

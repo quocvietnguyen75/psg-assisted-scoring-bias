@@ -1,0 +1,592 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{setspace}
+\usepackage{lineno}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\newcommand{\authorinput}[1]{\textcolor{red}{\textbf{[#1]}}}
+
+% Every number quoted from the data comes from generated/values.tex (see README.md).
+\input{generated/values.tex}
+% Supplementary table numbers, taken from the compiled supplement by build.ps1, so main.tex compiles on its own.
+\input{generated/supplement_refs.tex}
+\newcommand{\val}[1]{\ifcsname val@#1\endcsname\csname val@#1\endcsname\else\textbf{??#1??}\PackageWarning{values}{Undefined value #1}\fi}
+\newcommand{\dA}{\Delta A}
+\newcommand{\dauto}{\Delta_{\mathrm{auto}}}
+\newcommand{\dhuman}{\Delta_{\mathrm{human}}}
+\newcommand{\dyasa}{\Delta_{\mathrm{YASA}}}
+
+\title{Reference standards built by editing automatic pre-scoring were closer to the assisting algorithm than the
+same experts' unassisted scoring: a paired study of polysomnography scoring}
+\author{Quoc Viet Nguyen\textsuperscript{1,*}, Phuc Tai Duong\textsuperscript{2}, Duc Hoai Anh Nguyen\textsuperscript{2},\\
+Dzung Van Dinh\textsuperscript{3} and Zengchang Qin\textsuperscript{1}\\[2pt]
+\small\textsuperscript{1}College of Engineering and Computer Science, VinUniversity, Hanoi, Vietnam\\
+\small\textsuperscript{2}Hanoi University of Science and Technology, Hanoi, Vietnam\\
+\small\textsuperscript{3}VNU Information Technology Institute, Hanoi, Vietnam\\
+\small\textsuperscript{*}Author to whom any correspondence should be addressed}
+\date{}
+
+\begin{document}
+\maketitle
+\footnotesize\sloppy
+
+\noindent\textbf{Article type:} Research Article. \textbf{Journal section:} Sleep Technology \& AI.
+
+\smallskip\noindent\textbf{Authors' e-mail addresses and ORCID iDs.} Quoc Viet Nguyen (corresponding author):
+viet.nq@vinuni.edu.vn, ORCID 0009-0000-8716-9148. Phuc Tai Duong: \authorinput{institutional e-mail}, ORCID
+0009-0002-0650-0332. Duc Hoai Anh Nguyen: \authorinput{institutional e-mail}, ORCID 0009-0004-5679-1582. Dzung Van
+Dinh: \authorinput{institutional e-mail}, ORCID 0000-0003-2333-5623. Zengchang Qin: \authorinput{institutional
+e-mail}, ORCID 0000-0002-8084-6721.
+
+\smallskip\noindent\textbf{Data availability statement.} The PSG-IPA dataset analyzed in this study is openly
+available on PhysioNet at https://doi.org/10.13026/ESX0-NW71. The analysis plans are provided as Supplementary File S1.
+The analysis code with its synthetic tests, the aggregate reports and the coding of the FDA summaries are openly
+available at \authorinput{repository URL}.
+
+\smallskip\noindent\textbf{Funding statement.} This research received no specific grant from any funding agency in
+the public, commercial or not-for-profit sectors.
+
+\smallskip\noindent\textbf{Conflict of interest disclosure.} The authors declare no conflicts of interest.
+
+\smallskip\noindent\textbf{Ethics approval statement.} This is a secondary analysis of open, de-identified data. The
+original data collection was approved by the Medisch Ethische Toetsingscommissie Zuidwest Holland (MTEC-19-065), as
+reported by the dataset's creators.
+
+\smallskip\noindent\textbf{Patient consent statement.} Not applicable to this secondary analysis; the ethics committee
+of the original study waived explicit informed consent.
+
+\smallskip\noindent\textbf{Permission to reproduce material from other sources.} Not applicable.
+
+\smallskip\noindent\textbf{Clinical trial registration.} Not applicable.
+
+\smallskip\noindent\textbf{Author contributions.} Quoc Viet Nguyen: conceptualization, investigation (literature
+search), methodology, software and formal analysis (with AI assistance), data curation, resources (computing), project
+administration, writing (review and editing). Phuc Tai Duong: investigation (literature review), validation (FDA
+coding), writing (original draft), writing (review and editing). Duc Hoai Anh Nguyen: investigation (literature
+review), validation (FDA coding; independent re-implementation of the primary measures), writing (original
+draft), writing (review and editing). Dzung Van Dinh: supervision,
+writing (review and editing). Zengchang Qin: supervision, writing (review and editing).
+
+\smallskip\noindent\textbf{Acknowledgements.} We thank the creators of PSG-IPA for making paired manual, assisted and
+automatic scorings openly available.
+
+\smallskip\noindent\textbf{Use of generative AI.} Claude Opus 5.5 and Claude Fable 5.1 (Anthropic; model identifiers claude-opus-5-5 and
+claude-fable-5-1), used through the Claude Code command-line tool in September and October 2026, drafted the analysis plans, which were fixed
+before their analyses were run; wrote and tested the analysis, simulation and figure code; ran the analyses on the
+authors' computer; extracted and coded the public FDA 510(k) summaries; supported the literature search and the
+checking of reference metadata against DOI registries; ran three simulated pre-submission peer reviews and a fidelity check of the text against the
+study records; and drafted and
+revised the manuscript text from the study records. Quoc Viet Nguyen directed this work and managed the computing
+resources. No AI tool fabricated or altered research data or results; every reported number is generated by the
+recorded analysis code, whose kappa and sign tests agreed with standard library implementations. One of two authors
+checked the AI's FDA coding against each summary; both then re-coded its three key fields for all \val{fda-perf}
+summaries by hand without seeing any code, each blind for the summaries the other had checked, and the corresponding
+author settled the disagreements from the summary text (Supplementary Methods); a co-author who had not read the analysis code re-implemented, from the protocol text and with a different AI coding
+assistant (OpenAI Codex), the anchoring measure for all four tasks and the inflation measures for sleep staging, and
+reproduced all 35 per-recording values; the remaining quantities rest on the analysis code's synthetic tests
+(Supplementary Methods); \authorinput{the clean re-run from the public repository is pending}.
+\authorinput{The authors checked each citation against its source.} The authors reviewed and revised all AI-assisted
+content and take full responsibility for the content of this article.
+
+\normalsize\fussy
+\clearpage
+\onehalfspacing
+\linenumbers
+
+\begin{abstract}
+\noindent Automatic sleep scorers are validated against expert reference standards, increasingly produced by editing an
+algorithm's pre-scoring. Taking the same experts' unassisted scoring as the standard,
+we asked whether such assisted references lie closer to the assisting algorithm than that standard. In the open
+PSG-IPA dataset, 12
+technicians at one center scored 20 polysomnograms (five each for sleep stages, arousals, respiratory events and limb
+movements) manually and, at least 4 months later, by editing the pre-scoring. Under dated, unregistered analysis plans, assisted
+scorings were closer to the pre-scoring than the same experts' manual scorings in \val{m1-sign-pos} of 20
+recording-task units ($p=\val{m1-sign-p}$ for these experts and recordings), most where experts disagreed. Where the consensus changed between sessions, it took the pre-scoring's label in \val{a2-min-pct} to
+\val{a2-max-pct} of the changed units (epochs for stages, 0.1-s bins for events). Where two other
+sleep stagers, which no expert saw, disagreed with the pre-scoring, the experts moved toward the pre-scoring and away from
+both stagers. Against the assisted reference, the pre-scoring's lead over each stager grew in every recording, and a
+stager level with the pre-scoring against the manual reference (ahead in \val{st-gssc-ahead-manual} of five recordings)
+trailed it in all five recordings. In an emulation with the earlier session's unassisted labels,
+an audit of \val{c4-smallest-f} of 30-minute blocks estimated the staging comparison without this bias (95\% half-width
+\val{c4-gap-f10-d2}; \val{c4-gap-f10-d2-t} with the audit's own degrees of freedom). No public summary of the \val{fda-perf} U.S. Food and Drug Administration clearances with performance data under
+product code OLZ (automatic PSG event detection) stated whether reference scorers worked from automatic pre-scoring by
+any software. In this dataset, references built by editing an algorithm's
+output favored that algorithm. Validations should report how their references were made and audit a random sample of
+blocks scored without assistance.
+
+\medskip\noindent\textbf{Keywords:} automatic sleep scoring; automation bias; incorporation bias; polysomnography;
+reference standard; validation
+\end{abstract}
+
+% =====================================================================
+\section{Introduction}
+
+New automatic polysomnography (PSG) scorers are judged by how closely they agree with expert scorers
+\citep{nasiri2025,guillot2020}. Because experts disagree, most of all on N1 sleep and
+hypopneas \citep{rosenberg2013,rosenberg2014,dankerhopfe2009,lee2022,pitkanen2025}, careful
+validations compare algorithms with the consensus of several scorers \citep{bakker2023,guillot2020}.
+The reference standard is thus a product of human scoring, and its properties decide what a validation can show.
+
+In routine practice, experts often do not score from scratch. Cleared scoring software is intended to be reviewed and corrected by a clinician \citep{ensosleep2017}, and
+several groups have
+evaluated workflows in which technologists edit automatic scorings or review only the epochs flagged as
+uncertain \citep{younes2015,punjabi2015,rusanen2025}. Such assisted scorings also enter validation: in a
+large validation of an arousal detector, part of the clinical reference had been produced by reviewing the
+detector's own output, and the detector agreed better with that part (kappa 0.600) than with the manual part
+(0.559) \citep{alvarezestevez2019}.
+
+Assisted scoring raises agreement between experts. In the Somnolyzer validation, two assisted scorings agreed at
+kappa 0.99 against 0.76 for two manual scorings, after experts had changed about 4\% of the automatic epochs
+\citep{anderer2010}. Agreement rose from 78.9\% to 86.5\% when the same technologists edited an automatic scoring \citep{younes2016},
+and in the study behind this dataset inter-scorer kappa rose in all four tasks \citep{alvarezestevez2022}. These gains have been read as reduced variability or better
+quality \citep{anderer2010,alvarezestevez2022}, and the arousal-detector study concluded that its algorithm ``behaves as
+one expert more'' \citep{alvarezestevez2019}.
+
+There is another explanation. Assisted experts may agree more because they start from the same pre-scoring and
+keep much of it. People anchor on suggested values \citep{tversky1974}, and clinicians follow automated advice, even when wrong
+\citep{goddard2012,dratsch2023}. Correct recommendations raised sleep technologists' staging accuracy and incorrect ones lowered it by 3 to 7
+percentage points \citep{holm2025}, and annotators who edit a model's output agree more with it
+\citep{berzak2016,schroeder2025}.
+Diagnostic-accuracy research calls a reference standard influenced by the test under evaluation incorporation
+bias, which inflates the test's measured accuracy \citep{whiting2004,worster2008,kampman2026}.
+If assisted references carry an analogous, behavioral form of this bias, validations against them overstate the
+assisting algorithm and handicap its competitors.
+
+Separating the two explanations requires the same experts' manual and assisted scorings of the same recordings,
+the unedited pre-scoring, and raters who never saw it; PSG-IPA provides all three
+\citep{alvarezestevez2022,psgipa2026}. Neither its creators \citep{alvarezestevez2022} nor the planted-error experiments \citep{holm2025} asked whether a
+reference built from assisted scorings stays independent of the assisting algorithm, as a validation needs. In dated analysis plans, we asked whether assisted scorings move toward
+the pre-scoring, whether references built from them favor the assisting algorithm relative to the same experts'
+unassisted scoring and to algorithms the experts never saw, where the pull arises, and how precisely a small
+unassisted audit can estimate the comparison, and reviewed how cleared scoring devices built their
+references.
+
+% =====================================================================
+\section{Methods}
+
+\subsection{Data}
+
+PSG-IPA (version 1.0.0, open access under CC BY 4.0) contains 20 clinical polysomnograms selected from the 2,801
+recorded in 2019 at the Haaglanden Medisch Centrum Sleep Center, The Hague, the Netherlands
+\citep{psgipa2026,alvarezestevez2022,pollard2026,goldberger2000}. The 20 patients (12 men) had a median age of 57 years
+(interquartile range 51.8 to 61.5) and a median time in bed of 7.3 hours \citep{psgipa2026}. Five recordings are
+provided for each of four tasks: sleep staging, electroencephalographic (EEG) arousals and respiratory events, scored by
+version 2.4 of the American Academy of Sleep Medicine (AASM) manual, and limb movements, scored by the 2016 World
+Association of Sleep Medicine (WASM) standard \citep{ferri2016}. The source publications do not state the hypopnea
+criterion. An automatic procedure selected, for each task, the recordings at the 12.5th, 37.5th, 50th, 62.5th and 87.5th
+percentiles of the agreement between the automatic output and the original clinical scoring (the midpoints of the
+four quartiles and the median); all had been accepted for manual scoring in the center's routine workflow
+\citep{alvarezestevez2022,psgipa2026}.
+
+Twelve experienced, certified sleep technicians from the center's daily scoring routine scored every recording of a
+task twice in the Polyman software \citep{kemp2007}, blinded to patient identity and to earlier scorings and not
+told that the two sessions used the same recordings \citep{alvarezestevez2022}: manually first and, at least four
+months later, with assistance: the recording was pre-filled with the output of an automatic algorithm for that task (the
+\emph{pre-fill}), and the experts reviewed it, adding, deleting or editing stages and events. We call these scorings
+\emph{assisted}; the dataset calls them semi-automatic. The pre-fills came from research algorithms by the dataset's
+first author and colleagues: a deep-learning stager developed on this center's clinical scorings
+\citep{alvarezestevez2021}, an EEG arousal detector \citep{alvarezestevez2019}, and detectors
+of limb movements and respiratory events (Supplementary Methods). The documentation gives no version numbers and does not say whether the algorithms were used in routine
+scoring. The dataset distributes each recording's
+pre-fill with the 24 scorings; all 1,025 files were verified against the published checksums. One assisted staging (SN1, expert~4) is byte-identical to the pre-fill (accepted without edits) and is kept,
+because the plans foresaw no exclusion. The original study was
+approved by a medical ethics committee, which waived explicit informed consent \citep{alvarezestevez2022}.
+
+\subsection{Analysis plan and estimand}
+
+All analyses were fixed in dated written plans before they were computed: a protocol and four amendments, the last
+written after a pre-submission review. Supplementary File S1 reproduces them verbatim, with their times and repository
+commits. The plans were not publicly registered; the protocol and the first amendment were committed together with
+their results, so their order rests on time-stamped working logs. Each amendment stated its predictions before its
+analyses were run, every analysis was run once (the simulation once more after a dated note, before any of its
+consequences had been computed), and every result is reported, including failed predictions (Supplementary
+Table~\ref{tab:s-predictions}). Supplementary Table~\ref{tab:s-codes} maps the names used here to the plan codes.
+
+The truth is unknown in these recordings, so we did not ask which reference is more accurate. The standard was the
+same experts' unassisted scoring, the field's reference standard, and the question was whether references built from
+assisted scorings lie closer to the assisting algorithm than that standard does.
+
+\subsection{Agreement and reference standards}
+
+Analyses were restricted to the interval between the ``lights off'' and ``lights on'' annotations; a 30-second
+epoch counted when its midpoint lay in the interval, and events were clipped to it. Sleep stages (W, N1, N2, N3, R)
+were compared with five-class Cohen's kappa \citep{cohen1960}, dropping epochs left unscored by either scoring.
+Respiratory events of all types were pooled, excluding respiratory-effort-related arousals. Agreement between two
+event scorings was the event-level F1 score, with events matched one to one, largest overlap first (Supplementary
+Methods).
+
+We built a consensus reference separately from the 12 manual and the 12 assisted scorings. A stage epoch took the
+label chosen by at least 7 of the 12 experts, and had no consensus otherwise; for events, a 0.1-second bin counted as
+an event when at least 7 of 12 scorings covered it, and contiguous bins formed consensus events. Leave-one-out
+consensuses of the other 11 experts required at least 6 of 11.
+
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[font=\footnotesize,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=9mm, inner sep=3pt, text width=#1},
+  box/.default=27mm, arr/.style={-{Stealth[length=2mm]}, semithick}]
+\node[box=18mm, fill=gray!10] (psg) {Recording\\(PSG)};
+\node[box, right=9mm of psg, yshift=9mm, fill=gray!15] (man) {\textbf{Manual session}\\12 experts score from scratch};
+\node[box=19mm, right=9mm of psg, yshift=-11mm, fill=blue!8] (auto) {Automatic\\\textbf{pre-fill}};
+\node[box, right=5mm of auto, fill=orange!15] (semi) {\textbf{Assisted session}\\($\ge$4 months later) the same experts edit the pre-fill};
+\node[box=24mm, right=9mm of man, fill=gray!15] (cm) {Manual consensus\\($\ge$7 of 12)};
+\node[box=24mm, right=5mm of semi, fill=orange!15] (cs) {Assisted consensus\\($\ge$7 of 12)};
+\draw[arr] (psg.east) -- ++(4mm,0) |- (man.west);
+\draw[arr] (psg.east) -- ++(4mm,0) |- (auto.west);
+\draw[arr] (auto) -- (semi);
+\draw[arr] (man) -- (cm);
+\draw[arr] (semi) -- (cs);
+\end{tikzpicture}
+\caption{Design. PSG-IPA provides, for each recording, 12 manual scorings, 12 assisted scorings by the same experts,
+and the pre-fill that the assisted scorings started from. Five recordings are provided for each of four tasks.
+\textbf{Anchoring:} each expert's agreement with the pre-fill, assisted minus manual. \textbf{Inflation:} the
+pre-fill's agreement gain from the manual to the assisted consensus, minus the gain of each expert's manual scoring
+against the other 11 experts' consensus. \textbf{Independent algorithms:} two sleep stagers that no expert saw, judged
+against both consensuses.}
+\label{fig:design}
+\end{figure}
+
+\subsection{Primary measures and inference}
+
+\textbf{Anchoring.} For expert $s$ and recording $r$,
+\begin{equation}
+\dA(s,r) = \mathrm{agr}\bigl(\mathrm{assisted}(s,r),\,\mathrm{prefill}(r)\bigr) - \mathrm{agr}\bigl(\mathrm{manual}(s,r),\,\mathrm{prefill}(r)\bigr).
+\end{equation}
+Positive values mean that the expert's assisted scoring lies closer to the pre-fill than their manual scoring.
+
+\textbf{Reference inflation.} For each recording, $\dauto$ is the change in the pre-fill's agreement from the manual
+to the assisted consensus, and $\dhuman$ is the same change for each expert's manual scoring, judged against the other
+11 experts' assisted minus manual consensus and averaged over the 12 experts. If assistance only made the reference more accurate, these raters, who had not seen the pre-fill, would gain about
+as much as the algorithm, and the difference in differences, $\mathrm{DiD}=\dauto-\dhuman$, would be close to zero. Because each
+expert's manual scoring shares its session with the manual consensus, any difference between sessions unrelated to the
+pre-fill also lowers $\dhuman$, so we interpret the DiD as inflation relative to session-matched raters; the
+independent algorithms below have no session.
+
+\textbf{Inference.} The units were the 20 recording-task combinations. The primary tests were exact two-sided sign
+tests over these units ($\alpha=0.05$), applied to the recording-level mean of $\dA$ and to the DiD. Because all units share the same 12 experts, the tests support conclusions about these experts on these
+recordings only. Per-task means come with 95\% crossed-bootstrap intervals that resample experts and recordings
+independently \citep{owen2007}; with five recordings per task they are descriptive. The many secondary sign tests and intervals are unadjusted and are read as descriptions, not separate
+confirmations. The pre-specified decision rule called the result positive if both sign tests were significant in the positive
+direction and at least one task had a mean $\dA$ of 0.05 or more, a threshold set by judgment.
+
+\subsection{Secondary analyses}
+
+We computed pairwise percent agreement among the 12 scorings of each session where the pre-fill agreed with the
+manual consensus and where it disagreed, events per hour of sleep for the pre-fill and both consensuses, and the
+\emph{acceptance lift}: the probability that an assisted label equals the pre-fill's label minus the same probability
+for the manual label. The lift was computed by the stage the pre-fill assigned, by how many of the 12 manual scorings
+shared the most frequent label, and on labels that most experts had rejected: units where at least 9 of the other 11
+experts' manual labels differed from the pre-fill's; selecting them without the scored expert's own label avoids the
+regression to the mean of the first amendment's rule (at least 10 of 12, the scored expert included), and for events
+the units were whole pre-fill events, adopted when an expert's scoring overlapped them.
+\emph{Side-taking} compares, among units where both consensuses exist and differ, the share where the assisted
+consensus equals the pre-fill with the share where the manual consensus does (equal if the sessions were
+exchangeable; exact sign test over the 20 units). Anchoring was also computed for apneas and hypopneas separately, and the primary tests were repeated under four
+robustness variants and with consensus events shorter than the rules' minimum durations dropped (Supplementary
+Methods).
+
+Two other stagers, independent of the pre-fill and never shown to any expert, scored each sleep-staging recording with
+their default pretrained models:
+YASA 0.7.0 \citep{vallat2021} and GSSC 0.0.9 \citep{hanna2023}, using the C4-M1 EEG (Cz-M1 in one recording) and
+E1-M2 electrooculogram channels (YASA also chin electromyography). The protocol named YASA, the last amendment added GSSC, and their settings were fixed before they were run. For
+each stager we report kappa against both consensuses and the pre-fill's lead over it (the pre-fill's kappa minus the
+stager's against the same consensus); the lead over GSSC was pre-specified, the lead over YASA was an exploratory
+addition to the protocol's YASA check. Because
+an assisted
+panel reaches a consensus on more hard epochs, which alone lowers an independent rater's measured agreement, changes
+were also computed on epochs where both consensuses exist (\emph{common support}). As a negative control, on epochs
+where a stager and the pre-fill disagreed, we computed each expert's movement toward the stager's label and toward
+the pre-fill's (assisted minus manual share of matching labels); a general shift toward algorithm-like or more
+typical scoring would move experts toward the stagers too.
+
+A two-label latent-class model calibrated to the staging data illustrated how anchoring propagates into references of
+different sizes and rules; its truth is, by construction, what a large unassisted panel would converge to, and its
+outputs are illustrations, not estimates (Supplementary Methods).
+
+\subsection{Unassisted audit}
+
+We emulated a validation that scores every epoch with assistance and has the same experts score a random sample of
+30-minute blocks without the pre-fill, drawn within each recording. We compared four estimates of an algorithm's
+agreement with the unassisted consensus: the assisted consensus alone; a 9-of-12 assisted consensus; the audited blocks
+alone; and a \emph{difference estimator} (prediction-powered inference \citep{angelopoulos2023}), which adds the mean,
+over audited epochs, of the unassisted minus the assisted agreement to the mean assisted agreement over all epochs. The
+targets were the pre-fill's and YASA's percent agreement and their gap, on the \val{c4-pop} sleep-staging epochs
+(\val{c4-blocks} blocks) where both algorithms are labelled and the manual consensus exists, with exact design-based
+standard errors \citep{cochran1977} and the large-sample multiplier (Supplementary Table~\ref{tab:s-blocks} also
+gives the $t$-multiplier values for the audit's own degrees of freedom). The emulation's unassisted labels come from the earlier session, a best case for a
+real audit; single-epoch audits, though impractical, are reported for comparison.
+
+\subsection{How FDA-cleared devices built their references}
+
+We reviewed every 510(k) clearance by the U.S. Food and Drug Administration (FDA) under product code OLZ (automatic
+event detection software for polysomnography with EEG) listed by the openFDA device interface \citep{fda510k}:
+\val{fda-census} clearances up to \val{fda-last-date}. Devices cleared under other product codes, for example
+sleep-scoring systems cleared as polysomnographs, were not reviewed. For the \val{fda-modern} clearances since \val{fda-first-year},
+we coded from each public summary how the reference for clinical performance testing was produced, how many scorers
+were involved, whether the summary stated that the scorers were blinded to the device's output, and whether it said
+that they had worked from automatic pre-scoring by any software, recording the verbatim passage behind every code. A
+reference described only as manually scored was not counted as a statement about pre-scoring, because manual scoring
+can be done in software that pre-scores automatically.
+The AI assistant named in the statement on generative AI coded the first three fields; one of two authors checked them
+against each summary and recorded the fourth, pre-scoring, during that check; the assistant confirmed their four
+corrections against the cited passages. The two checkers then re-coded the three key fields of all \val{fda-perf}
+summaries by hand without seeing any code, each blind for the summaries the other had checked; a third author settled
+disagreements from the summary text (Supplementary Methods).
+Summaries are abbreviated, so we report what they state, not what the submissions contained.
+
+% =====================================================================
+\section{Results}
+
+\subsection{Assisted scorings were closer to the pre-fill}
+
+Assisted scorings lay closer to the pre-fill than the same experts' manual scorings in \val{m1-sign-pos} of 20
+recording-task units ($p=\val{m1-sign-p}$; Table~\ref{tab:primary}, Figure~\ref{fig:primary}a; Supplementary Table~\ref{tab:s-units}). Task means ranged
+from \val{m1-task-min} to \val{m1-task-max}, and \val{m1-scorers-pos-min} to \val{m1-scorers-pos-max} of the 12
+experts shifted toward the pre-fill in each task; the one unit without a shift, an arousal recording, was at
+\val{m1-unit-min}. By the pre-specified decision rule, the result is positive, and it held under every robustness
+variant (Supplementary Table~\ref{tab:s-r6}).
+
+\input{generated/tab_primary.tex}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_primary.pdf}
+\caption{Primary results. (a) Anchoring: each expert's assisted minus manual agreement with the pre-fill, averaged
+over experts, for each recording (dots). (b) Reference inflation: the pre-fill's agreement gain from the manual to
+the assisted consensus, minus the gain of the same experts' manual scorings judged against the other experts'
+consensus. Diamonds show task means with 95\% crossed-bootstrap intervals. The dashed line marks the pre-specified
+material effect of 0.05.}
+\label{fig:primary}
+\end{figure}
+
+\subsection{The references moved toward the pre-fill}
+
+The two consensuses differed on a minority of units (\val{a2-stages-share} of common-support staging epochs); where
+they did, the assisted consensus equaled the pre-fill in
+\val{a2-min-pct} (arousals) to \val{a2-max-pct} (limb movements) of the changed units (epochs for stages, 0.1-second
+bins for events), while the manual consensus rarely did (Figure~\ref{fig:mechanism}c; for
+stages, \val{a2-stages-assisted} against \val{a2-stages-manual} over \val{a2-stages-n} changed epochs); the difference was
+positive in \val{a2-sign-pos} of 20 units ($p=\val{a2-sign-p}$). Against the assisted rather than the manual consensus, the pre-fill's agreement rose in every unit
+($\dauto>0$ in \val{m2-auto-units-pos} of 20, a gain with no session-matched baseline), while the experts' manual
+scorings gained at most \val{m2-human-unit-max}, so the session-matched DiD was positive in \val{m2-sign-pos} of 20 units
+($p=\val{m2-sign-p}$; Figure~\ref{fig:primary}b), and in all
+\val{c6-sign-n} event units when consensus events shorter than the rules' minimum durations were dropped. On epochs
+where both consensuses exist (sleep stages), the human raters' loss shrank to \val{a1-human-kappa-mean} kappa (95\% interval
+\val{a1-human-kappa-lo} to \val{a1-human-kappa-hi}), while the pre-fill's own gain stayed positive in all
+\val{c3-auto-kappa-pos} staging recordings (mean \val{c3-auto-kappa-mean}; common-support DiD \val{c3-did-kappa-mean}).
+Judged against the assisted consensus, the experts' own manual consensus (\val{a3-stage-manual} for stages) was
+closer than the pre-fill (\val{a3-stage-prefill}), the pre-fill being closer in \val{a3-units-pos} of \val{a3-units-n}
+units, contrary to a pre-specified prediction (Supplementary Table~\ref{tab:s-predictions}): the assisted reference
+remained predominantly the experts' own judgment.
+
+\subsection{Where the pull arose}
+
+The pull concentrated where experts disagree (Figure~\ref{fig:mechanism}a; Supplementary Tables~\ref{tab:s-r1r2}
+and~\ref{tab:s-r3r4}). In every task the acceptance lift was near zero where all 12 experts had agreed manually and rose steadily as
+manual agreement fell, reaching \val{r3-arousals-le7-mean} to \val{r3-limb-le7-mean}
+across tasks where 7 or fewer agreed. Among stages it was largest for N1 (\val{r1-n1-mean}; 95\% interval \val{r1-n1-lo} to
+\val{r1-n1-hi}), and N2 (\val{r1-n2-mean}) was the only stage whose descriptive interval included zero; for respiratory events,
+anchoring was larger for hypopneas (\val{r2-hypopnea-mean}) than for apneas (\val{r2-apnea-mean}). These are the categories on which scorers agree least \citep{rosenberg2013,rosenberg2014,dankerhopfe2009}.
+
+Experts also adopted labels that most colleagues had rejected: where at least 9 of the other 11 experts' manual
+labels rejected the pre-fill's, the lift was \val{c1-stages-mean} for stages (95\% interval \val{c1-stages-lo}
+to \val{c1-stages-hi}) and \val{c1-resp-mean} to \val{c1-limb-mean} for the event tasks, positive in \val{c1-sign-pos}
+of 20 units and zero in the other ($p=\val{c1-sign-p}$ over the \val{c1-sign-nonzero} nonzero units;
+Figure~\ref{fig:mechanism}b). The first amendment's rule,
+which selects with the expert's own label, gave \val{r4-stages-mean} for stages. Where the pre-fill agreed with the manual consensus, assistance raised the experts' agreement with each other;
+where it disagreed, agreement fell in three of four tasks (stages: \val{m3-stages-disagree-manual} to
+\val{m3-stages-disagree-semi}; Supplementary Table~\ref{tab:s-m3}), as some experts followed the pre-fill and others
+did not.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_mechanism.pdf}
+\caption{Where the pull arose. (a) Acceptance lift (probability that the assisted label equals the pre-fill, minus the
+same probability for the manual label), by the number of the 12 experts who shared the most frequent manual label.
+(b) The same lift on labels that most experts rejected manually, with units selected using the scored expert's own
+label (open) or the other 11 experts' labels only (filled; events counted per event). Error bars are 95\%
+crossed-bootstrap intervals. (c) Side-taking: among units where the two consensuses differ, the share where each
+consensus equals the pre-fill. The dashed line marks equal shares.}
+\label{fig:mechanism}
+\end{figure}
+
+\subsection{Algorithms the experts never saw}
+
+YASA and GSSC disagreed with the pre-fill on \val{c2-yasa-differ} and \val{c2-gssc-differ} sleep-stage epochs. On
+these epochs the experts' assisted labels moved toward the pre-fill (\val{c2-yasa-toward-prefill} and
+\val{c2-gssc-toward-prefill}) and away from the stagers (\val{c2-yasa-toward-stager}, 95\% interval
+\val{c2-yasa-toward-stager-lo} to \val{c2-yasa-toward-stager-hi}, and \val{c2-gssc-toward-stager}), in every recording
+(Figure~\ref{fig:stagers}a; Supplementary Table~\ref{tab:s-stagers}). Where the two consensuses differed on such
+epochs, the assisted consensus never took the stager's label, whereas the manual consensus took it in
+\val{c2-yasa-side-manual-pct} (YASA) and \val{c2-gssc-side-manual-pct} (GSSC) of epochs.
+
+Against the assisted consensus, both stagers lost agreement in four of five recordings while the pre-fill gained
+(Table~\ref{tab:stagers}). The pre-fill's lead over YASA (exploratory) grew from \val{st-yasa-lead-manual-mean} to
+\val{st-yasa-lead-assisted-mean} kappa and over GSSC from \val{st-gssc-lead-manual-mean} to
+\val{st-gssc-lead-assisted-mean}: GSSC agreed better than the pre-fill with the manual consensus in \val{st-gssc-ahead-manual} of 5 recordings and
+worse with the assisted consensus in all five (Figure~\ref{fig:stagers}b); on common support the growth of the lead,
+which needs no human baseline, was positive in all five recordings for both stagers (mean \val{c3-yasa-sf-kappa-mean}
+and \val{c3-gssc-sf-kappa-mean} kappa).
+
+\input{generated/tab_stagers.tex}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_stagers.pdf}
+\caption{Two sleep stagers that no expert saw. (a) On epochs where a stager and the pre-fill disagree, each expert's
+assisted minus manual share of labels equal to the stager's and to the pre-fill's (dots: recordings; diamonds: means
+with 95\% crossed-bootstrap intervals). (b) The pre-fill's lead in kappa over each stager, judged against the manual
+and against the assisted consensus; each line is a recording.}
+\label{fig:stagers}
+\end{figure}
+
+\subsection{Clinical indices}
+
+The two consensuses differed by \val{m4-resp-diff-min} to \val{m4-resp-diff-max} respiratory events,
+\val{m4-arousals-diff-min} to \val{m4-arousals-diff-max} arousals and \val{m4-limb-diff-min} to
+\val{m4-limb-diff-max} limb movements per hour of sleep, and no recording changed its respiratory severity category
+(Supplementary Table~\ref{tab:s-indices}). The pre-fill's index lay closer to the assisted than to the manual
+consensus in \val{m4-resp-closer} of 5 respiratory and \val{m4-limb-closer} of 5 limb-movement recordings, but in
+\val{m4-arousals-closer} of 5 arousal recordings, where assisted experts added arousals beyond those in the pre-fill.
+
+\subsection{An unassisted audit of blocks}
+
+On PSG-IPA (Table~\ref{tab:remedy}, Figure~\ref{fig:remedy}), the assisted reference overstated the pre-fill's
+percent agreement with the unassisted consensus by \val{b1-prefill-d0-bias} and raised its lead over YASA from
+\val{b1-gap-target} to \val{b1-gap-d0}. The 9-of-12 assisted reference overstated both further
+(\val{b1-prefill-d0s-bias} and \val{b1-gap-d0s-bias}), because it keeps the epochs experts agree on, where the
+pre-fill is nearly always right. When whole 30-minute blocks were audited, the difference estimator's 95\% half-width
+for the lead fell below the assisted reference's bias from \val{c4-smallest-f} of blocks (\val{c4-gap-f10-share} of
+epochs; half-width \val{c4-gap-f10-d2}, or \val{c4-gap-f10-d2-t-4dp} with the $t$ multiplier for 5 degrees of freedom, against a
+bias of \val{c4-gap-bias-4dp});
+single epochs needed 5\%, and the audited blocks alone needed more (Supplementary Table~\ref{tab:s-blocks}).
+
+\input{generated/tab_remedy.tex}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_remedy.pdf}
+\caption{Unassisted audits on PSG-IPA. 95\% half-widths of the audit estimates of (a) the pre-fill's lead over YASA
+and (b) the pre-fill's agreement with the unassisted consensus, against the share of epochs audited: random 30-minute
+blocks audited alone (D1) or combined with the assisted consensus by the difference estimator (D2), and single epochs
+(D2). The dashed line is the bias of the assisted reference.}
+\label{fig:remedy}
+\end{figure}
+
+\subsection{How FDA-cleared devices built their references}
+
+Of the \val{fda-modern} clearances under product code OLZ since \val{fda-first-year}, \val{fda-perf} reported clinical
+performance data
+(Supplementary Table~\ref{tab:s-fda}). Their references were experts scoring independently for the study in \val{fda-indep} (three scorers in
+\val{fda-indep-three}), a consensus not described as independent in \val{fda-consensus}, routine clinical scoring in
+\val{fda-routine}, a daily-practice panel in \val{fda-daily}, another cleared algorithm's unedited output in
+\val{fda-algo}, and not described in \val{fda-notdesc}. No summary reported whether reference scorers had worked from automatic pre-scoring by any software
+(\val{fda-manual-ref} called the reference manually scored, which the coding rule does not count), and only
+\val{fda-blind-explicit} stated that they had no access to the device's own output.
+Blinding to the device was implied by the design in \val{fda-blind-implied}, stated without an object in
+\val{fda-blind-object}, not applicable in \val{fda-blind-na} and not addressed in \val{fda-blind-none}. In the
+blind second coding, the coders agreed with the first coding on
+\val{d1-agree-min} to \val{d1-agree-max} of \val{fda-perf} summaries per field (kappa \val{d1-kappa-min} to
+\val{d1-kappa-max}); adjudicating the \val{d1-disagreements} disagreements changed \val{d1-changed} code, SomnoMetry's
+reference, to not described (Supplementary Table~\ref{tab:s-d1-items}).
+
+% =====================================================================
+\section{Discussion}
+
+In this dataset, references built by editing an algorithm's pre-scoring were closer to it than the same experts'
+unassisted references, in all four tasks and most where experts disagreed. In a benchmark of a commercial autoscorer, a thorough review changed 11.6\% of the staging epochs and introduced a
+bias toward one expert scorer \citep{choo2023}. The shift went toward the algorithm the experts saw and away from two they did not, and against the assisted
+reference the pre-fill outscored a stager that had matched it against the experts' unassisted judgment.
+
+\textbf{What the data establish.} Our design cannot settle whether assistance made the references more or less accurate, since the truth is unknown. Against the standard we used,
+the same experts' unassisted judgment, an assisted reference lies closer to the assisting algorithm, and two checks
+narrow the alternatives. First, the shift was consistent with one specific to the algorithm shown: where two stagers that the
+experts never saw disagreed with the pre-fill, the experts moved toward the pre-fill and away from both, so a general
+drift between sessions toward more typical or algorithm-like scoring does not explain it; a drift toward this
+center's conventions, on whose scorings the pre-fill's stager was developed and the other two were not, would produce
+the same pattern and cannot be separated from anchoring in this design. Second, experts adopted labels that most colleagues had rejected, with the units selected without the experts' own
+judgments; neither observation shows that the adopted labels were wrong. Many scoring decisions apply thresholds by eye, such as a limb movement's amplitude \citep{ferri2016} or a hypopnea's
+desaturation,
+and experts may share misses that a detector catches; the largest adoption lift (limb movements) and the larger
+anchoring for hypopneas than for apneas are compatible with such corrections, whereas N1, which lacks a threshold of
+the kind N3 and limb movements have and showed the largest stage lift, is where anchoring is the likelier reading. Keeping a pre-filled label costs nothing and changing it costs an action \citep{alvarezestevez2022}; ``anchoring''
+here names the outcome, not a process. Planted-error experiments could separate the readings \citep{holm2025}. For the qualitative claim the distinction does not matter: a reference edited from one algorithm's output copies
+its errors with its correct labels and cannot arbitrate between that algorithm and its competitors.
+
+\textbf{Consequences for validation.} In our data the assisted reference overstated the pre-fill's percent agreement by \val{b1-prefill-d0-bias},
+as much as its entire unassisted gap to YASA (\val{b1-gap-target}), and in kappa turned GSSC from level with the
+pre-fill into trailing it in every recording. Because anchoring is a shared influence rather than independent noise,
+adding experts does not remove it: in both model configurations a larger assisted majority converged on the pre-fill
+(Supplementary Figure~\ref{fig:s-simulation}). A stricter consensus does not help either: it keeps the easy epochs and drops those where algorithms differ, and
+in our data widened the pre-fill's lead. Clinical indices changed little and no severity category changed, so the clearest consequence concerns the
+comparison and clearance of algorithms rather than diagnosis.
+
+\textbf{How often could this reach practice?} In the OLZ clearances (other codes were not reviewed), the most common reference was experts scoring independently
+for the study (\val{fda-indep} of \val{fda-perf}), a design that can exclude pre-scoring; in \val{fda-unclear} it was
+routine clinical scoring, a daily-practice panel or not described, and no summary says whether
+the scorers worked from pre-scoring. Where laboratory software pre-scores automatically, routine scoring may be assisted \citep{alvarezestevez2019}.
+
+\textbf{Recommendations.} First, validation studies should report whether reference scorers saw any algorithm's
+output, and which. STARD 2015 item 13b \citep{bossuyt2015}, the QUADAS-2 reference-standard domain \citep{whiting2011} and TRIPOD+AI
+\citep{collins2024} already ask whether the reference was assessed without knowledge of the index test, which a
+reference edited from the index algorithm's output answers in the negative by design, and the FDA's 2025 draft guidance on
+AI-enabled devices asks how device outputs were blinded from the reference-standard determination \citep{fdaai2025};
+pre-scoring by any software, and a reference built with one algorithm's help and used to judge another, the comparison
+that in our data favored the assisting algorithm, are new items to report. The wording matters: ``computer-assisted scoring'' has meant both manual scoring in software
+\citep{kuna2013,malhotra2013} and editing an automatic scoring \citep{punjabi2015}. Second, where assisted references are used, a random sample of 30-minute blocks, drawn and concealed in advance,
+should be scored without assistance by scorers who have not seen the algorithm's labels, before the assisted
+pass or by a separate panel that has not worked with the algorithm; every epoch of an audited block is re-scored, so
+the software must withhold its pre-scoring there. In our data, auditing \val{c4-smallest-f} of blocks and combining the audit with the assisted reference
+\citep{angelopoulos2023} estimated the algorithm's lead within \val{c4-gap-f10-d2}, less than the bias it corrects; the
+fraction is this dataset's grid value (an audit elsewhere is sized so that its half-width falls below the smallest
+difference that matters), and a real audit by experts who also work with the algorithm would be less independent. Asking each expert for a committed judgment before revealing the suggestion is an alternative; anchoring varied
+widely between experts (Supplementary Table~\ref{tab:s-experts}), as automation-bias research would predict
+\citep{parasuraman2010}. Third, references produced with one algorithm's assistance should not be used to compare it with others, and
+datasets should document any pre-annotation and the model behind it \citep{gebru2021}, since reusing such labels to
+train new models passes that algorithm's decisions on. The same applies to model-assisted imaging datasets \citep{dreizin2023,li2024} and to annotation with large
+language models \citep{schroeder2025}.
+
+\textbf{Limitations.} The data come from one center, with 12 experts, five recordings per task and one family of research pre-fill
+algorithms by the dataset's authors; the pre-fill's stager was developed on this center's scorings and YASA and GSSC on cohorts
+elsewhere, so part of the pre-fill's lead may be real, and commercial autoscoring, other
+laboratories and scorers trained elsewhere may anchor more or less. The recordings sit at five percentiles of automatic-versus-clinical agreement (12.5th to 87.5th), so only the
+tails, where the algorithm fails most, are unrepresented. The assisted session always came at least four months after the manual one (a randomized order would have been
+better, as the dataset's creators noted \citep{alvarezestevez2022}), and whether these twelve experts used the algorithms in routine work before or between the sessions is not
+documented; at center level the arousal detector's reviewed output had produced part of the clinical arousal
+references before this dataset was scored (220 of 472 routine recordings \citep{alvarezestevez2019}), and the staging pre-fill comes from a stager developed on the center's clinical scorings
+\citep{alvarezestevez2021}, which version is not documented. Exposure before the manual session makes the measured shift a lower bound; exposure between the sessions would
+also move unassisted judgment toward the algorithm and inflate it. The negative control is consistent with a shift specific to the pre-fill rather than toward algorithm-like scoring
+but cannot detect one toward conventions that only the pre-fill encodes, and the selection of rejected
+labels assumes that experts label independently within a session. The clinical indices pool apneas and
+hypopneas without a documented hypopnea rule. The plans were dated and hashed but not registered, and the protocol and first amendment were committed with
+their results. The blind second coders were authors,
+blind to the codes but not to the hypothesis. A prospective study with randomized session order, or a replication with planted errors \citep{holm2025}, would
+address the open questions.
+
+% =====================================================================
+\section{Conclusions}
+
+In this dataset, references built by editing an algorithm's pre-scoring were closer to that algorithm than the same
+experts' unassisted scoring, and favored it over sleep stagers the experts never saw. Validations
+should report how their references were made, not compare an algorithm against references built with its help, and
+audit a random sample of blocks scored without assistance before any exposure to the algorithm's labels.
+
+% =====================================================================
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
