@@ -1,12 +1,17 @@
 # Provenance of this snapshot
 
-Built on 2026-10-28 from commit `aea48ddc74998187d0d238d2a09f0291c23201ee` of the private study repository, by
+Built on 2026-11-03 from commit `b091b9f0cbb51f81268b105eb2f1700803087300` of the private study repository, by
 `make_public_snapshot.py` (kept with the study records). Every tracked file was taken from that commit.
 
 ## Files not taken from Git
 
 - `outputs/psg_assist_bias_005/yasa_labels.json`: copied from the working tree (the private repository keeps `outputs/` out of Git); SHA-256 `4e3792b8955498ccb85e474c4b05ab9e2dbde7655b7bba1110843a0159102058`.
 - `outputs/psg_assist_bias_005/gssc_labels.json`: copied from the working tree (the private repository keeps `outputs/` out of Git); SHA-256 `2f4b4310edc376607f4cb119707ca66c62e6f8054e9b7cb676d4d29688d18a4f`.
+
+## Files changed on the way
+
+- `newpaper/psg_assist_bias_manuscript/main.tex`: the four co-authors' e-mail addresses are removed from the title page; the corresponding
+  author's remains. `main.pdf` beside it is built from this file.
 
 ## Files of the same folders left out
 
@@ -16,6 +21,7 @@ simulated pre-submission reviews, Overleaf packages and LaTeX build products:
 
 - `newpaper/psg_assist_bias_manuscript/CITATION_AUDIT.md`
 - `newpaper/psg_assist_bias_manuscript/COVER_LETTER_JSR.md`
+- `newpaper/psg_assist_bias_manuscript/EMAIL_PSG_IPA_AUTHORS_DRAFT_2026-11-03.md`
 - `newpaper/psg_assist_bias_manuscript/OUTLINE.md`
 - `newpaper/psg_assist_bias_manuscript/PAPER_CONFIGURATION.md`
 - `newpaper/psg_assist_bias_manuscript/PUBLIC_SNAPSHOT_2026-10-28.md`
@@ -123,13 +129,30 @@ simulated pre-submission reviews, Overleaf packages and LaTeX build products:
 - `newpaper/psg_assist_bias_manuscript/review_2026-10-26/suggested_reference_report.txt`
 - `newpaper/psg_assist_bias_manuscript/review_2026-10-26/tex_to_md.py`
 - `newpaper/psg_assist_bias_manuscript/review_2026-10-26/tool_call_audit.tsv`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/README.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/changes_2026-10-29_pass.diff`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/changes_plain_wording_2026-11-03.diff`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/changes_since_2026-10-27.diff`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/fidelity_check_2026-10-29.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/hostile_read_2026-10-29.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/letter_verification_2026-10-29.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/manuscript.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/manuscript_after_edits.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/manuscript_plain_2026-11-03.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/prompts/fidelity_check.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/prompts/hostile_read.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/prompts/letter_verification.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-10-29/tex_to_md.py`
 - `newpaper/psg_assist_bias_validation_practice_2026-09-29/BLIND_FDA_CODING_ANDH_2026-10-26.xlsx`
 - `newpaper/psg_assist_bias_validation_practice_2026-09-29/BLIND_FDA_CODING_PTD_2026-10-24.xlsx`
 - `newpaper/research_selection_2026-09-26_novelty/CANDIDATES.md`
 - `newpaper/research_selection_2026-09-26_novelty/SEARCH_LOG.json`
 - `newpaper/research_selection_2026-09-26_novelty/SOURCES.csv`
+- `newpaper/research_selection_2026-09-26_novelty/d2_clean_rerun_dhan_2026-10-29/environment.json`
+- `newpaper/research_selection_2026-09-26_novelty/d2_clean_rerun_dhan_2026-10-29/gssc_pip_list.log`
+- `newpaper/research_selection_2026-09-26_novelty/d2_clean_rerun_dhan_2026-10-29/yasa_pip_list.log`
 - `newpaper/research_selection_2026-09-26_novelty/public_snapshot_2026-10-28/README_PUBLIC.md`
 - `newpaper/research_selection_2026-09-26_novelty/public_snapshot_2026-10-28/compare_rerun.py`
 - `newpaper/research_selection_2026-09-26_novelty/public_snapshot_2026-10-28/make_public_snapshot.py`
 
-Files in the snapshot: 167; tracked content 3.4 MB.
+Files in the snapshot: 173; tracked content 3.4 MB.

@@ -278,6 +278,8 @@ class Amendment006DerivedValuesTests(unittest.TestCase):
         self.assertIn("Degrees of", tables["tab_s_blocks"])
         self.assertLess(float(values["c4-gap-f10-d2-t-4dp"]), float(values["c4-gap-bias-4dp"]))
         self.assertIn("multiplier", tables["tab_remedy"])
+        # The note gives the 10% t-multiplier half-width and the bias to four decimals, since both round to 0.059.
+        self.assertIn(f"{values['c4-gap-f10-d2-t-4dp']} against {values['c4-gap-bias-4dp']}", tables["tab_s_blocks"])
 
     def test_part_b_exploratory_configuration(self) -> None:
         values, tables = self._values_and_tables()
@@ -285,10 +287,35 @@ class Amendment006DerivedValuesTests(unittest.TestCase):
             self.assertIn(key, values)
         self.assertTrue(values["expl-m1"].startswith("0.0"), values["expl-m1"])
         self.assertIn("Exploratory", tables["tab_validation"])
+        # The note's sentence is complete: the exploratory anchoring against the observed value, then the calibrated fit.
+        self.assertIn(f"against the observed {values['sim-c4']}", tables["tab_validation"])
+        self.assertNotIn("against the calibrated configuration fits", tables["tab_validation"])
 
     def test_part_d_manual_reference_count(self) -> None:
         values, _ = self._values_and_tables()
         self.assertEqual(values["fda-manual-ref"], "10")  # 10 since the D1 adjudication of K221179 (28 October 2026)
+
+    def test_round_two_labels_on_tables_1_and_3(self) -> None:
+        """Final verification pass (29 October 2026), letter items R7 and R8: Table 1 labels the DiD session-matched
+        and reports the pre-fill's own gain in all units beside it; Table 3 labels its half-widths a known-variance
+        best case."""
+        values, tables = self._values_and_tables()
+        primary = tables["tab_primary"]
+        self.assertIn("Session-matched", primary)
+        self.assertIn(f"$\\Delta_{{\\mathrm{{auto}}}}>0$ in {values['m2-auto-units-pos']}/20", primary)
+        self.assertIn("population variances", tables["tab_remedy"])
+        self.assertIn("best case", tables["tab_remedy"])
+        # S9: intervals are descriptive, so no table header calls them confidence intervals.
+        for name, text in tables.items():
+            self.assertNotIn("% CI", text, name)
+
+    def test_indices_note_carries_the_closer_counts(self) -> None:
+        """Plain-wording pass (3 November 2026): the per-task 'closer to the assisted consensus' counts moved from
+        the Results to the note of the clinical-indices table."""
+        values, tables = self._values_and_tables()
+        note = tables["tab_s_indices"]
+        self.assertIn(f"{values['m4-resp-closer']} of 5 respiratory", note)
+        self.assertIn(f"{values['m4-arousals-closer']} of 5 arousal", note)
 
 
 class Amendment005D1Tests(unittest.TestCase):
@@ -340,3 +367,18 @@ class Amendment005D1Tests(unittest.TestCase):
         agreement = tables["tab_s_d1"]
         self.assertEqual(agreement.count("& P.T.D. &"), 3)
         self.assertEqual(agreement.count("& D.H.A.N. &"), 3)
+        # The note names the exposure on the 22 summaries with performance data, not on the 25-row sheet's numbering.
+        self.assertIn("the first 10 of the 22 summaries", agreement)
+        self.assertNotIn("summaries 1 to 10", agreement)
+        # Final verification pass, 29 October 2026: the blind-only agreement range for the Results (prose form), the
+        # caption names whose coding the coders were compared with, and the adjudication note names the adjudicator.
+        # Item 4 (K153412, blinding) was confirmed explicitly on 3 November 2026, so the note no longer carries the
+        # sentence that it had been decided by general assent; the pointer to the passages stays.
+        self.assertEqual((values["d1-blind-agree-min"], values["d1-blind-agree-max"]), ("8 of 10", "12 of 12"))
+        self.assertIn("AI's checked coding", agreement)
+        self.assertIn("the corresponding author, who had not coded", items)
+        self.assertNotIn("third author", items)
+        self.assertNotIn("general assent", items)
+        self.assertIn("in the study repository", items)
+        # Item 4 kept: the blinding counts are unchanged.
+        self.assertEqual((values["fda-blind-none"], values["fda-blind-implied"]), ("13", "5"))

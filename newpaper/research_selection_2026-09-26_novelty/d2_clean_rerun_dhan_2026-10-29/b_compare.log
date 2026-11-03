@@ -1,0 +1,37 @@
+values.tex: IDENTICAL (1090 values)
+    committed 959782c00fb21b472f4da16065d569e6fbd54c2b4c48b93215e8ce7430068d5c
+    re-run    959782c00fb21b472f4da16065d569e6fbd54c2b4c48b93215e8ce7430068d5c
+psg_assist_bias_001_report.json: equal within tolerance: 31 leaves differ by at most 1.110e-16
+    committed 3739e4cdfd2c93f49bab6c7c466867fe50ad116d0b27a19cada3497fea55e27d
+    re-run    876df93c193aad2c3bba4487e4680ee1fd4b49bb4e56cbb52e5e30c906636425
+psg_assist_bias_001_m5_yasa.json: equal within tolerance: 7 leaves differ by at most 2.220e-16
+    committed 075dd44bbdd16398ee6a3c402842d623aa626f6f19cbaa1a26a526277b8ca089
+    re-run    4930adb37885c8cbbcb984d937e0be72234d9c61e87fd5ced5aa1be22b67b24f
+psg_assist_bias_001_exploratory_ranking.json: equal within tolerance: 1 leaves differ by at most 1.110e-16
+    committed 90a8d1996d0174e164241d5df6e2468224f0bc28856bb011f429b9ddb015d700
+    re-run    788404afb0ebfce23961be1ebee618c418502c918065be144ba26cc3e12c875e
+psg_assist_bias_002_report.json: equal within tolerance: 3 leaves differ by at most 5.551e-17
+    committed c01bdf0af3805084a2d75f76eef45c7dde26b037919d6eb1e59a833a4bd953b3
+    re-run    e553ad5a583003e22830d70e41ef470cb4e9d18e89e8f9d46eb53a2341d1df6a
+psg_assist_bias_003_simulation.json: equal within tolerance: 2 leaves differ by at most 1.110e-16
+    committed 1b9457d5696de7033b0120e5a3b61112befbf2ac59654db9d632c96f4ef62043
+    re-run    4df8b3288606e6642c62785af3297a24d9e786667f3e6bb5a0e0692c320a68da
+psg_assist_bias_004_report.json: equal within tolerance: 6 leaves differ by at most 2.220e-16
+    committed 1eab0e759278592dd0a0cd10c772f5cddbf0ce32289c3add7bd31507d95359f7
+    re-run    20ddd5c3afbab2e5093fda88ef8a413770cdf449670ce98934ced61f1dbb20bc
+psg_assist_bias_005_report.json: equal within tolerance: 41 leaves differ by at most 2.220e-16
+    committed 8f002466f0d7c20026e2dbcb9e32814e4f6338578f860e493f3de5fd4161409d
+    re-run    ef4f2f74a7322c2d4afd2d8529b31330f55842262dada1b9b844be45e0f3d3fa
+psg_assist_bias_005_crosscheck.json: byte-identical to the committed file
+    committed 8afb1bea065929dbacb6f9c41002563af89e0d0c566b41948d2a48313f39f586
+    re-run    8afb1bea065929dbacb6f9c41002563af89e0d0c566b41948d2a48313f39f586
+psg_assist_bias_003_grid.csv: identical
+    committed 9cfee2e41d7f4aa9b1b0694e523baf2dd7c4bc5b77f9b56cff043148c77a665e
+    re-run    9cfee2e41d7f4aa9b1b0694e523baf2dd7c4bc5b77f9b56cff043148c77a665e
+yasa_labels.json: 0 of 5103 epochs differ
+    committed 628ef0c4c5c484eb8859e5e29b0b9b443f33c28d00299a44ebb1ca0d690ec2d4
+    re-run    628ef0c4c5c484eb8859e5e29b0b9b443f33c28d00299a44ebb1ca0d690ec2d4
+gssc_labels.json: 0 of 5103 epochs differ
+    committed 86bfb2b38c8276134c2851c31b2d8e39d3a7cd53e502a92645e700b08f56161b
+    re-run    86bfb2b38c8276134c2851c31b2d8e39d3a7cd53e502a92645e700b08f56161b
+RESULT: PASS

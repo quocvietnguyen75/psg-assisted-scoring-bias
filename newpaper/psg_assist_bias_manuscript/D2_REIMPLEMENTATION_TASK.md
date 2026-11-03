@@ -3,7 +3,8 @@
 **Status, 28 October 2026.** Part one is done. The staging measures (received 24 October) and, at the second simulated
 review's request, the anchoring measure for the three event tasks (received 27 October) all agree with the study's
 values to floating-point rounding; the manuscript reports this in the statement on generative AI and the Supplementary
-Methods. Part two, the clean re-run, waits for the public repository, which is built at submission.
+Methods. Part two, the clean re-run, was done on 29 October from a fresh clone of the repository with freshly
+downloaded data, in both tiers: every generated value and both stager label files were reproduced (RESULT: PASS).
 
 This is part D2 of [amendment 005](../plan/PSG_ASSIST_BIAS_AMENDMENT_005_2026-10-12.md). Reviewers asked for a human
 check of the analysis code, which an AI assistant wrote. The check counts only if the person doing it has **not read

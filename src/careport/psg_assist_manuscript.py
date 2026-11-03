@@ -437,6 +437,15 @@ def _d1_values(v: dict[str, str], codes: Sequence[Mapping[str, str]], devices: S
                     kappa_all.append(kappa)
     v["d1-agree-min"], v["d1-agree-max"] = str(min(agree_all)), str(max(agree_all))
     v["d1-kappa-min"], v["d1-kappa-max"] = f"{min(kappa_all):.3f}", f"{max(kappa_all):.3f}"
+    # The blind-only agreement range for the Results, in prose form ("8 of 10"): the lowest and highest fraction over
+    # the six coder-by-field cells, each over the summaries for which that coder was blind.
+    blind_cells: list[tuple[float, int, int]] = []
+    for short, tag, _ in D1_CODERS:
+        for fshort, field, _ in D1_FIELDS:
+            n_agree, n_blind = (int(x) for x in v[f"d1-{short}-{fshort}-blind-agree"].split("/"))
+            blind_cells.append((n_agree / n_blind, n_agree, n_blind))
+    lo, hi = min(blind_cells), max(blind_cells)
+    v["d1-blind-agree-min"], v["d1-blind-agree-max"] = f"{lo[1]} of {lo[2]}", f"{hi[1]} of {hi[2]}"
     for fshort, field, _ in D1_FIELDS:
         rows = [r for r in codes if r["field"] == field]
         a, b = [r["PTD_code"] for r in rows], [r["DHAN_code"] for r in rows]
@@ -765,13 +774,16 @@ def render_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[str, str
         "Primary results by task. Agreement is Cohen's kappa for sleep stages and event F1 for the event tasks.",
         "tab:primary", "lccccc",
         ["Task", "Anchoring $\\Delta A$\\\\(95\\% interval)", "Experts\\\\$>0$", "$\\Delta_{\\mathrm{auto}}$\\\\range",
-         "$\\Delta_{\\mathrm{human}}$\\\\range", "Inflation DiD\\\\(95\\% interval)"], rows,
+         "$\\Delta_{\\mathrm{human}}$\\\\range", "Session-matched\\\\inflation DiD (95\\% interval)"], rows,
         note=(f"Anchoring: assisted minus manual agreement of the same expert with the pre-fill, averaged over 12 "
               f"experts and 5 recordings. Experts $>0$: the number of the 12 experts whose mean anchoring over the task's "
               f"recordings is positive. $\\Delta_{{\\mathrm{{auto}}}}$: change in the pre-fill's agreement from the "
               f"manual to the assisted consensus; $\\Delta_{{\\mathrm{{human}}}}$: the same change for each expert's manual "
               f"scoring against the other 11 experts' consensus (ranges over the 5 recordings). DiD "
-              f"$=\\Delta_{{\\mathrm{{auto}}}}-\\Delta_{{\\mathrm{{human}}}}$. Intervals are crossed-bootstrap intervals "
+              f"$=\\Delta_{{\\mathrm{{auto}}}}-\\Delta_{{\\mathrm{{human}}}}$, a comparison against session-matched raters: "
+              f"a difference between sessions unrelated to the pre-fill lowers $\\Delta_{{\\mathrm{{human}}}}$ and raises "
+              f"the DiD, whereas $\\Delta_{{\\mathrm{{auto}}}}>0$ in {v['m2-auto-units-pos']}/20 units needs no "
+              f"session-matched baseline. Intervals are crossed-bootstrap intervals "
               f"over experts and recordings and are descriptive. Exact sign tests over the 20 recording-task units: "
               f"anchoring positive in {v['m1-sign-pos']}/20 ($p={v['m1-sign-p']}$), inflation in "
               f"{v['m2-sign-pos']}/20 ($p={v['m2-sign-p']}$)."), size="\\footnotesize")
@@ -836,7 +848,7 @@ def render_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[str, str
               "are compared by sign only: their observed values are kappa (YASA), the model's percent agreement. "
               f"Exploratory: the configuration examined after the independent-rater checks ($\\alpha$ = {v['expl-alpha']}, "
               f"consistency {v['expl-consistency']}; amendment 006), whose anchoring M1 is {v['expl-m1']} against the "
-              "calibrated configuration fits the pooled anchoring measure by construction."),
+              f"observed {v['sim-c4']}; the calibrated configuration fits the pooled anchoring measure by construction."),
         size="\\footnotesize")
     rows = []
     for p in sim["calibrated_point"]:
@@ -878,8 +890,9 @@ def render_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[str, str
          f"10\\% of blocks\\\\D1 / D2", f"20\\% of blocks\\\\D1 / D2"], rows,
         note=(f"Audits draw whole blocks at random within each recording; 10\\% of blocks hold {v['c4-gap-f10-share']} "
               f"and 20\\% hold {v['c4-gap-f20-share']} of the epochs. Audit columns give 95\\% half-widths from exact "
-              "formulas for stratified sampling of blocks, with the large-sample multiplier (Supplementary "
-              "Table~\\ref{tab:s-blocks} gives the $t$-multiplier values). D1: the audited blocks alone; D2: the difference estimator "
+              "formulas for stratified sampling of blocks, with the population variances and the large-sample multiplier, "
+              "a known-variance best case (Supplementary Table~\\ref{tab:s-blocks} gives the $t$-multiplier values). "
+              "D1: the audited blocks alone; D2: the difference estimator "
               "combining them with the assisted consensus on all epochs. Both are unbiased by construction. Biases and "
               "half-widths are computed from unrounded values. Supplementary Table~\\ref{tab:s-blocks} gives other audit "
               "sizes and the single-epoch audits."), size="\\footnotesize")
@@ -911,7 +924,7 @@ def _supplementary_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[
              for kind in ("apnea", "hypopnea")]
     t["tab_s_r1r2"] = _table(
         "Acceptance lift by the pre-fill's sleep stage (R1) and anchoring by respiratory event type (R2).",
-        "tab:s-r1r2", "lc", ["Stratum", "Lift or anchoring (95\\% CI)"], rows,
+        "tab:s-r1r2", "lc", ["Stratum", "Lift or anchoring (95\\% interval)"], rows,
         note="R1: P(assisted label = pre-fill) minus P(manual label = pre-fill), for epochs the pre-fill labels with that stage. R2: M1 anchoring in event F1.",
         size="\\footnotesize")
     rows = []
@@ -997,7 +1010,10 @@ def _supplementary_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[
         "llcccc", ["Task", "Recording", "Pre-fill", "Manual\\\\consensus", "Assisted\\\\consensus", "Assisted minus\\\\manual"],
         rows, note=("Hours of sleep from the dataset's context stages. Respiratory events pool apneas and hypopneas; the "
                     "brackets give the adult severity category of the manual and assisted consensus (thresholds 5, 15 and "
-                    f"30 events per hour), which differed in {v['m4-resp-cat-changed']} of 5 recordings. Descriptive."),
+                    f"30 events per hour), which differed in {v['m4-resp-cat-changed']} of 5 recordings. The pre-fill's "
+                    f"index lay closer to the assisted than to the manual consensus in {v['m4-resp-closer']} of 5 respiratory "
+                    f"and {v['m4-limb-closer']} of 5 limb-movement recordings, but in {v['m4-arousals-closer']} of 5 arousal "
+                    "recordings, where assisted experts added arousals beyond those in the pre-fill. Descriptive."),
         size="\\footnotesize")
     rows = []
     for key, short, name in TASKS:
@@ -1033,7 +1049,8 @@ def _supplementary_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[
               "$t_{0.975}$ with the audit's degrees of freedom (audited blocks minus the five recording strata), as an "
               "audit estimating the within-stratum variance from its own blocks would; the standard error itself still "
               f"uses the population variances. Under the $t$ multiplier the half-width falls below the bias from "
-              f"{v['c4-smallest-f-t']} of blocks."), size="\\footnotesize")
+              f"{v['c4-smallest-f-t']} of blocks (at 10\\%, {v['c4-gap-f10-d2-t-4dp']} against {v['c4-gap-bias-4dp']})."),
+        size="\\footnotesize")
     sim = rep["sim"]
     rows = [["Base", v["sim-n12-maj-bias-assisted"], v["sim-n12-maj-hcap-assisted"], v["sim-n12-maj-brk-assisted"]]]
     for name, label in (("S1_scorer_spread", "S1: expert ability spread 0.5"), ("S2_consistency", "S2: intra-rater consistency 0.5"),
@@ -1105,12 +1122,12 @@ def _supplementary_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[
     n_not_said = sum(r["first_round_code"] == "not said" for r in codes if r["field"] == "prescoring_reported")
     t["tab_s_d1"] = _table(
         f"Blind second coding of the {v['fda-perf']} FDA summaries with performance data (amendment 005, D1): "
-        "agreement of each coder with the first coding, overall and by the coder's exposure.", "tab:s-d1", "llccc",
+        "agreement of each coder with the AI's checked coding, overall and by the coder's exposure.", "tab:s-d1", "llccc",
         ["Field", "Coder", f"All {v['fda-perf']}\\\\agreement (kappa)", "Blind summaries\\\\agreement (kappa)",
          "Previously checked\\\\agreement (kappa)"], rows,
-        note=("Unweighted Cohen's kappa over the coding sheet's categories (6, 5 and 5). P.T.D. had checked summaries 1 "
-              "to 10 in the first round and D.H.A.N. summaries 11 to 22, and each had then seen the AI's codes for them, "
-              "so each was blind for the other's summaries only. Kappa is unstable where the first coding is nearly "
+        note=("Unweighted Cohen's kappa over the coding sheet's categories (6, 5 and 5). P.T.D. had checked the first 10 "
+              f"of the {v['fda-perf']} summaries in the first round and D.H.A.N. the other 12, and each had then seen the "
+              "AI's codes for them, so each was blind for the other's summaries only. Kappa is unstable where the first coding is nearly "
               f"constant: pre-scoring was ``not said'' in {n_not_said} of {v['fda-perf']} summaries, and on D.H.A.N.'s "
               "blind summaries every first code was ``not said'', so any agreement short of 10 of 10 gives kappa 0."),
         size="\\footnotesize")
@@ -1142,8 +1159,9 @@ def _supplementary_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[
         "tab:s-d1-items", "llllll",
         ["510(k)", "Device", "Field", "First coding", "Coder's code (coder, exposure)", "Adjudicated"],
         [i[:6] for i in items],
-        note=("``Blind'': the coder had not checked that summary in the first round. The adjudication, by a third author "
-              f"who had not coded, {outcome}; Table~\\ref{{tab:s-fda}} and the Results follow the adjudicated coding."),
+        note=("``Blind'': the coder had not checked that summary in the first round. The adjudication, by the corresponding "
+              f"author, who had not coded, {outcome}; Table~\\ref{{tab:s-fda}} and the Results follow the adjudicated "
+              "coding. The passages behind every item and both coders' quotations are in the study repository."),
         size="\\footnotesize")
     # Supplementary tables stay in order under their heading.
     return {name: text.replace("\\begin{table}[tbp]", "\\begin{table}[h!]") for name, text in t.items()}

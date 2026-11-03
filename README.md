@@ -2,7 +2,7 @@
 
 Analysis code, dated analysis plans, aggregate results and the manuscript source of the study *Reference standards
 built by editing automatic pre-scoring were closer to the assisting algorithm than the same experts' unassisted
-scoring: a paired study of polysomnography scoring* (Quoc Viet Nguyen, Phuc Tai Duong, Duc Hoai Anh Nguyen, Dzung Van
+scoring: a paired study of polysomnography scoring* (Quoc Viet Nguyen, Duc Hoai Anh Nguyen, Phuc Tai Duong, Dzung Van
 Dinh, Zengchang Qin; manuscript prepared for the *Journal of Sleep Research*, 2026; preprint link to be added).
 
 The data are **PSG-IPA 1.0.0** (PhysioNet, CC BY 4.0: https://doi.org/10.13026/ESX0-NW71). This repository does not
@@ -28,9 +28,10 @@ code in this repository; nothing is typed by hand.
 
 ## Reproducing the results
 
-The pipeline is deterministic (fixed seeds, standard-library arithmetic), so a re-run should reproduce the committed
-reports byte for byte (their `frozen_at` field is the plan's freeze date, not a run time) and the manuscript values
-byte for byte after line-ending normalisation. Two tiers: tier A needs Python only; tier B adds the stager environments.
+The pipeline is deterministic (fixed seeds, standard-library arithmetic), so a re-run should reproduce the manuscript
+values byte for byte after line-ending normalisation and the committed reports to the last floating-point bit (their
+`frozen_at` field is the plan's freeze date, not a run time; see "On determinism" below for the one source of
+last-bit differences). Two tiers: tier A needs Python only; tier B adds the stager environments.
 
 ### 1. Data
 

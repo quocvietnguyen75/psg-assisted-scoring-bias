@@ -158,9 +158,11 @@ Decisions are the adjudicator's to record below each item.
 - Definitions: as in item 2.
 - Effect: blind-none 13 to 12, blind-implied 5 to 6; Table S9 row.
 - Decision: **keep** (Q.V.N., 28 October 2026). The guide's answer line for item 4 was left blank; the decision rests on
-  the adjudicator's chat message of 28 October ("I agree") to the recommendations, which read keep for item 4. To be
-  confirmed explicitly by the adjudicator; if reversed, the blinding counts move (not stated 13 to 12, implied by
-  design 5 to 6) and the Results sentence on blinding changes.
+  the adjudicator's chat message of 28 October ("I agree") to the recommendations, which read keep for item 4. Confirmed explicitly by the adjudicator on 3 November 2026. Asked to keep or reverse, with the case for each set
+  out (each of the five summaries coded implied by design has a sentence stating the separation of the device run
+  from the human scoring; this one says only that the device's signals were recorded concurrently with the PSG, and
+  item 2, the 2012 Sleep Profiler, was kept on the same rule), Q.V.N. replied "Go with your recommendation", which
+  was keep. The blinding counts stand (not stated 13, implied by design 5).
 
 ### 5. K153412, Sleep Profiler (2016): pre-scoring
 
@@ -275,6 +277,7 @@ Decisions are the adjudicator's to record below each item.
 
 - D.H.A.N.: the GitHub repository that held the D2 package was still public on 28 October; the request to make it
   private stands.
-- User: confirm item 4 explicitly (its answer line in the guide is blank; see its decision line above).
+- Closed 3 November 2026: item 4 confirmed explicitly (see its decision line). The sentence on general assent was
+  removed from the note of Table S18 the same day; the guide's blank answer line is left as received.
 - Before any public snapshot: clear the workbook properties (the coders' names and ID-like numbers) or leave the
   sheets out.

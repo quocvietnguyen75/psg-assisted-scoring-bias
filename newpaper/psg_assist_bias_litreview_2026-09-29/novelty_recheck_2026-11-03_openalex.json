@@ -1,0 +1,230 @@
+{
+ "run": "2026-11-03 16:46",
+ "queries": [
+  {
+   "seed": "alvarezestevez2022 (PSG-IPA study, PLOS ONE)",
+   "doi": "10.1371/journal.pone.0275530",
+   "openalex": "W4297990653",
+   "cited_by_count": 17,
+   "citing_newest": [
+    "2026-10-11 | Manual Sleep Stage and Arousal Scoring Agreement between a Reduced Montage and Conventional Polysomnography in Adults with Obstructive Sleep Apnea | Research Square | https://doi.org/10.21203/rs.3.rs-10777912/v1",
+    "2026-08-04 | The human sleep project: a multi-center clinical polysomnography dataset across the human lifespan | SLEEP | https://doi.org/10.1093/sleep/zsag215",
+    "2026-05-08 | Toward Physiology-based Sleep Assessment: the Emerging Clinical Role of Advanced RIP Technology | Current Pulmonology Reports | https://doi.org/10.1007/s13665-026-00410-w",
+    "2026-02-25 | Analysis of federated learning on non-independent and identically distributed sleep data | Physiological Measurement | https://doi.org/10.1088/1361-6579/ae4a82",
+    "2025-07-03 | Evaluation of Scoring Reliability in Polysomnography at a Single Sleep Center in Thailand | The Neurodiagnostic Journal | https://doi.org/10.1080/21646821.2025.2536408",
+    "2025-04-30 | Bewertung von KI-Algorithmen für die klinische PSG-Auswertung am Beispiel der Apnoe-Erkennung | Somnologie - Schlafforschung und Schlafmedizin | https://doi.org/10.1007/s11818-025-00505-7",
+    "2025-03-17 | Multi-Task Deep-Learning for Sleep Event Detection and Stage Classification | ? | https://doi.org/10.1109/cihmcompanion65205.2025.11002700",
+    "2025-03-12 | Awakening Sleep Medicine: The Transformative Role of Artificial Intelligence in Sleep Health | Current Sleep Medicine Reports | https://doi.org/10.1007/s40675-025-00328-w",
+    "2025-02-11 | Overview of Respiratory Sensor Solutions to Support Patient Diagnosis and Monitoring | Sensors | https://doi.org/10.3390/s25041078",
+    "2024-11-04 | Temporal and sleep stage‐dependent agreement in manual scoring of respiratory events | Journal of Sleep Research | https://doi.org/10.1111/jsr.14391",
+    "2024-10-23 | Retrospective validation of automatic sleep analysis with grey areas model for human‐in‐the‐loop scoring approach | Journal of Sleep Research | https://doi.org/10.1111/jsr.14362",
+    "2024-05-13 | An optimized framework for processing multicentric polysomnographic data incorporating expert human oversight | Frontiers in Neuroinformatics | https://doi.org/10.3389/fninf.2024.1379932",
+    "2023-12-22 | Respiratory event index underestimates severity of sleep apnea compared to apnea-hypopnea index | SLEEP Advances | https://doi.org/10.1093/sleepadvances/zpad054",
+    "2023-12-17 | Automatic Sleep Quality Analysis Using an Artificial Intelligence algorithm and EEG Signal Processing | Journal of Artificial Intelligence and Technology | https://doi.org/10.37965/jait.2023.0424",
+    "2023-10-02 | Use of Deep Learning Techniques for Motor Events Detection in Polysomnographic Records | XoveTIC Conference (XoveTIC) | https://doi.org/10.17979/spudc.000024.45",
+    "2023-08-31 | Decentralized Data-Privacy Preserving Deep-Learning Approaches for Enhancing Inter-Database Generalization in Automatic Sleep Staging | IEEE Journal of Biomedical and Health Informatics | https://doi.org/10.1109/jbhi.2023.3310869",
+    "2023-06-16 | Challenges of Applying Automated Polysomnography Scoring at Scale | Sleep Medicine Clinics | https://doi.org/10.1016/j.jsmc.2023.05.002"
+   ]
+  },
+  {
+   "seed": "alvarezestevez2019 (arousal detector, reviewed output in the reference)",
+   "doi": "10.1016/j.sleep.2019.01.025",
+   "openalex": "W2891355653",
+   "cited_by_count": 26,
+   "citing_newest": [
+    "2026-02-20 | Wearable Electrodermal Activity Reveals Sustained Sympathetic Responses to Sleep Arousals | medRxiv | https://doi.org/10.64898/2026.02.19.26346633",
+    "2026-02-10 | TFR-GANNet: Multi-channel time–frequency ridge fusion and CWGAN-GP for sleep arousal identification | Biomedical Signal Processing and Control | https://doi.org/10.1016/j.bspc.2026.109846",
+    "2026-01-29 | The Infraslow Fluctuation of Sigma Power During Sleep: Links to Markers of Arousal and Memory Reactivation Across Development | Sleep Medicine | https://doi.org/10.1016/j.sleep.2025.107032",
+    "2026-01-13 | Development of a probability model for high-resolution drowsiness detection using electroencephalogram | Sleep Medicine | https://doi.org/10.1016/j.sleep.2025.108733",
+    "2025-09-27 | Application of down-phase targeted auditory stimulation during sleep in a home setting: A feasibility study across seven consecutive nights | Sleep Medicine | https://doi.org/10.1016/j.sleep.2025.106830",
+    "2025-07-16 | An approach to arousal disorder classification using deformable convolution and adaptive multiscale features in EEG signals | Brain Research Bulletin | https://doi.org/10.1016/j.brainresbull.2025.111468",
+    "2025-07-03 | Evaluation of Scoring Reliability in Polysomnography at a Single Sleep Center in Thailand | The Neurodiagnostic Journal | https://doi.org/10.1080/21646821.2025.2536408",
+    "2025-04-21 | Interrelationships between sleep quality, circadian phase and rapid eye movement sleep: Deriving chronotype from sleep architecture | Behavior Research Methods | https://doi.org/10.3758/s13428-025-02671-w",
+    "2025-02-28 | Pupil size reveals arousal level fluctuations in human sleep | Nature Communications | https://doi.org/10.1038/s41467-025-57289-5",
+    "2025-02-14 | Regulation of peripheral glucose levels during human sleep | SLEEP | https://doi.org/10.1093/sleep/zsaf042",
+    "2024-07-14 | State-of-the-art sleep arousal detection evaluated on a comprehensive clinical dataset | Scientific Reports | https://doi.org/10.1038/s41598-024-67022-9",
+    "2023-11-03 | Do ticks exhibit repeatable individual behaviors? | Experimental and Applied Acarology | https://doi.org/10.1007/s10493-023-00850-y",
+    "2023-09-28 | Multi-task learning for arousal and sleep stage detection using fully convolutional networks | Journal of Neural Engineering | https://doi.org/10.1088/1741-2552/acfe3a",
+    "2023-07-24 | Real-Time Detection of Sleep Arousals with a Head-Mounted Accelerometer | Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC) | https://doi.org/10.1109/embc40787.2023.10340686",
+    "2023-05-29 | The accuracy and difference of scoring rules and methods to score respiratory event-related leg movements in obstructive sleep apnea patients | Sleep Medicine | https://doi.org/10.1016/j.sleep.2023.05.016",
+    "2023-03-03 | MSED: A Multi-Modal Sleep Event Detection Model for Clinical Sleep Analysis | IEEE Transactions on Biomedical Engineering | https://doi.org/10.1109/tbme.2023.3252368",
+    "2022-09-29 | Computer-assisted analysis of polysomnographic recordings improves inter-scorer associated agreement and scoring times | PLoS ONE | https://doi.org/10.1371/journal.pone.0275530",
+    "2022-07-06 | Effects of auditory sleep modulation approaches on brain oscillatory and cardiovascular dynamics | SLEEP | https://doi.org/10.1093/sleep/zsac155",
+    "2022-04-04 | Auditory deep sleep stimulation in older adults at home: a randomized crossover trial | Communications Medicine | https://doi.org/10.1038/s43856-022-00096-6",
+    "2021-08-16 | Inter-database validation of a deep learning approach for automatic sleep scoring | PLoS ONE | https://doi.org/10.1371/journal.pone.0256111",
+    "2021-01-04 | DeepSleep convolutional neural network allows accurate and fast detection of sleep arousal | Communications Biology | https://doi.org/10.1038/s42003-020-01542-8",
+    "2020-07-16 | Validation of an Automatic Arousal Detection Algorithm for Whole-Night Sleep EEG Recordings | Clocks & Sleep | https://doi.org/10.3390/clockssleep2030020",
+    "2020-06-10 | Sleep-related leg movements in obstructive sleep apnea: definitions, determinants, and clinical consequences | Sleep Medicine | https://doi.org/10.1016/j.sleep.2020.06.004",
+    "2020-04-02 | Automatic detection of cortical arousals in sleep and their contribution to daytime sleepiness | Clinical Neurophysiology | https://doi.org/10.1016/j.clinph.2020.02.027",
+    "2019-07-10 | Development of a human-computer collaborative sleep scoring system for polysomnography recordings | PLoS ONE | https://doi.org/10.1371/journal.pone.0218948",
+    "2019-01-01 | DeepSleep: Fast and Accurate Delineation of Sleep Arousals at Millisecond Resolution by Deep Learning | bioRxiv (Cold Spring Harbor Laboratory) | https://doi.org/10.1101/859256"
+   ]
+  },
+  {
+   "seed": "holm2026 (World of ScoreCraft, JSR)",
+   "doi": "10.1111/jsr.70113",
+   "openalex": "W4411441405",
+   "cited_by_count": 0,
+   "citing_newest": []
+  },
+  {
+   "seed": "psgipa (PhysioNet dataset)",
+   "doi": "10.13026/esx0-nw71",
+   "openalex": "W7119534648",
+   "cited_by_count": 0,
+   "citing_newest": []
+  },
+  {
+   "search": "assisted scoring polysomnography reference standard",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 582,
+   "top": [
+    "2026-08-24 | Polysomnography as the standard diagnostic tool for obstructive sleep apnea: A systematic review | Archives of Dental Research | https://doi.org/10.18231/j.adr.17504.1784794683",
+    "2026-09-18 | Improving sleep monitoring in athletes: a comparative evaluation of four automated sleep scoring algorithms on 204 polysomnography recordings | Physiological Measurement | https://doi.org/10.1088/1361-6579/aea9ea",
+    "2026-09-16 | Assessment of Screening Scores and Upper Airway Metrics as Diagnostic Alternatives to Polysomnography in Obstructive Sleep Apnea | Indian Journal of Sleep Medicine | https://doi.org/10.5005/jp-journals-10069-0196",
+    "2026-10-11 | Manual Sleep Stage and Arousal Scoring Agreement between a Reduced Montage and Conventional Polysomnography in Adults with Obstructive Sleep Apnea | Research Square | https://doi.org/10.21203/rs.3.rs-10777912/v1",
+    "2026-03-01 | EEG-motion: a novel algorithm that detect restless legs syndrome using EEG signals on polysomnography | Neural Computing and Applications | https://doi.org/10.1007/s00521-026-11929-z",
+    "2026-05-14 | Correlation of the Thai Richards–Campbell Sleep Questionnaire and actigraphy with polysomnography for sleep assessment in ICU patients | Scientific Reports | https://doi.org/10.1038/s41598-026-51213-7",
+    "2026-02-11 | Steam-assisted respiratory muscle training may improve sleep quality in mild-to-moderate obstructive sleep apnea: a pilot polysomnography study | Journal of Clinical Sleep Medicine | https://doi.org/10.1007/s44470-025-00036-w",
+    "2026-01-19 | Predicting Polysomnography‑derived Sleep Efficiency and Total Sleep Time Using Clinical Questionnaires: A Machine Learning Approach | Clinical Psychopharmacology and Neuroscience | https://doi.org/10.9758/cpn.25.1354",
+    "2026-01-01 | Artificial Intelligence for Sleep Medicine and Sleep Disorder Diagnosis: A Systematic Review of Deep Learning Models for Polysomnography, Home Sleep Apnea Testing, and Wearable Device Analysis | Journal of Artificial Intelligence for Healthcare Systems | https://doi.org/10.68159/a301881188",
+    "2026-05-19 | Staging by the Book: Automatic Sleep Stage Classification Using Scoring Rules | ePrints Soton (University of Southampton) | https://doi.org/10.48550/arxiv.2605.22859",
+    "2026-01-01 | Evaluating Machine Learning Performance Across Clinical Polysomnography (PSG) and Wearable IoT Sleep Data: Feature Reduction and Harmonization Analysis | Jyväskylä University Digital Archive (University of Jyväskylä) | None",
+    "2026-10-22 | Objective Measures of Sleep Quality and Associations with Cognition in Assisted Living Residents: Comparison with Community Dwelling Residents. | Research Square | https://doi.org/10.21203/rs.3.rs-10766328/v1"
+   ]
+  },
+  {
+   "search": "semi-automatic scoring polysomnography agreement",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 95,
+   "top": [
+    "2026-08-03 | Automatic sleep staging and atonia detection in RBD using single-channel chin EMG | Journal of Parkinson s Disease | https://doi.org/10.1177/1877718x261468531",
+    "2026-03-01 | EEG-motion: a novel algorithm that detect restless legs syndrome using EEG signals on polysomnography | Neural Computing and Applications | https://doi.org/10.1007/s00521-026-11929-z",
+    "2026-02-27 | Automatic sleep scoring for real-time monitoring and stimulation in individuals with and without sleep apnea | Computers in Biology and Medicine | https://doi.org/10.1016/j.compbiomed.2026.111560",
+    "2026-03-06 | Performance of a Semi-Automated Hierarchical Rest Interval Detection Pipeline (actiSleep) for Wrist Actigraphy in Adolescents | medRxiv | https://doi.org/10.64898/2026.03.05.26347744",
+    "2026-10-01 | Automated Versus Manual PSG Scoring: Evaluation of Somnolyzer in a Clinical Cohort | Eurasian Journal of Pulmonology | https://doi.org/10.14744/ejp.2026.67756",
+    "2026-08-06 | SHAE: A SHAP-guided adaptive ensemble framework for automatic sleep staging | Brain Research Bulletin | https://doi.org/10.1016/j.brainresbull.2026.112066",
+    "2026-07-28 | Nyx: a flexible framework for sleep scoring across species, lifespan and modalities | bioRxiv (Cold Spring Harbor Laboratory) | https://doi.org/10.64898/2026.07.24.740558",
+    "2026-08-05 | Automated sleep scoring in hibernating and non-hibernating American black bears | PLoS ONE | https://doi.org/10.1371/journal.pone.0352640",
+    "2026-08-27 | Unsupervised domain transfer: overcoming signal degradation in sleep monitoring by increasing scoring realism | Journal of Neural Engineering | https://doi.org/10.1088/1741-2552/ae9f96",
+    "2026-09-18 | Artificial intelligence for sleep-disordered breathing: a taxonomy of methods, data modalities, and clinical applications | Frontiers in Sleep | https://doi.org/10.3389/frsle.2026.1927453",
+    "2026-10-22 | Objective Measures of Sleep Quality and Associations with Cognition in Assisted Living Residents: Comparison with Community Dwelling Residents. | Research Square | https://doi.org/10.21203/rs.3.rs-10766328/v1",
+    "2026-01-01 | Interpretable Streaming Sleep Staging via Physiologically Adaptive Test-Time Training | SSRN Electronic Journal | https://doi.org/10.2139/ssrn.7411994"
+   ]
+  },
+  {
+   "search": "automatic sleep staging validation reference standard bias",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 749,
+   "top": [
+    "2026-07-09 | Automatic sleep staging in patients with suspected sleep disorders: a comparison of existing methods on portable setups | medRxiv | https://doi.org/10.64898/2026.07.06.26357378",
+    "2026-01-23 | Automatic Sleep Staging Using SleepXLSTM Based on Heterogeneous Representation of Heart Rate Data | Electronics | https://doi.org/10.3390/electronics15030505",
+    "2026-08-03 | Automatic sleep staging and atonia detection in RBD using single-channel chin EMG | Journal of Parkinson s Disease | https://doi.org/10.1177/1877718x261468531",
+    "2026-08-06 | StageGuard: Physiologically Constrained Sleep Staging | ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD) | https://doi.org/10.1145/3770855.3818916",
+    "2026-01-21 | Cross-Validation and Normalization in EEG Sleep Staging: Impacts on Generalization, Calibration, and Clinical Validity | Düzce Üniversitesi Bilim ve Teknoloji Dergisi | https://doi.org/10.29130/dubited.1773372",
+    "2026-10-14 | CSPT-SleepNet: An Automatic Sleep Staging Framework Integrating Center-Driven Sequence Supervision and Multimodal Pyramid Token Encoding | Brain Sciences | https://doi.org/10.3390/brainsci16101108",
+    "2026-04-08 | YASA automated sleep staging performance across seven nights of normal sleep and sleep restriction | Journal of Clinical Sleep Medicine | https://doi.org/10.1007/s44470-026-00059-x",
+    "2026-07-01 | Multi-modal sleep staging in the clinic for REM sleep behaviour disorder | medRxiv | https://doi.org/10.64898/2026.06.30.26356905",
+    "2026-06-27 | Hypnogram-Driven Automatic Sleep Staging and a Quality-Index Assessment Through a Two-Stage LSTM-DNN Ensemble Learning Approach Using Multi-Biosignal Features for Sleep Disorder Detection | Sensors | https://doi.org/10.3390/s26134091",
+    "2026-01-01 | Validate Before You Marginalize: Decision-Unit-Aware Validation of Inferred Demographic Posteriors for Attribute-Missing Fairness in Sleep Staging | SSRN Electronic Journal | https://doi.org/10.2139/ssrn.7482878",
+    "2026-01-01 | In-laboratory polysomnography as the reference standard in sleep research: a bibliometric overview of human studies | Clinics | https://doi.org/10.1016/j.clinsp.2026.101157",
+    "2026-03-08 | Large-Scale Validation of a Dual Cross-Attention Network for Automated Sleep Staging Using Wearable Photoplethysmography Signals | Diagnostics | https://doi.org/10.3390/diagnostics16050802"
+   ]
+  },
+  {
+   "search": "incorporation bias sleep scoring",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 23552,
+   "top": [
+    "2026-06-29 | Sleep Quality, Not Sleep Duration, Is Independently Associated with Internalized Weight Bias: The Greek Lifestyle and Obesity-Related Bias Survey | Clocks & Sleep | https://doi.org/10.3390/clockssleep8030040",
+    "2026-10-11 | Manual Sleep Stage and Arousal Scoring Agreement between a Reduced Montage and Conventional Polysomnography in Adults with Obstructive Sleep Apnea | Research Square | https://doi.org/10.21203/rs.3.rs-10777912/v1",
+    "2026-04-07 | The Breakthrough of Sleep: A Contactless Approach for Accurate Sleep Stage Detection Using the Sleepal AI Lamp | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.2604.16442",
+    "2026-08-27 | Unsupervised domain transfer: overcoming signal degradation in sleep monitoring by increasing scoring realism | Journal of Neural Engineering | https://doi.org/10.1088/1741-2552/ae9f96",
+    "2026-02-01 | Beyond Algorithms: The Case for Standardized Reporting in AI Sleep Scoring | Nature and Science of Sleep | https://doi.org/10.2147/nss.s602114",
+    "2026-03-20 | Sleep in the age of technology: the use of sleep apps and perceived impact on sleep and sleep habits | Frontiers in Psychology | https://doi.org/10.3389/fpsyg.2026.1726473",
+    "2026-07-01 | Multi-modal sleep staging in the clinic for REM sleep behaviour disorder | medRxiv | https://doi.org/10.64898/2026.06.30.26356905",
+    "2026-10-01 | Patient-Performed Neck Encirclement Within the NoSAS Score: Score Availability and Diagnostic Performance in a Tertiary Sleep Centre | Nature and Science of Sleep | https://doi.org/10.2147/nss.s646897",
+    "2026-08-03 | Validation of a deep learning-based system for sleep staging, arousal detection, and respiratory event scoring in atrial fibrillation patients | Journal of Clinical Sleep Medicine | https://doi.org/10.1007/s44470-026-00145-0",
+    "2026-04-08 | YASA automated sleep staging performance across seven nights of normal sleep and sleep restriction | Journal of Clinical Sleep Medicine | https://doi.org/10.1007/s44470-026-00059-x",
+    "2026-02-17 | Local REM sleep-N1-wake sleep stage mixing in narcolepsy type 1 | medRxiv | https://doi.org/10.64898/2026.02.14.26346110",
+    "2026-01-21 | A Federated Deep Learning Framework for Sleep-Stage Monitoring Using the ISRUC-Sleep Dataset | Applied Sciences | https://doi.org/10.3390/app16021073"
+   ]
+  },
+  {
+   "search": "anchoring automation bias sleep staging",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 64,
+   "top": [
+    "2026-02-09 | G-CMTF Net: Spectro-Temporal Disentanglement and Reliability-Aware Gated Cross-Modal Temporal Fusion for Robust PSG Sleep Staging | Symmetry | https://doi.org/10.3390/sym18020316",
+    "2026-01-01 | In-laboratory polysomnography as the reference standard in sleep research: a bibliometric overview of human studies | Clinics | https://doi.org/10.1016/j.clinsp.2026.101157",
+    "2026-07-28 | Agentic AI-enabled discovery across large-scale sleep physiology | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.2607.25175",
+    "2026-02-09 | Toward integrated sleep health: multimodal AI in Hang Hao Meng agent | npj Digital Medicine | https://doi.org/10.1038/s41746-026-02432-9",
+    "2026-06-16 | Quantification of ventilatory control in sleep apnea: from physiological insight to computable loop gain | SLEEP | https://doi.org/10.1093/sleep/zsag155",
+    "2026-04-27 | Bridging Data, Semantics, and Clinical Reasoning: A Knowledge Graph Framework for Pediatric Obstructive Sleep Apnea | Children | https://doi.org/10.3390/children13050602",
+    "2026-04-15 | AI digital-twin ecosystem translating gut-microbiome–neuroimmune signals into precision sleep–mood interventions | Frontiers in Psychiatry | https://doi.org/10.3389/fpsyt.2026.1703605",
+    "2026-09-26 | Machine Learning for Parkinson’s Disease Biomarkers: A Systematic Review of Diagnostic Performance, Risk of Bias, and Clinical Translation Readiness | Brain Sciences | https://doi.org/10.3390/brainsci16101027",
+    "2026-06-10 | Wearable 16-channel electroencephalography for 8-day continuous monitoring | Research Square | https://doi.org/10.21203/rs.3.rs-9983631/v1",
+    "2026-10-28 | From task-specific networks to foundation models in diabetes care: a critical review of opportunities, evaluation gaps, and safety frontiers | Frontiers in Artificial Intelligence | https://doi.org/10.3389/frai.2026.1983619",
+    "2026-07-30 | Enhancing Decision Accuracy Through Human-in-the-Loop Decision Support Systems: A Human-AI Collaborative Framework | Idea Future Research | None",
+    "2026-01-01 | Digital Biomarkers in Psychiatry: The Role of Smartphones, Wearable Devices, and Artificial Intelligence in Mental Health Care | African Journal of Biomedical Research | https://doi.org/10.69980/3"
+   ]
+  },
+  {
+   "search": "pre-scoring polysomnography technologists edit automatic scoring",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 15,
+   "top": [
+    "2026-03-01 | EEG-motion: a novel algorithm that detect restless legs syndrome using EEG signals on polysomnography | Neural Computing and Applications | https://doi.org/10.1007/s00521-026-11929-z",
+    "2026-10-01 | Automated Versus Manual PSG Scoring: Evaluation of Somnolyzer in a Clinical Cohort | Eurasian Journal of Pulmonology | https://doi.org/10.14744/ejp.2026.67756",
+    "2026-02-01 | A pilot study of a novel sleep scoring system to measure insomnia treatment response in breast cancer survivors | ? | https://doi.org/10.48336/321",
+    "2026-08-03 | Validation of a deep learning-based system for sleep staging, arousal detection, and respiratory event scoring in atrial fibrillation patients | Journal of Clinical Sleep Medicine | https://doi.org/10.1007/s44470-026-00145-0",
+    "2026-05-19 | Automated EEG-based sleep staging in REM sleep behavior disorder using MSIF-Net: epoch-level validation and whole-night clinical agreement | Frontiers in Neurology | https://doi.org/10.3389/fneur.2026.1819351",
+    "2026-03-27 | Multicenter evaluation of the Waveband system for automated sleep assessment in patients with insomnia symptoms | SLEEP | https://doi.org/10.1093/sleep/zsag069",
+    "2026-03-08 | Large-Scale Validation of a Dual Cross-Attention Network for Automated Sleep Staging Using Wearable Photoplethysmography Signals | Diagnostics | https://doi.org/10.3390/diagnostics16050802",
+    "2026-01-19 | The Potential of Ensemble‐Based Automated Sleep Staging on Single‐Channel EEG Signal From a Wearable Device | Journal of Sleep Research | https://doi.org/10.1111/jsr.70282",
+    "2026-04-23 | Obstructive Sleep Apnea (OSA) Severity Classification Using Tongue Ultrasound Images and YOLOv8 | IEEE Eurasia Conference on IOT, Communication and Engineering (ECICE) | https://doi.org/10.3390/engproc2026134080",
+    "2026-05-20 | Impaired emotion recognition is associated with sleep-related hypoxic burden | SLEEP | https://doi.org/10.1093/sleep/zsag078",
+    "2026-04-18 | Improved visualization of perivascular spaces on T2-weighted imaging with deep learning-based denoising and super-resolution reconstruction | Scientific Reports | https://doi.org/10.1038/s41598-026-48890-9",
+    "2026-08-25 | Slow-wave sleep mediates the compensatory effects of acute moderate-intensity exercise on declarative memory deficits in sleep restriction | SLEEP | https://doi.org/10.1093/sleep/zsag235"
+   ]
+  },
+  {
+   "search": "PSG-IPA",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 27,
+   "top": [
+    "2026-09-25 | Gut microbial characteristics and kynurenine-related metabolism across sarcopenia groups: associations with neuromuscular and physical function | Frontiers in Aging Neuroscience | https://doi.org/10.3389/fnagi.2026.1883616",
+    "2026-10-28 | Transcriptomic profiling of normal and glaucomatous trabecular meshwork cells in a tissue-like soft ECM environment | bioRxiv (Cold Spring Harbor Laboratory) | https://doi.org/10.64898/2026.10.26.761819",
+    "2026-09-30 | Lived Experiences of Directors and Deans On Leadership Barriers at Palawan State University: An Interpretative Phenomenological Analysis | INTERNATIONAL JOURNAL OF MULTIDISCIPLINARY RESEARCH AND ANALYSIS | https://doi.org/10.47191/ijmra/v9-i9-46",
+    "2026-03-16 | Evaluasi Kinerja Operasional Angkutan Umum BRT Trans Wibawa Mukti Koridor 1 | RIGGS Journal of Artificial Intelligence and Digital Business | https://doi.org/10.31004/riggs.v5i1.7234",
+    "2026-03-05 | A Projected Stochastic Gradient Method for Finite-Sum Problems with Linear Equality Constraints | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.2605.16263",
+    "2026-01-20 | The Influence of Animated Video Media on Dietary Pattern Knowledge in Grade VI School-Age Children | Citra Delima Scientific journal of Citra Internasional Institute | https://doi.org/10.33862/citradelima.v9i2.580",
+    "2026-04-03 | Five-Year Risk Prediction Models for Peripheral Artery Disease in Patients With Chronic Kidney Disease | Kidney Medicine | https://doi.org/10.1016/j.xkme.2026.101351",
+    "2026-07-06 | Cadets’ Awareness, Attitude, and Performance of Onboard Training in Maritime Institutions: Bases for Enhancement Program | International Journal of Advanced Multidisciplinary Research and Studies | https://doi.org/10.62225/2583049x.2026.6.4.6564",
+    "2026-07-14 | Post-Doping of Si Quantum-Dot Thin Films with Phosphorus via a Spin-on-Dopant Process for Photovoltaic Applications | ACS Applied Nano Materials | https://doi.org/10.1021/acsanm.6c01911",
+    "2026-09-03 | Transcriptomic Reprogramming of the Human Placenta Following Maternal Opioid Exposure: Identification of Altered Metabolic and Translational Pathways | Current Issues in Molecular Biology | https://doi.org/10.3390/cimb48090900",
+    "2026-07-16 | Advancing SDG 4 through Contextual Robotics Learning Devices to Enhance Technical and Problem-Solving Skills in Vocational Education | Journal of Current Studies in SDGs | https://doi.org/10.63230/jocsis.2.4.235",
+    "2026-07-29 | Coupled effects of catalyst–ionomer ratio and hot-press load on the performance of proton exchange membrane fuel cells | Journal of Thermal Engineering | https://doi.org/10.47481/jten.0088"
+   ]
+  },
+  {
+   "search": "human-in-the-loop sleep scoring reference",
+   "filter": "from_publication_date:2026-01-01",
+   "count": 6510,
+   "top": [
+    "2026-01-21 | Atlas and Updated Rules for the Scoring of Cyclic Alternating Pattern ( CAP ) in Human Sleep. A Consensus Report by a Taskforce of the European Sleep Research Society | Journal of Sleep Research | https://doi.org/10.1111/jsr.70283",
+    "2026-02-27 | Automatic sleep scoring for real-time monitoring and stimulation in individuals with and without sleep apnea | Computers in Biology and Medicine | https://doi.org/10.1016/j.compbiomed.2026.111560",
+    "2026-07-28 | Nyx: a flexible framework for sleep scoring across species, lifespan and modalities | bioRxiv (Cold Spring Harbor Laboratory) | https://doi.org/10.64898/2026.07.24.740558",
+    "2026-09-07 | Sleep Modulation: The Challenge of Transitioning From Open Loop to Closed Loop | IEEE Internet of Things Journal | https://doi.org/10.1109/jiot.2026.3731194",
+    "2026-10-01 | Assessing accelerometry as an alternative to electromyography for mouse sleep scoring | bioRxiv (Cold Spring Harbor Laboratory) | https://doi.org/10.64898/2026.09.25.754505",
+    "2026-04-17 | Interpreting human sleep activity through neural contrastive learning | Neuron | https://doi.org/10.1016/j.neuron.2026.03.028",
+    "2026-04-22 | pAI/MSc: ML Theory Research with Humans on the Loop | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.2604.20622",
+    "2026-08-27 | Unsupervised domain transfer: overcoming signal degradation in sleep monitoring by increasing scoring realism | Journal of Neural Engineering | https://doi.org/10.1088/1741-2552/ae9f96",
+    "2026-07-01 | Loop Gain in Obstructive Sleep Apnea: From Physiological Endotype to Clinical Translation | Nature and Science of Sleep | https://doi.org/10.2147/nss.s616733",
+    "2026-09-06 | Learning transferable human physiology from two million hours of sleep with SleepFM-2 | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.2609.06849",
+    "2026-07-16 | Human Brain-Wide Activation of Sleep Rhythms | eLife | https://doi.org/10.7554/elife.103956.3",
+    "2026-07-22 | A Human-in-the-Loop Security Control Validation Framework for Data Exfiltration Detection | Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT) | None"
+   ]
+  }
+ ]
+}

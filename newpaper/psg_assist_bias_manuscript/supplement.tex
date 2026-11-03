@@ -32,13 +32,13 @@
 
 \title{Supplementary material for: Reference standards built by editing automatic pre-scoring were closer to the
 assisting algorithm than the same experts' unassisted scoring: a paired study of polysomnography scoring}
-\author{Quoc Viet Nguyen, Phuc Tai Duong, Duc Hoai Anh Nguyen,\\Dzung Van Dinh and Zengchang Qin}
+\author{Quoc Viet Nguyen, Duc Hoai Anh Nguyen, Phuc Tai Duong,\\Dzung Van Dinh and Zengchang Qin}
 \date{}
 
 \begin{document}
 \maketitle
 
-\noindent This document contains the Supplementary Methods, Supplementary Tables S1--S14 and Supplementary Figure S1.
+\noindent This document contains the Supplementary Methods, Supplementary Tables S1--S18 and Supplementary Figure S1.
 The analysis plans are provided separately as Supplementary File S1.
 
 \section*{Supplementary Methods}
@@ -80,7 +80,7 @@ reject the pre-fill's label. For stages, another expert's label counts as reject
 from the pre-fill's, and an expert contributes an epoch only if they labelled it in both sessions. For events, the
 units are the pre-fill's events after clipping to the window; a manual scoring rejects an event if none of its events
 overlaps it, and an expert adopts it if their assisted scoring overlaps it. The exact sign test for C1 counts the units
-with a nonzero mean lift; the one unit with no qualifying units is a tie and is dropped (retaining it as a non-success
+with a nonzero mean lift; the one unit whose mean lift is exactly zero (a limb-movement recording) is a tie and is dropped (retaining it as a non-success
 would give a larger $p$). If each expert's two sessions were
 exchangeable and experts labelled independently given the unit within a session, the lift would be zero in expectation
 under C1. Table~\ref{tab:s-r3r4} gives both rules.
@@ -166,8 +166,8 @@ pre-fill's gain were positive at every pre-fill ability in the grid, so they can
 became more or less accurate; with 12 experts, the assisted reference became the more accurate of the two from a pre-fill offset of
 \val{sim-id-ref-cross} (true accuracy \val{sim-id-ref-cross-acc}), while the human change turned positive only from
 \val{sim-id-dhuman-flip} (true accuracy \val{sim-id-dhuman-flip-acc}); the observed human change for stages
-(\val{m2-stages-human-mean} over all epochs, \val{a1-human-kappa-mean} on common support) lies on the negative side of
-both crossovers. Every sensitivity analysis kept these conclusions (Table~\ref{tab:s-sensitivity}).
+(\val{m2-stages-human-mean} over all epochs, \val{a1-human-kappa-mean} on common support; kappa, where the model's
+crossovers are in percent agreement, the sign being the same in either) lies on the negative side of both crossovers. Every sensitivity analysis kept these conclusions (Table~\ref{tab:s-sensitivity}).
 
 \textbf{The experts' own consensus.} Judged against the assisted consensus, the experts' own manual consensus was
 closer than the pre-fill (percent agreement \val{a3-stage-manual} against \val{a3-stage-prefill} for stages; the
@@ -211,50 +211,67 @@ reference.
 
 \textbf{Blind second coding (amendment 005, D1).} Two co-authors (P.T.D. and D.H.A.N.) then re-coded the three key
 fields of the \val{fda-perf} summaries with performance data (reference type, blinding to the device's output and
-pre-scoring) from the definitions of a coding sheet, by hand and without access to any code, and sent their sheets to
-the corresponding author. Each had checked part of the summaries in the first round (P.T.D. 10, D.H.A.N. 12) and had
-then seen the AI's codes for them, so each was blind only for the other's summaries; both disclosed this. Every quoted
-passage was located in its summary. Table~\ref{tab:s-d1} gives the agreement with the first coding, overall and by
+pre-scoring) from the definitions of a coding sheet, by hand and, by their own account, without consulting any code
+(D.H.A.N. held the team's manuscript package, whose Table~\ref{tab:s-fda} lists the first-round reference and blinding
+codes), and sent their sheets to the corresponding author. Each had checked part of the \val{fda-perf} in the first
+round (P.T.D. 10 of the 12 summaries they had checked, D.H.A.N. 12 of 13) and had then seen the AI's codes for them,
+which the first-round records show and both confirmed when asked, so each was blind only for the other's summaries.
+Every quoted passage was located in its summary (four of one coder's quotations were not verbatim for recorded
+reasons, and one of the other's was corrected to the summary's wording after the authors queried it). Table~\ref{tab:s-d1} gives the agreement with the AI's checked coding (the first coding), overall and by
 exposure: P.T.D. agreed on \val{d1-ptd-ref-all-agree}, \val{d1-ptd-blind-all-agree} and \val{d1-ptd-pre-all-agree}
 summaries for the three fields and D.H.A.N. on \val{d1-dhan-ref-all-agree}, \val{d1-dhan-blind-all-agree} and
 \val{d1-dhan-pre-all-agree} (kappa \val{d1-kappa-min} to \val{d1-kappa-max}); on the summaries for which they were
 blind, P.T.D. agreed on \val{d1-ptd-ref-blind-agree}, \val{d1-ptd-blind-blind-agree} and \val{d1-ptd-pre-blind-agree}
 and D.H.A.N. on \val{d1-dhan-ref-blind-agree}, \val{d1-dhan-blind-blind-agree} and \val{d1-dhan-pre-blind-agree}. The
 two coders agreed with each other on \val{d1-inter-ref-agree}, \val{d1-inter-blind-agree} and
-\val{d1-inter-pre-agree}. The \val{d1-disagreements} fields on which a coder differed from the first coding, in
+\val{d1-inter-pre-agree} (the first coder's sheet reached the team channel before the second had finished; the second
+states that they did not open it). The \val{d1-disagreements} fields on which a coder differed from the first coding, in
 \val{d1-disagree-summaries} summaries, are listed in Table~\ref{tab:s-d1-items} with their adjudication by the
-corresponding author, who had not coded, from the summary text on 28 October 2026: \val{d1-changed} code changed, the
+corresponding author, who had directed the first coding but had not coded, from the summary text on 28 October 2026,
+following a written guide that set out each item's passages and the category definitions (the guide, the passages and
+both coders' quotations are in the study repository, so the adjudication can be redone): \val{d1-changed} code changed, the
 SomnoMetry reference (K221179), from routine clinical scoring to not described, the code both coders had chosen,
 because no sentence of that summary says who scored the archived clinical recordings, when or how. The counts in
 Table~\ref{tab:s-fda} and in the Results follow the adjudicated coding (routine clinical scoring \val{d1-first-routine}
 to \val{fda-routine} summaries, not described \val{d1-first-notdesc} to \val{fda-notdesc}). The statement that no
 summary reported pre-scoring stands; the coded passage of K221179 now carries its ``AASM gold standard of manually
-scored PSG data'', so \val{fda-manual-ref} coded passages call the reference manually scored. The coders were authors,
-blind to the codes but not to the study's hypothesis.
+scored PSG data'', so \val{fda-manual-ref} coded passages call the reference manually scored. The coders and the
+adjudicator were authors, not blind to the study's hypothesis; each coder was blind to the first-round codes for the
+other's summaries only.
 
 \subsection*{Software and verification}
 
 The analyses used Python~3 with the standard library; YASA ran with MNE-Python \citep{gramfort2013} and GSSC with
 PyTorch, each in a separate environment. Every result is generated from the aggregate reports of the analysis code, which also hold pre-specified quantities
 that the tables omit for space (the audit emulations at 1\%, 2\% and 20\%, the number of expert-unit pairs behind each
-C1 value, the per-unit C6 differences, and the percent-agreement values and the difference-in-differences of the
-common-support check). The
+C1 value, the per-unit C1 lifts and C6 differences, the per-recording values of the experts'-own-consensus check (A3),
+and the percent-agreement values and the difference-in-differences of the common-support check). The
 study's Cohen's kappa matched scikit-learn \val{d3-sklearn} over all \val{d3-kappa-pairs} staging comparisons with the
 pre-fill (largest difference \val{d3-kappa-maxdiff}), and its exact sign tests matched SciPy \val{d3-scipy}'s binomial
 test for all \val{d3-sign-tests} sets of units (largest difference \val{d3-sign-maxdiff}). For amendment 005 D2, a co-author (D.H.A.N.) who had not read the analysis code re-implemented M1 and M2 for sleep
 staging from the text of protocol 001 and the PSG-IPA annotations, using the OpenAI Codex coding assistant, with five
-synthetic tests including 50 random kappa pairs against scikit-learn; the assistant had seen some of the manuscript's
-result tables beforehand, which the implementer disclosed. All 20 per-recording values (mean $\Delta A$, $\dauto$,
+synthetic tests including 50 random kappa pairs against scikit-learn; the implementer held the 19 October manuscript
+package with its result tables and per-recording figure, and the assistant had seen some of those tables; the
+implementer disclosed both, and neither had the analysis code. All 20 per-recording values (mean $\Delta A$, $\dauto$,
 $\dhuman$ and DiD for SN1 to SN5) agreed with the study's within $2.3\times10^{-16}$, inside the amendment's 0.001
-rule. At the second simulated review's request, the same co-author then re-implemented M1 for the three event tasks
+rule. At the request of the pre-submission review of 26 October 2026, the same co-author then re-implemented M1 for the three event tasks
 from the protocol's matching rule (one-to-one matching of overlapping events, largest overlaps first), with six
 synthetic tests per task and one end-to-end test; all 15 per-recording values and the 36 per-expert means
 (Table~\ref{tab:s-experts}) agreed with the study's within $5.6\times10^{-17}$. The protocol does not fix the order
 among candidate pairs with equal overlap; both implementations take the earlier-starting events first, so this
 agreement does not test that convention. The event-task consensus and inflation measures, side-taking, M3 to M5, the
 audit emulation, the simulation and the stager comparisons were not re-implemented and rest on the analysis code's
-synthetic tests. \authorinput{The clean re-run of the whole pipeline from a fresh copy of the public repository is
-pending.}
+synthetic tests. For the second half of D2, the same co-author re-ran the whole pipeline on 29 October 2026 from a
+fresh clone of the study repository on a freshly downloaded copy of PSG-IPA (all 1,025 files verified against the
+published checksums), on Windows with Python~3.11.9: first with the standard-library analyses alone and then with the
+two stager environments rebuilt from the pinned requirements (two dependencies of the YASA environment resolved above
+their pins, pandas 3.1.0 for 3.0.6 and antropy 0.2.3 for 0.2.2; both label files were nonetheless reproduced epoch for
+epoch). The generated values file as it then stood was reproduced identically,
+the YASA and GSSC per-epoch labels were reproduced identically, and the aggregate reports agreed with the committed
+ones to within $2.2\times10^{-16}$, the last floating-point bit, consistent with Python's per-process hash
+randomisation, which changes the order of the expected-agreement sum in the kappa computation (verified for the
+protocol 001 report by running it under two hash seeds). The comparison tool and its output are in the repository;
+the environment listings are held by the authors.
 
 \clearpage
 \section*{Supplementary Tables}

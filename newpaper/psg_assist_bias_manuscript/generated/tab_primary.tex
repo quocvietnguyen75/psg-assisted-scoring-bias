@@ -6,7 +6,7 @@
 \begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lccccc}
 \toprule
-Task & \makecell{Anchoring $\Delta A$\\(95\% interval)} & \makecell{Experts\\$>0$} & \makecell{$\Delta_{\mathrm{auto}}$\\range} & \makecell{$\Delta_{\mathrm{human}}$\\range} & \makecell{Inflation DiD\\(95\% interval)} \\
+Task & \makecell{Anchoring $\Delta A$\\(95\% interval)} & \makecell{Experts\\$>0$} & \makecell{$\Delta_{\mathrm{auto}}$\\range} & \makecell{$\Delta_{\mathrm{human}}$\\range} & \makecell{Session-matched\\inflation DiD (95\% interval)} \\
 \midrule
 Sleep stages & \makecell{0.081\\(0.038 to 0.129)} & 11/12 & +0.056 to +0.102 & \ensuremath{-}0.022 to \ensuremath{-}0.011 & \makecell{0.091\\(0.072 to 0.112)} \\
 EEG arousals & \makecell{0.066\\(0.011 to 0.133)} & 10/12 & +0.018 to +0.155 & \ensuremath{-}0.043 to +0.004 & \makecell{0.089\\(0.042 to 0.145)} \\
@@ -16,5 +16,5 @@ Limb movements & \makecell{0.103\\(0.066 to 0.144)} & 12/12 & +0.015 to +0.094 &
 \end{tabular}
 \end{adjustbox}
 \par\smallskip
-\begin{minipage}{0.95\linewidth}\footnotesize Anchoring: assisted minus manual agreement of the same expert with the pre-fill, averaged over 12 experts and 5 recordings. Experts $>0$: the number of the 12 experts whose mean anchoring over the task's recordings is positive. $\Delta_{\mathrm{auto}}$: change in the pre-fill's agreement from the manual to the assisted consensus; $\Delta_{\mathrm{human}}$: the same change for each expert's manual scoring against the other 11 experts' consensus (ranges over the 5 recordings). DiD $=\Delta_{\mathrm{auto}}-\Delta_{\mathrm{human}}$. Intervals are crossed-bootstrap intervals over experts and recordings and are descriptive. Exact sign tests over the 20 recording-task units: anchoring positive in 19/20 ($p=\ensuremath{4.0\times10^{-5}}$), inflation in 20/20 ($p=\ensuremath{1.9\times10^{-6}}$).\end{minipage}
+\begin{minipage}{0.95\linewidth}\footnotesize Anchoring: assisted minus manual agreement of the same expert with the pre-fill, averaged over 12 experts and 5 recordings. Experts $>0$: the number of the 12 experts whose mean anchoring over the task's recordings is positive. $\Delta_{\mathrm{auto}}$: change in the pre-fill's agreement from the manual to the assisted consensus; $\Delta_{\mathrm{human}}$: the same change for each expert's manual scoring against the other 11 experts' consensus (ranges over the 5 recordings). DiD $=\Delta_{\mathrm{auto}}-\Delta_{\mathrm{human}}$, a comparison against session-matched raters: a difference between sessions unrelated to the pre-fill lowers $\Delta_{\mathrm{human}}$ and raises the DiD, whereas $\Delta_{\mathrm{auto}}>0$ in 20/20 units needs no session-matched baseline. Intervals are crossed-bootstrap intervals over experts and recordings and are descriptive. Exact sign tests over the 20 recording-task units: anchoring positive in 19/20 ($p=\ensuremath{4.0\times10^{-5}}$), inflation in 20/20 ($p=\ensuremath{1.9\times10^{-6}}$).\end{minipage}
 \end{table}
