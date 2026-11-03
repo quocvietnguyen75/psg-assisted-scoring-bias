@@ -1,6 +1,6 @@
 # STARD 2015 reporting checklist
 
-Manuscript: "Reference standards built by editing automatic pre-scoring were closer to the assisting algorithm than the same experts' unassisted scoring: a paired study of polysomnography scoring". Page numbers refer to the main document as built on 3 November 2026 (page 1 is the
+Manuscript: "Polysomnography reference standards built by editing automatic pre-scoring favored the assisting algorithm". Page numbers refer to the main document as built on 3 November 2026 (page 1 is the
 title page).
 
 **How STARD applies.** This is a methodological study of reference standards, not a classical diagnostic accuracy
