@@ -1,6 +1,6 @@
 # Provenance of this snapshot
 
-Built on 2026-11-03 from commit `b091b9f0cbb51f81268b105eb2f1700803087300` of the private study repository, by
+Built on 2026-11-03 from commit `1e9cf31847bbeeae23ddf8ded408ad6959341545` of the private study repository, by
 `make_public_snapshot.py` (kept with the study records). Every tracked file was taken from that commit.
 
 ## Files not taken from Git
