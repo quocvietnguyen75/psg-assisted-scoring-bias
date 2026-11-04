@@ -62,3 +62,10 @@ OpenAlex API, 3 November 2026, no API key; the full query log with every hit is
 
 The novelty claim stands as worded. One citation was missing (STARD-AI) and was added. Repeat the forward-citation and
 topic searches on the submission date.
+
+## Submission-date repeat, 4 November 2026
+
+The same script (`novelty_recheck_2026-11-03.py`, unchanged) was run again on the submission date; its query log is
+`novelty_recheck_2026-11-04_openalex.json`. All 122 listed entries (newest citing works of the four seeds, and the
+top hits of the eight topic searches restricted to works from 2026) are identical to those of 3 November. Four
+broad searches grew by 1 to 81 total hits, none of which reached the listed top hits. Nothing new tests the claim.

@@ -1,6 +1,6 @@
 # Provenance of this snapshot
 
-Built on 2026-11-04 from commit `5a10a503e6e4c8fac43dee14a0633743b913309e` of the private study repository, by
+Built on 2026-11-04 from commit `27b5024929ce975c31d58969453623a94ae5e60f` of the private study repository, by
 `make_public_snapshot.py` (kept with the study records). Every tracked file was taken from that commit.
 
 ## Files not taken from Git
@@ -155,4 +155,4 @@ simulated pre-submission reviews, Overleaf packages and LaTeX build products:
 - `newpaper/research_selection_2026-09-26_novelty/public_snapshot_2026-10-28/compare_rerun.py`
 - `newpaper/research_selection_2026-09-26_novelty/public_snapshot_2026-10-28/make_public_snapshot.py`
 
-Files in the snapshot: 173; tracked content 3.4 MB.
+Files in the snapshot: 175; tracked content 3.5 MB.
