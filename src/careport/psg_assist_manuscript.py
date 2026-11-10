@@ -995,7 +995,7 @@ def _supplementary_tables(rep: Mapping[str, Any], v: Mapping[str, str]) -> dict[
               "those epochs where both consensuses exist and differ, the number (or share) where each consensus equals "
               "the stager. $\\Delta$ stager: the stager's kappa against the assisted minus the manual consensus. "
               "Session-free contrast: $\\Delta_{\\mathrm{auto}}$ minus $\\Delta$ stager on epochs where both are "
-              "labelled and both consensuses exist (kappa). In percent agreement, the session-free contrast is "
+              "labeled and both consensuses exist (kappa). In percent agreement, the session-free contrast is "
               f"{v['c3-yasa-sf-pct-mean']} for YASA and {v['c3-gssc-sf-pct-mean']} for GSSC (positive in "
               f"{v['c3-yasa-sf-pct-pos']} and {v['c3-gssc-sf-pct-pos']} of 5 recordings)."), size="\\scriptsize")
     rows = []

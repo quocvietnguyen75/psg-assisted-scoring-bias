@@ -1,0 +1,10 @@
+# Environment for the YASA stager (M5), its label cache and the library cross-check (D3).
+# Python 3.11. The scikit-learn and SciPy version strings are printed in the supplement.
+yasa==0.7.0
+mne==1.13.2
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn==1.9.1
+lightgbm==4.7.0
+pandas==3.0.6
+antropy==0.2.2

@@ -1,6 +1,6 @@
 # Provenance of this snapshot
 
-Built on 2026-11-04 from commit `27b5024929ce975c31d58969453623a94ae5e60f` of the private study repository, by
+Built on 2026-11-10 from commit `7ef8c9f2edce4cb02a703b3c18ec2171d7c7500a` of the private study repository, by
 `make_public_snapshot.py` (kept with the study records). Every tracked file was taken from that commit.
 
 ## Files not taken from Git
@@ -10,7 +10,7 @@ Built on 2026-11-04 from commit `27b5024929ce975c31d58969453623a94ae5e60f` of th
 
 ## Files changed on the way
 
-- `newpaper/psg_assist_bias_manuscript/main.tex`: the four co-authors' e-mail addresses are removed from the title page; the corresponding
+- `newpaper/psg_assist_bias_manuscript/main.tex`: the five co-authors' e-mail addresses are removed from the title page; the corresponding
   author's remains. `main.pdf` beside it is built from this file.
 
 ## Files of the same folders left out
@@ -22,6 +22,7 @@ simulated pre-submission reviews, Overleaf packages and LaTeX build products:
 - `newpaper/psg_assist_bias_manuscript/CITATION_AUDIT.md`
 - `newpaper/psg_assist_bias_manuscript/COVER_LETTER_JSR.md`
 - `newpaper/psg_assist_bias_manuscript/EMAIL_PSG_IPA_AUTHORS_DRAFT_2026-11-03.md`
+- `newpaper/psg_assist_bias_manuscript/JSR_SUBMISSION_FILES_2026-11-04.md`
 - `newpaper/psg_assist_bias_manuscript/OUTLINE.md`
 - `newpaper/psg_assist_bias_manuscript/PAPER_CONFIGURATION.md`
 - `newpaper/psg_assist_bias_manuscript/PUBLIC_SNAPSHOT_2026-10-28.md`
@@ -143,6 +144,8 @@ simulated pre-submission reviews, Overleaf packages and LaTeX build products:
 - `newpaper/psg_assist_bias_manuscript/review_2026-10-29/prompts/hostile_read.md`
 - `newpaper/psg_assist_bias_manuscript/review_2026-10-29/prompts/letter_verification.md`
 - `newpaper/psg_assist_bias_manuscript/review_2026-10-29/tex_to_md.py`
+- `newpaper/psg_assist_bias_manuscript/review_2026-11-10_final_read/FINAL_READ_FABLE52.md`
+- `newpaper/psg_assist_bias_manuscript/review_2026-11-10_final_read/README.md`
 - `newpaper/psg_assist_bias_validation_practice_2026-09-29/BLIND_FDA_CODING_ANDH_2026-10-26.xlsx`
 - `newpaper/psg_assist_bias_validation_practice_2026-09-29/BLIND_FDA_CODING_PTD_2026-10-24.xlsx`
 - `newpaper/research_selection_2026-09-26_novelty/CANDIDATES.md`

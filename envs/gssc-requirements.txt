@@ -1,0 +1,7 @@
+# Environment for the GSSC stager (C5). Python 3.11; PyTorch on the CPU:
+#   python -m pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+#   python -m pip install -r envs/gssc-requirements.txt
+gssc==0.0.9
+mne==1.13.2
+numpy==2.4.6
+scipy==1.17.1

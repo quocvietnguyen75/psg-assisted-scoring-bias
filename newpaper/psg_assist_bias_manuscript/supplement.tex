@@ -31,7 +31,7 @@
 \renewcommand{\thefigure}{S\arabic{figure}}
 
 \title{Supplementary material for: Bias toward the assisting algorithm in polysomnography reference standards built from edited automatic pre-scoring}
-\author{Quoc Viet Nguyen, Duc Hoai Anh Nguyen, Phuc Tai Duong,\\Dzung Van Dinh, Nam S. Vo and Zengchang Qin}
+\author{Quoc Viet Nguyen, Duc Hoai Anh Nguyen, Phuc Tai Duong,\\Dzung V. Dinh, Nam S. Vo and Zengchang Qin}
 \date{}
 
 \begin{document}
@@ -76,12 +76,12 @@ manual scorings, the scored expert's included, rejected the pre-fill's label. Be
 label enters the selection, a positive lift is partly expected from regression to the mean even without anchoring. The
 fourth amendment's rule (C1) selects, for each expert, the units where at least 9 of the other 11 experts' manual labels
 reject the pre-fill's label. For stages, another expert's label counts as rejecting only if it is present and differs
-from the pre-fill's, and an expert contributes an epoch only if they labelled it in both sessions. For events, the
+from the pre-fill's, and an expert contributes an epoch only if they labeled it in both sessions. For events, the
 units are the pre-fill's events after clipping to the window; a manual scoring rejects an event if none of its events
 overlaps it, and an expert adopts it if their assisted scoring overlaps it. The exact sign test for C1 counts the units
 with a nonzero mean lift; the one unit whose mean lift is exactly zero (a limb-movement recording) is a tie and is dropped (retaining it as a non-success
 would give a larger $p$). If each expert's two sessions were
-exchangeable and experts labelled independently given the unit within a session, the lift would be zero in expectation
+exchangeable and experts labeled independently given the unit within a session, the lift would be zero in expectation
 under C1. Table~\ref{tab:s-r3r4} gives both rules.
 
 \subsection*{Independent stagers and the negative control}
@@ -99,11 +99,11 @@ differ. Movement toward a target was each expert's share of assisted labels equa
 manual labels equal to it, on those epochs; side-taking toward a stager compared, among those epochs where both
 consensuses exist and differ, how often each consensus equals the stager. Common support (A1, C3) is the set of epochs
 where both 12-expert consensuses exist; the session-free contrast is $\dauto$ minus the stager's change on epochs where
-the pre-fill and the stager are both labelled and both consensuses exist (Table~\ref{tab:s-stagers}).
+the pre-fill and the stager are both labeled and both consensuses exist (Table~\ref{tab:s-stagers}).
 
 \subsection*{Audit designs}
 
-The population of the audit emulations was the \val{c4-pop} staging epochs on which the pre-fill and YASA are labelled
+The population of the audit emulations was the \val{c4-pop} staging epochs on which the pre-fill and YASA are labeled
 and the manual consensus exists. Audits of blocks (C4) divided each recording's analysis window into consecutive
 30-minute blocks of 60 epochs from lights off (\val{c4-blocks} blocks holding population epochs) and drew a simple
 random sample of blocks within each recording, $\max(1, \mathrm{round}(f \times \text{blocks}))$ of them. The audit
@@ -133,7 +133,7 @@ so the model's truth is what a very large unassisted panel would converge to, th
 manual agreement level and to the mean pairwise manual agreement \citep{nelder1965}; $\delta_A$ by bisection on the
 experts' agreement with the pre-fill; and $\alpha$ by an identity of the model, under which anchoring equals $\alpha$
 times one minus the experts' agreement with the pre-fill. The model was calibrated to the \val{stage-epochs} stage
-epochs labelled by all scorings. It overstated the mean pairwise manual agreement slightly (\val{sim-c2-fit} against
+epochs labeled by all scorings. It overstated the mean pairwise manual agreement slightly (\val{sim-c2-fit} against
 \val{sim-c2-emp}), because some epochs had three or four distinct manual labels, which two labels cannot represent.
 As an internal check, the study's own estimators were applied to \val{sim-mc-epochs} epochs simulated at the
 calibrated point and had to agree with the analytic values within \val{sim-mc-tol}; they agreed within
@@ -192,10 +192,10 @@ symmetry. A dated note introduced the folded difficulty before the run was repea
 
 Two authors checked the AI-assisted coding of the \val{fda-modern} summaries against the source documents (P.T.D. 12
 summaries, D.H.A.N. 13), recording for every coded field whether they agreed, and whether the summary said that the
-reference scorers had worked from automatic pre-scoring by any software. Of the 100 coded fields, they agreed with 89,
+reference scorers had worked from automatic pre-scoring by any software. Of the 100 coded fields (four per summary: whether performance data were reported, the reference, the scorers and rule, and blinding), they agreed with 89,
 partly agreed with 5 and disagreed with 6. Their check corrected the coding of four summaries, and the AI assistant reread each
 cited passage and confirmed the correction. The 2024 Dreem 3S clearance (K242094) reports no new performance testing, because it
-only adds a predetermined change control plan to K223539, so it left the clearances with performance data. The
+only adds a predetermined change control plan to K223539, so it was removed from the clearances with performance data. The
 reference of the first SOMNUM clearance (K223922), first coded as not described, is a 2-of-3 majority of three
 technologists whose independence is not stated. The Nox Sleep System study (K192469) exported the routine clinical
 scoring and then ran the device on the same recordings, so blinding to the device is implied by the design. The 2012
@@ -242,7 +242,7 @@ other's summaries only.
 
 The analyses used Python~3 with the standard library; YASA ran with MNE-Python \citep{gramfort2013} and GSSC with
 PyTorch, each in a separate environment. Every result is generated from the aggregate reports of the analysis code, which also hold pre-specified quantities
-that the tables omit for space (the audit emulations at 1\%, 2\% and 20\%, the number of expert-unit pairs behind each
+that the tables omit for space (audit fractions not shown in Tables~\ref{tab:s-ranking} and~\ref{tab:s-blocks}, the number of expert-unit pairs behind each
 C1 value, the per-unit C1 lifts and C6 differences, the per-recording values of the experts'-own-consensus check (A3),
 and the percent-agreement values and the difference-in-differences of the common-support check). The
 study's Cohen's kappa matched scikit-learn \val{d3-sklearn} over all \val{d3-kappa-pairs} staging comparisons with the
@@ -267,8 +267,7 @@ two stager environments rebuilt from the pinned requirements (two dependencies o
 their pins, pandas 3.1.0 for 3.0.6 and antropy 0.2.3 for 0.2.2; both label files were nonetheless reproduced epoch for
 epoch). The generated values file as it then stood was reproduced identically,
 the YASA and GSSC per-epoch labels were reproduced identically, and the aggregate reports agreed with the committed
-ones to within $2.2\times10^{-16}$, the last floating-point bit, consistent with Python's per-process hash
-randomisation, which changes the order of the expected-agreement sum in the kappa computation (verified for the
+ones to within $2.2\times10^{-16}$, the last floating-point bit, consistent with Python's per-process hash randomization, which changes the order of the expected-agreement sum in the kappa computation (verified for the
 protocol 001 report by running it under two hash seeds). The comparison tool and its output are in the repository;
 the environment listings are held by the authors.
 

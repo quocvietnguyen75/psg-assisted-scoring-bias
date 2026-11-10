@@ -1,6 +1,6 @@
 # Assisted-scoring bias in sleep-scoring references: code, records and manuscript
 
-Analysis code, dated analysis plans, aggregate results and the manuscript source of the study *Bias toward the assisting algorithm in polysomnography reference standards built from edited automatic pre-scoring* (Quoc Viet Nguyen, Duc Hoai Anh Nguyen, Phuc Tai Duong, Dzung Van Dinh, Nam S. Vo, Zengchang Qin; manuscript prepared for the *Journal of Sleep Research*, 2026; preprint link to be added).
+Analysis code, dated analysis plans, aggregate results and the manuscript source of the study *Bias toward the assisting algorithm in polysomnography reference standards built from edited automatic pre-scoring* (Quoc Viet Nguyen, Duc Hoai Anh Nguyen, Phuc Tai Duong, Dzung V. Dinh, Nam S. Vo, Zengchang Qin; manuscript prepared for the *Journal of Sleep Research*, 2026; preprint link to be added).
 
 The data are **PSG-IPA 1.0.0** (PhysioNet, CC BY 4.0: https://doi.org/10.13026/ESX0-NW71). This repository does not
 redistribute them. Every number in the manuscript is generated from the aggregate reports in this repository by the

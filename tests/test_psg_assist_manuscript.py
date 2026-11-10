@@ -216,6 +216,13 @@ class FidelityAdditionsTests(unittest.TestCase):
         self.assertIn(values["c3-yasa-sf-pct-mean"], tables["tab_s_stagers"])
         self.assertIn(values["c3-gssc-sf-pct-mean"], tables["tab_s_stagers"])
 
+    def test_generated_tables_use_us_spelling(self) -> None:
+        # The manuscript uses US spelling; the final read of 10 November 2026 found "labelled" in a table note.
+        tables, _ = self._tables_and_values()
+        for name, text in tables.items():
+            for uk in ("labelled", "labelling", "randomis", "modelled", "modelling"):
+                self.assertNotIn(uk, text.lower(), f"{name} uses UK spelling '{uk}'")
+
 
 class Amendment006ReadingValuesTests(unittest.TestCase):
     """Amendment 006, parts C and E: values read from the committed records for the round-2 revision (27 October 2026)."""
